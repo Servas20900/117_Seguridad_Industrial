@@ -31,9 +31,7 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
                   <Link className="btn ghost" to="/equipment">Equipamiento</Link>
                 </div>
               )}
-              <div className="cta-row" style={{ marginTop: '8px' }}>
-                <Link className="btn ghost" to="/logos">Experiencias</Link>
-              </div>
+              {/* Experiencias removido */}
           </div>
         </div>
       </section>
