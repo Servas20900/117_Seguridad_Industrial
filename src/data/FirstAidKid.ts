@@ -62,7 +62,7 @@ export const firstAidKits: FirstAidKit[] = [
     images: [
       "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961430/B01_dptnyy.png",
       "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961316/B02_skj3i9.png",
-      "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961569/B03_c6kman.png",
+      "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961900/B03_n1dg4a.png",
       "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961746/B04_cb9axy.png",
       "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766961745/B05_qe1ufp.png"
     ]
