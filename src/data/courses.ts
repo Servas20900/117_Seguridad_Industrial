@@ -32,13 +32,13 @@ export const courses: Course[] = [
       'Manejo del atragantamiento en adulto y niño'
     ],
     pills: ['RCP', 'DEA', 'Atragantamiento', 'Ventilación'],
-    image: '/logo-landing.jpeg'
+    image: 'PPA01_ziecsl'
   },
   {
     id: 'pab',
     title: 'Primeros Auxilios Básicos, RCP & DEA',
     category: 'Primeros Auxilios',
-    accreditation: 'Acreditación Internacional – Programa 1',
+    accreditation: 'Acreditación Internacional',
     duration: 'Duración: 8 horas',
     minimum: 'Mínimo: 5 personas',
     modality: 'En sitio',
@@ -55,14 +55,14 @@ export const courses: Course[] = [
       'Entrega segura del paciente a cuerpos de emergencia'
     ],
     pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes'],
-    image: '/logo-landing.jpeg'
+    image: 'PPA02_hx490l'
     
   },
   {
     id: 'pae',
     title: 'Primeros Auxilios Estándares, RCP & DEA',
     category: 'Primeros Auxilios',
-    accreditation: 'Acreditación Internacional – Programa 2',
+    accreditation: 'Acreditación Internacional',
     duration: 'Duración: 24 horas',
     minimum: 'Mínimo: 5 personas',
     modality: 'En sitio',
@@ -81,13 +81,13 @@ export const courses: Course[] = [
       'Entrega del paciente a personal de emergencia'
     ],
     pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
-    image: '/logo-landing.jpeg'
+    image: 'PPA03_g0ps7i'
   },
   {
     id: 'sangrados',
     title: 'Sangrados, RCP & DEA',
     category: 'Primeros Auxilios',
-    accreditation: 'Acreditación Internacional – Programa 3',
+    accreditation: 'Acreditación Internacional',
     duration: 'Duración: 4 horas',
     minimum: 'Mínimo: 5 personas',
     modality: 'En sitio',
@@ -100,13 +100,13 @@ export const courses: Course[] = [
       'Reconocimiento y control de sangrados exanguinantes'
     ],
     pills: ['Sesión rápida', 'DEA', 'Sangrados'],
-    image: '/logo-landing.jpeg'
+    image: 'PPA02_cfvxky'
   },
   {
     id: 'recert',
     title: 'Recertificación en Primeros Auxilios, RCP y DEA',
     category: 'Primeros Auxilios',
-    accreditation: 'Acreditación Internacional – Programa 4',
+    accreditation: 'Acreditación Internacional',
     duration: 'Duración: 8 horas',
     minimum: 'Mínimo: 5 personas',
     modality: 'En sitio',
@@ -143,7 +143,7 @@ export const courses: Course[] = [
       'Valoración del equipo existente en la empresa'
     ],
     pills: ['Fuego', 'Extintores', 'Seguridad'],
-    image: '/logo-landing.jpeg'
+    image: 'PCI01_ex4c6f'
   },
   {
     id: 'mangueras',
@@ -165,7 +165,7 @@ export const courses: Course[] = [
       'Almacenamiento y recogida'
     ],
     pills: ['Mangueras', 'Operación', 'Seguridad'],
-    image: '/logo-landing.jpeg'
+    image: 'PCI02_yxomzz'
   },
   {
     id: 'brigadas',
@@ -183,7 +183,7 @@ export const courses: Course[] = [
       'Guías para la entrega de escena a cuerpos de emergencia'
     ],
     pills: ['Brigadas', 'Plan a medida', 'Incendios'],
-    image: '/logo-landing.jpeg'
+    image: 'PCI3_rshyxp'
   },
   {
     id: 'evaluativo',
