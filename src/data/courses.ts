@@ -32,7 +32,7 @@ export const courses: Course[] = [
       'Manejo del atragantamiento en adulto y niño'
     ],
     pills: ['RCP', 'DEA', 'Atragantamiento', 'Ventilación'],
-    image: 'PPA01_ziecsl'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766947121/PPA01_ziecsl.png'
   },
   {
     id: 'pab',

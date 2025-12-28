@@ -12,8 +12,8 @@ export default function CourseModal({ course, onClose }: { course: Course | null
             {course.image && (
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
                 <SafeImage
-                  src={course.image.startsWith('/') ? course.image : undefined}
-                  publicId={!course.image.startsWith('/') ? course.image : undefined}
+                  src={course.image.startsWith('http') || course.image.startsWith('/') ? course.image : undefined}
+                  publicId={!course.image.startsWith('http') && !course.image.startsWith('/') ? course.image : undefined}
                   alt={course.title}
                   width={600}
                   height={280}
