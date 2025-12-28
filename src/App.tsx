@@ -27,7 +27,7 @@ export default function App() {
     <>
       <Topbar theme={theme} onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
 
-      <AppRoutes />
+      <AppRoutes theme={theme} />
 
       <Footer />
     </>

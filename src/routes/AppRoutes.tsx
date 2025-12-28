@@ -7,10 +7,10 @@ import EquipmentPage from '../pages/EquipmentPage'
 import LogosPage from '../pages/LogosPage'
 import ContactPage from '../pages/ContactPage'
 
-export default function AppRoutes() {
+export default function AppRoutes({ theme }: { theme: 'light' | 'dark' }) {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<HomePage theme={theme} />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/courses" element={<CoursesPage />} />
       <Route path="/health" element={<HealthPage />} />
