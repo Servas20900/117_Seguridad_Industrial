@@ -55,7 +55,7 @@ export const courses: Course[] = [
       'Entrega segura del paciente a cuerpos de emergencia'
     ],
     pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes'],
-    image: 'PPA02_hx490l'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766959153/PPA02_hx490l.png'
     
   },
   {
@@ -81,7 +81,7 @@ export const courses: Course[] = [
       'Entrega del paciente a personal de emergencia'
     ],
     pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
-    image: 'PPA03_g0ps7i'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766959595/PPA03_f37mqe.jpg'
   },
   {
     id: 'sangrados',
@@ -100,7 +100,7 @@ export const courses: Course[] = [
       'Reconocimiento y control de sangrados exanguinantes'
     ],
     pills: ['Sesión rápida', 'DEA', 'Sangrados'],
-    image: 'PPA02_cfvxky'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766947121/PPA02_cfvxky.png'
   },
   {
     id: 'recert',
