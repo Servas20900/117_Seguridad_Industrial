@@ -1,5 +1,5 @@
 import type { Course } from '../data/courses'
-import CloudinaryImage from './CloudinaryImage'
+import SafeImage from './SafeImage'
 
 export default function CourseModal({ course, onClose }: { course: Course | null; onClose: () => void }) {
   const open = Boolean(course)
@@ -11,36 +11,22 @@ export default function CourseModal({ course, onClose }: { course: Course | null
           <>
             {course.image && (
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-                {course.image.startsWith('/') ? (
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    style={{
-                      width: '100%',
-                      maxWidth: '600px',
-                      height: '280px',
-                      borderRadius: 'var(--radius-md)',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                ) : (
-                  <CloudinaryImage
-                    publicId={course.image}
-                    alt={course.title}
-                    width={600}
-                    height={280}
-                    crop="fill"
-                    style={{
-                      width: '100%',
-                      maxWidth: '600px',
-                      height: '280px',
-                      borderRadius: 'var(--radius-md)',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                )}
+                <SafeImage
+                  src={course.image.startsWith('/') ? course.image : undefined}
+                  publicId={!course.image.startsWith('/') ? course.image : undefined}
+                  alt={course.title}
+                  width={600}
+                  height={280}
+                  crop="fill"
+                  style={{
+                    width: '100%',
+                    maxWidth: '600px',
+                    height: '280px',
+                    borderRadius: 'var(--radius-md)',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
               </div>
             )}
             <p className="eyebrow">{course.accreditation}</p>

@@ -1,3 +1,5 @@
+import SafeImage from '../components/SafeImage'
+
 export default function AboutPage() {
   return (
     <main>
@@ -8,9 +10,16 @@ export default function AboutPage() {
           <p className="lede">Fortalecemos brigadas, estandarizamos protocolos y dotamos a su equipo del equipamiento correcto para responder ante emergencias.</p>
         </div>
         <div className="about-grid">
-          <article className="info-card">
-            <h3>Sello PYME MEIC</h3>
-            <p>Somos Sello PYME otorgado por el MEIC, garantizando respaldo y cumplimiento para su organización.</p>
+          <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
+            <SafeImage
+              src="https://res.cloudinary.com/dcwxslhjf/image/upload/v1766947215/PYME_t20kuv.png"
+              alt="Sello PYME MEIC"
+              style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
+            />
+            <div style={{ display: 'grid', gap: '6px' }}>
+              <h3 style={{ margin: 0 }}>Sello PYME MEIC</h3>
+              <p>Somos Sello PYME otorgado por el MEIC, garantizando respaldo y cumplimiento para su organización.</p>
+            </div>
           </article>
           <article className="info-card">
             <h3>Metodología práctica</h3>

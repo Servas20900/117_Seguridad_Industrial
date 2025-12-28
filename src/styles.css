@@ -89,8 +89,8 @@ main { display: flex; flex-direction: column; gap: 32px; }
 .about-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 1100px; margin: 0 auto; }
 .info-card { padding: 18px; border-radius: var(--radius-md); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--card-glow); display: grid; gap: 6px; }
 
-.card-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 1200px; margin: 0 auto; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; display: grid; gap: 10px; box-shadow: var(--card-glow); transition: transform var(--transition), border var(--transition), box-shadow var(--transition); }
+.card-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); max-width: 1200px; margin: 0 auto; justify-items: start; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; display: grid; gap: 10px; box-shadow: var(--card-glow); transition: transform var(--transition), border var(--transition), box-shadow var(--transition); width: 100%; }
 .card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-soft); }
 
 .badge { display: inline-block; padding: 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 20%, var(--surface) 80%); color: var(--text); font-weight: 700; font-size: 0.78rem; border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent 40%); }
@@ -120,6 +120,8 @@ input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: va
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .modal-list ul, .modal-list ul { list-style: disc; padding-left: 20px; display: grid; gap: 6px; }
 .contact-inline { padding: 12px; border-radius: var(--radius-md); background: var(--surface-strong); border: 1px solid var(--border); display: grid; gap: 8px; }
+.services-inline { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); align-items: stretch; }
+.services-inline .btn { width: 100%; justify-content: center; }
 
 .footer { padding: 18px 24px 28px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; color: var(--text-subtle); font-size: 0.95rem; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 90%, var(--surface) 10%); }
 .text-link { color: var(--accent-strong); font-weight: 700; }

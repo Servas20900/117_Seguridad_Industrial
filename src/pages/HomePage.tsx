@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import logoNegroBlanco from '../assets/logo-negro-blanco.jpg'
-import logoNegroAmarillo from '../assets/logo-negro-amarillo.jpg'
+import SafeImage from '../components/SafeImage'
 
 export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
+  const logoNegroAmarillo = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903804/logo-negro-amarillo_uvlvgd.jpg'
+  const logoNegroBlanco = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903786/logo-negro-blanco_wxiszp.jpg'
   const [showServices, setShowServices] = useState(false)
   return (
     <main>
       <section id="home" className="hero">
         <div className="hero-content">
           <div className="logo-tile" aria-hidden="true" style={{ background: 'transparent' }}>
-            <img
+            <SafeImage
               src={theme === 'dark' ? logoNegroAmarillo : logoNegroBlanco}
               alt="117 Seguridad Industrial"
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
@@ -24,7 +25,7 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
                 <button className="btn primary" type="button" onClick={() => setShowServices(s => !s)}>Ver servicios</button>
               </div>
               {showServices && (
-                <div className="contact-inline" style={{ marginTop: '8px', display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <div className="contact-inline services-inline" style={{ marginTop: '8px' }}>
                   <Link className="btn ghost" to="/courses">Cursos</Link>
                   <Link className="btn ghost" to="/health">Salud ocupacional</Link>
                   <Link className="btn ghost" to="/equipment">Equipamiento</Link>
