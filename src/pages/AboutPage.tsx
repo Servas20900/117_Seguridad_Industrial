@@ -22,6 +22,28 @@ export default function AboutPage() {
           </article>
         </div>
       </section>
+
+      <section id="material" className="panel">
+        <div className="panel-head">
+          <p className="eyebrow">Material didáctico</p>
+          <h2>Equipos y simuladores que usamos en los cursos.</h2>
+          <p className="lede">Aquí puedes cargar imágenes de muñecos de RCP, DEA de entrenamiento, maniquíes y kits prácticos usados en las sesiones.</p>
+        </div>
+        <div className="card-grid" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <article className="card placeholder">
+            <div>Maniquíes de RCP</div>
+            <p className="meta">Sube fotos de los maniquíes y estaciones de RCP.</p>
+          </article>
+          <article className="card placeholder">
+            <div>DEA de entrenamiento</div>
+            <p className="meta">Incluye imágenes de los equipos de práctica y electrodos.</p>
+          </article>
+          <article className="card placeholder">
+            <div>Kits y suministros</div>
+            <p className="meta">Botiquines, vendajes, inmovilizadores y material de trauma.</p>
+          </article>
+        </div>
+      </section>
     </main>
   )
 }

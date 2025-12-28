@@ -1,4 +1,5 @@
 import type { Course } from '../data/courses'
+import CloudinaryImage from './CloudinaryImage'
 
 export default function CourseModal({ course, onClose }: { course: Course | null; onClose: () => void }) {
   const open = Boolean(course)
@@ -8,6 +9,25 @@ export default function CourseModal({ course, onClose }: { course: Course | null
         <button className="icon-btn close" type="button" aria-label="Cerrar" onClick={onClose}>✕</button>
         {course && (
           <>
+            {course.image && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                <CloudinaryImage
+                  publicId={course.image}
+                  alt={course.title}
+                  width={600}
+                  height={280}
+                  crop="fill"
+                  style={{
+                    width: '100%',
+                    maxWidth: '600px',
+                    height: '280px',
+                    borderRadius: 'var(--radius-md)',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
+            )}
             <p className="eyebrow">{course.accreditation}</p>
             <h3>{course.title}</h3>
             <p className="meta">{course.duration} • {course.minimum}{course.modality ? ` • ${course.modality}` : ''}</p>

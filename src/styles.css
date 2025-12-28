@@ -125,6 +125,20 @@ input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: va
 .text-link { color: var(--accent-strong); font-weight: 700; }
 .text-link:hover { text-decoration: underline; }
 
+/* Decorative caution divider above footer */
+.caution-divider { height: 24px; width: 100%; position: relative; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.caution-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Diagonal stripes: accent yellow and deep black, independent from page background */
+  background: repeating-linear-gradient(
+    135deg,
+    var(--accent) 0 18px,
+    #0b0c10 18px 36px
+  );
+}
+
 .hamburger { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; color: var(--text); font-size: 1.5rem; }
 .mobile-nav { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: var(--surface); border-left: 1px solid var(--border); padding: 80px 20px 20px; display: flex; flex-direction: column; gap: 12px; transition: right 0.3s ease; z-index: 150; box-shadow: var(--shadow-strong); overflow-y: auto; }
 .mobile-nav.open { right: 0; }

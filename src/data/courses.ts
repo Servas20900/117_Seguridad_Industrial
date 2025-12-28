@@ -1,6 +1,7 @@
 export type Course = {
   id: string
   title: string
+  category: string
   accreditation: string
   duration: string
   minimum: string
@@ -8,12 +9,35 @@ export type Course = {
   summary: string
   topics: string[]
   pills: string[]
+  image?: string // Cloudinary Public ID (ej: '117/courses/primeros-auxilios-basicos')
 }
 
 export const courses: Course[] = [
   {
+    id: 'rcp-obstruccion',
+    title: 'Reanimación cardiopulmonar y obstrucción de vía aérea',
+    category: 'Primeros Auxilios',
+    accreditation: 'Acreditación Internacional',
+    duration: 'Duración: 6 horas',
+    minimum: 'Mínimo: 5 personas',
+    modality: 'En sitio',
+    summary: 'Entrenamiento en RCP, uso del DEA y manejo de atragantamientos en adultos y niños.',
+    topics: [
+      'Pasos iniciales ante una emergencia',
+      'Reconocimiento del paciente en parada cardiorrespiratoria y atragantamiento',
+      'Activación del sistema de emergencias',
+      'Compresiones torácicas en adulto y niño',
+      'Uso del desfibrilador externo automático (DEA)',
+      'Uso del dispositivo de ventilación',
+      'Manejo del atragantamiento en adulto y niño'
+    ],
+    pills: ['RCP', 'DEA', 'Atragantamiento', 'Ventilación'],
+    image: 'logo-landing_jupmh3'
+  },
+  {
     id: 'pab',
     title: 'Primeros Auxilios Básicos, RCP & DEA',
+    category: 'Primeros Auxilios',
     accreditation: 'Acreditación Internacional – Programa 1',
     duration: 'Duración: 8 horas',
     minimum: 'Mínimo: 5 personas',
@@ -30,11 +54,14 @@ export const courses: Course[] = [
       'Reconocimiento de emergencias médicas (infartos, ACV, convulsiones)',
       'Entrega segura del paciente a cuerpos de emergencia'
     ],
-    pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes']
+    pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes'],
+    image: 'logo-landing_jupmh3'
+    
   },
   {
     id: 'pae',
     title: 'Primeros Auxilios Estándares, RCP & DEA',
+    category: 'Primeros Auxilios',
     accreditation: 'Acreditación Internacional – Programa 2',
     duration: 'Duración: 24 horas',
     minimum: 'Mínimo: 5 personas',
@@ -53,11 +80,13 @@ export const courses: Course[] = [
       'Emergencias ambientales y atención de partos',
       'Entrega del paciente a personal de emergencia'
     ],
-    pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales']
+    pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'sangrados',
     title: 'Sangrados, RCP & DEA',
+    category: 'Primeros Auxilios',
     accreditation: 'Acreditación Internacional – Programa 3',
     duration: 'Duración: 4 horas',
     minimum: 'Mínimo: 5 personas',
@@ -70,11 +99,13 @@ export const courses: Course[] = [
       'Uso del DEA',
       'Reconocimiento y control de sangrados exanguinantes'
     ],
-    pills: ['Sesión rápida', 'DEA', 'Sangrados']
+    pills: ['Sesión rápida', 'DEA', 'Sangrados'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'recert',
     title: 'Recertificación en Primeros Auxilios, RCP y DEA',
+    category: 'Primeros Auxilios',
     accreditation: 'Acreditación Internacional – Programa 4',
     duration: 'Duración: 8 horas',
     minimum: 'Mínimo: 5 personas',
@@ -91,11 +122,13 @@ export const courses: Course[] = [
       'Emergencias médicas',
       'Simulación integral para brigadas'
     ],
-    pills: ['Recertificación', 'Simulacro', 'Brigadas']
+    pills: ['Recertificación', 'Simulacro', 'Brigadas'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'extintores',
     title: 'Manejo Básico de Extintores',
+    category: 'Control de Incendios',
     accreditation: 'Teórico–práctico',
     duration: 'Duración: 3 horas',
     minimum: 'Grupo sugerido: 10-20 personas',
@@ -109,11 +142,13 @@ export const courses: Course[] = [
       'Inspección, mantenimiento y recarga',
       'Valoración del equipo existente en la empresa'
     ],
-    pills: ['Fuego', 'Extintores', 'Seguridad']
+    pills: ['Fuego', 'Extintores', 'Seguridad'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'mangueras',
     title: 'Uso de Mangueras Contra Incendios',
+    category: 'Control de Incendios',
     accreditation: 'Teórico–práctico',
     duration: 'Duración: 3 horas',
     minimum: 'Grupo sugerido: 10-20 personas',
@@ -129,11 +164,13 @@ export const courses: Course[] = [
       'Seguridad durante la operación',
       'Almacenamiento y recogida'
     ],
-    pills: ['Mangueras', 'Operación', 'Seguridad']
+    pills: ['Mangueras', 'Operación', 'Seguridad'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'brigadas',
     title: 'Capacitación para Brigadas de Emergencia',
+    category: 'Control de Incendios',
     accreditation: 'Plan a medida',
     duration: 'Duración según diagnóstico',
     minimum: 'Costo según alcance',
@@ -145,11 +182,13 @@ export const courses: Course[] = [
       'Uso de sistemas fijos contra incendios',
       'Guías para la entrega de escena a cuerpos de emergencia'
     ],
-    pills: ['Brigadas', 'Plan a medida', 'Incendios']
+    pills: ['Brigadas', 'Plan a medida', 'Incendios'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'evaluativo',
     title: 'Programa Evaluativo para Brigadistas',
+    category: 'Control de Incendios',
     accreditation: 'Evaluación operativa',
     duration: 'Duración según simulacro',
     minimum: 'Costo según alcance',
@@ -162,11 +201,13 @@ export const courses: Course[] = [
       'Charla teórico–práctica según resultados',
       'Medición del nivel real de respuesta operativa'
     ],
-    pills: ['Evaluación', 'Simulacro', 'Mejora continua']
+    pills: ['Evaluación', 'Simulacro', 'Mejora continua'],
+    image: 'logo-landing_jupmh3'
   },
   {
     id: 'hazmat',
     title: 'Manejo Inicial de Incidentes con Materiales Peligrosos (HAZMAT)',
+    category: 'Manejo de Materiales Peligrosos',
     accreditation: 'Especializado',
     duration: 'Duración ajustable',
     minimum: 'Costo según alcance',
@@ -184,6 +225,7 @@ export const courses: Course[] = [
       'Simulaciones teórico–operativas y toma de decisiones bajo presión',
       'Coordinación con protocolos internos y externos'
     ],
-    pills: ['HAZMAT', 'EPP', 'Contención', 'Simulación']
+    pills: ['HAZMAT', 'EPP', 'Contención', 'Simulación'],
+    image: 'logo-landing_jupmh3'
   }
 ]

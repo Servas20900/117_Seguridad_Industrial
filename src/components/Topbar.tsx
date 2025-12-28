@@ -22,7 +22,6 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
           <NavLink to="/courses">Cursos</NavLink>
           <NavLink to="/health">Salud ocupacional</NavLink>
           <NavLink to="/equipment">Equipamiento</NavLink>
-          <NavLink to="/contact">Contacto</NavLink>
         </nav>
         <div className="actions">
           <button type="button" className="icon-btn" aria-label="Cambiar tema" onClick={onToggle}>
