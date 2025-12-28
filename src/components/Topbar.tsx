@@ -13,7 +13,7 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
           <Link to="/" className="brand-mark" aria-hidden="true">117</Link>
           <div className="brand-text">
             <span className="brand-name">Seguridad Industrial</span>
-            <span className="brand-tag">Capacitación • Salud • Equipamiento</span>
+            <span className="brand-tag"> apacitación • Salud • Equipamiento</span>
           </div>
         </div>
         <nav className="nav">
