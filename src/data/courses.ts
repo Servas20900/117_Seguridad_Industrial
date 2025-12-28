@@ -81,7 +81,7 @@ export const courses: Course[] = [
       'Entrega del paciente a personal de emergencia'
     ],
     pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
-    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766959595/PPA03_f37mqe.jpg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766960081/PPA03_z0hfyq.png'
   },
   {
     id: 'sangrados',
@@ -123,7 +123,7 @@ export const courses: Course[] = [
       'Simulación integral para brigadas'
     ],
     pills: ['Recertificación', 'Simulacro', 'Brigadas'],
-    image: '/logo-landing.jpeg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766959821/PPA05_mhjlsu.jpg'
   },
   {
     id: 'extintores',

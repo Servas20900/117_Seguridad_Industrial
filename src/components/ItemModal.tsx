@@ -39,8 +39,8 @@ export default function ItemModal({
             ) : image && (
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
                 <SafeImage
-                  src={image.startsWith('http') || image.startsWith('/') ? image : undefined}
-                  publicId={!image.startsWith('http') && !image.startsWith('/') ? image : undefined}
+                  src={image.startsWith('/') ? image : undefined}
+                  publicId={!image.startsWith('/') ? image : undefined}
                   alt={title || 'Item'}
                   width={600}
                   height={280}
