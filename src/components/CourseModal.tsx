@@ -11,21 +11,36 @@ export default function CourseModal({ course, onClose }: { course: Course | null
           <>
             {course.image && (
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-                <CloudinaryImage
-                  publicId={course.image}
-                  alt={course.title}
-                  width={600}
-                  height={280}
-                  crop="fill"
-                  style={{
-                    width: '100%',
-                    maxWidth: '600px',
-                    height: '280px',
-                    borderRadius: 'var(--radius-md)',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
+                {course.image.startsWith('/') ? (
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    style={{
+                      width: '100%',
+                      maxWidth: '600px',
+                      height: '280px',
+                      borderRadius: 'var(--radius-md)',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                ) : (
+                  <CloudinaryImage
+                    publicId={course.image}
+                    alt={course.title}
+                    width={600}
+                    height={280}
+                    crop="fill"
+                    style={{
+                      width: '100%',
+                      maxWidth: '600px',
+                      height: '280px',
+                      borderRadius: 'var(--radius-md)',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                )}
               </div>
             )}
             <p className="eyebrow">{course.accreditation}</p>

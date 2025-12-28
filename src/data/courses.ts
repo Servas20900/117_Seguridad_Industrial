@@ -32,7 +32,7 @@ export const courses: Course[] = [
       'Manejo del atragantamiento en adulto y niño'
     ],
     pills: ['RCP', 'DEA', 'Atragantamiento', 'Ventilación'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'pab',
@@ -55,7 +55,7 @@ export const courses: Course[] = [
       'Entrega segura del paciente a cuerpos de emergencia'
     ],
     pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
     
   },
   {
@@ -81,7 +81,7 @@ export const courses: Course[] = [
       'Entrega del paciente a personal de emergencia'
     ],
     pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'sangrados',
@@ -100,7 +100,7 @@ export const courses: Course[] = [
       'Reconocimiento y control de sangrados exanguinantes'
     ],
     pills: ['Sesión rápida', 'DEA', 'Sangrados'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'recert',
@@ -123,7 +123,7 @@ export const courses: Course[] = [
       'Simulación integral para brigadas'
     ],
     pills: ['Recertificación', 'Simulacro', 'Brigadas'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'extintores',
@@ -143,7 +143,7 @@ export const courses: Course[] = [
       'Valoración del equipo existente en la empresa'
     ],
     pills: ['Fuego', 'Extintores', 'Seguridad'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'mangueras',
@@ -165,7 +165,7 @@ export const courses: Course[] = [
       'Almacenamiento y recogida'
     ],
     pills: ['Mangueras', 'Operación', 'Seguridad'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'brigadas',
@@ -183,7 +183,7 @@ export const courses: Course[] = [
       'Guías para la entrega de escena a cuerpos de emergencia'
     ],
     pills: ['Brigadas', 'Plan a medida', 'Incendios'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'evaluativo',
@@ -202,7 +202,7 @@ export const courses: Course[] = [
       'Medición del nivel real de respuesta operativa'
     ],
     pills: ['Evaluación', 'Simulacro', 'Mejora continua'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   },
   {
     id: 'hazmat',
@@ -226,6 +226,6 @@ export const courses: Course[] = [
       'Coordinación con protocolos internos y externos'
     ],
     pills: ['HAZMAT', 'EPP', 'Contención', 'Simulación'],
-    image: 'logo-landing_jupmh3'
+    image: '/logo-landing.jpeg'
   }
 ]
