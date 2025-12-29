@@ -143,7 +143,7 @@ export const courses: Course[] = [
       'Valoración del equipo existente en la empresa'
     ],
     pills: ['Fuego', 'Extintores', 'Seguridad'],
-    image: 'PCI01_ex4c6f'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767034099/PCI01_myd02t.jpg'
   },
   {
     id: 'mangueras',
@@ -165,7 +165,7 @@ export const courses: Course[] = [
       'Almacenamiento y recogida'
     ],
     pills: ['Mangueras', 'Operación', 'Seguridad'],
-    image: 'PCI02_yxomzz'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767034096/PCI02_kd7paf.jpg'
   },
   {
     id: 'brigadas',
@@ -183,7 +183,7 @@ export const courses: Course[] = [
       'Guías para la entrega de escena a cuerpos de emergencia'
     ],
     pills: ['Brigadas', 'Plan a medida', 'Incendios'],
-    image: 'PCI3_rshyxp'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767034092/PCI03_ap8x87.png'
   },
   {
     id: 'evaluativo',
@@ -202,7 +202,7 @@ export const courses: Course[] = [
       'Medición del nivel real de respuesta operativa'
     ],
     pills: ['Evaluación', 'Simulacro', 'Mejora continua'],
-    image: '/logo-landing.jpeg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767034994/PCI04_xs5rff.png'
   },
   {
     id: 'hazmat',
