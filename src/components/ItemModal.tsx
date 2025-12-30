@@ -12,8 +12,10 @@ interface ItemModalProps {
   customContent?: React.ReactNode
 }
 
+import { useEffect } from 'react'
 import SafeImage from './SafeImage'
 import ImageCarousel from './ImageCarousel'
+import { trackEquipmentView, trackWhatsAppClick } from '../utils/analytics'
 
 export default function ItemModal({
   open,
@@ -28,6 +30,11 @@ export default function ItemModal({
   sections,
   customContent,
 }: ItemModalProps) {
+  useEffect(() => {
+    if (open && title) {
+      trackEquipmentView(title)
+    }
+  }, [open, title])
   return (
     <div className={`modal ${open ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!open} onClick={(e) => e.currentTarget === e.target && onClose()}>
       <div className="modal-content">
@@ -86,8 +93,8 @@ export default function ItemModal({
                 Agenda al (506) 8805-3660 / (506) 8874-9761 o <a href="mailto:info@117securityindustrial.com">info@117securityindustrial.com</a>
               </p>
               <div className="pill-row">
-                <a className="pill" href="https://wa.me/50688053660" target="_blank" rel="noopener">WhatsApp 8805-3660</a>
-                <a className="pill" href="https://wa.me/50688749761" target="_blank" rel="noopener">WhatsApp 8874-9761</a>
+                <a className="pill" href="https://wa.me/50688053660" target="_blank" rel="noopener" onClick={() => trackWhatsAppClick()}>WhatsApp 8805-3660</a>
+                <a className="pill" href="https://wa.me/50688749761" target="_blank" rel="noopener" onClick={() => trackWhatsAppClick()}>WhatsApp 8874-9761</a>
               </div>
             </div>
           </>

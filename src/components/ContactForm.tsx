@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { trackContactForm } from '../utils/analytics'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<string>('Completa el formulario para contactarnos.')
@@ -25,6 +26,7 @@ export default function ContactForm() {
       const data = await response.json()
 
       if (response.ok && data.success) {
+        trackContactForm()
         setStatus('✓ Mensaje enviado. Te contactaremos en breve.')
         form.reset()
       } else {

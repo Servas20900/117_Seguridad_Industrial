@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react'
-import { courses } from '../data/courses'
+import { useCourses } from '../hooks/useApi'
 import CourseCard from '../components/CourseCard'
 import CourseModal from '../components/CourseModal'
 
 export default function CoursesPage() {
+  const { courses, loading } = useCourses()
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const selectedCourse = useMemo(() => courses.find(c => c.id === selectedId) || null, [selectedId])
+  const selectedCourse = useMemo(() => courses.find(c => c.id === selectedId) || null, [selectedId, courses])
 
   const categories = [
     'Primeros Auxilios',
@@ -56,6 +57,12 @@ export default function CoursesPage() {
             </a>
           </div>
         </div>
+        {loading ? (
+          <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>
+            Cargando cursos...
+          </div>
+        ) : (
+        <>
         {categories.map(category => {
           const items = courses.filter(c => c.category === category)
           if (!items.length) return null
@@ -75,6 +82,8 @@ export default function CoursesPage() {
             </section>
           )
         })}
+        </>
+        )}
       </section>
 
       <CourseModal course={selectedCourse} onClose={() => setSelectedId(null)} />

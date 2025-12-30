@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
-import { occupationalHealthServices } from '../data/HealthService'
+import { useHealthServices } from '../hooks/useApi'
 import ItemCard from '../components/ItemCard'
 import ItemModal from '../components/ItemModal'
 
 export default function HealthPage() {
+  const { services: occupationalHealthServices, loading } = useHealthServices()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const selectedService = useMemo(
     () => occupationalHealthServices.find(s => s.id === selectedId) || null,
-    [selectedId]
+    [selectedId, occupationalHealthServices]
   )
 
   const categories = Array.from(new Set(occupationalHealthServices.map(s => s.category)))
@@ -20,6 +21,12 @@ export default function HealthPage() {
           <h2>Capacitaciones y cumplimiento</h2>
           <p className="lede">Soluciones integrales en salud y seguridad ocupacional adaptadas a las necesidades de tu organización.</p>
         </div>
+        {loading ? (
+          <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>
+            Cargando servicios...
+          </div>
+        ) : (
+        <>
         {categories.map(category => {
           const items = occupationalHealthServices.filter(s => s.category === category)
           if (!items.length) return null
@@ -42,6 +49,8 @@ export default function HealthPage() {
             </section>
           )
         })}
+        </>
+        )}
       </section>
 
       <ItemModal

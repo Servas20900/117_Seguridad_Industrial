@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Course {
+  id            String   @id @default(uuid())
+  courseId      String   @unique
+  title         String
+  category      String
+  accreditation String
+  duration      String
+  minimum       String
+  modality      String?
+  summary       String   @db.Text
+  topics        String[]
+  pills         String[]
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model HealthService {
+  id        String   @id @default(uuid())
+  serviceId String   @unique
+  title     String
+  category  String
+  standards String[]
+  modality  String?
+  scope     String   @db.Text
+  includes  String[]
+  benefits  String[]
+  pills     String[]
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FirstAidKit {
+  id          String   @id @default(uuid())
+  kitId       String   @unique
+  title       String
+  category    String
+  description String   @db.Text
+  contents    Json
+  benefits    String[]
+  pills       String[]
+  images      String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Galleries {
+  id        String   @id @default(uuid())
+  title     String   @unique
+  category  String
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

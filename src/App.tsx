@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Topbar from './components/Topbar'
 import Footer from './components/Footer'
 import AppRoutes from './routes/AppRoutes'
+import { trackPageView } from './utils/analytics'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
 function useTheme() {
@@ -23,6 +25,12 @@ function useTheme() {
 
 export default function App() {
   const { theme, setTheme } = useTheme()
+  const location = useLocation()
+
+  useEffect(() => {
+    // Track page view on route change
+    trackPageView(location.pathname, document.title)
+  }, [location.pathname])
 
   return (
     <>

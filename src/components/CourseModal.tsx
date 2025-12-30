@@ -1,8 +1,17 @@
+import { useEffect } from 'react'
 import type { Course } from '../data/courses'
 import SafeImage from './SafeImage'
+import { trackCourseView, trackWhatsAppClick } from '../utils/analytics'
 
 export default function CourseModal({ course, onClose }: { course: Course | null; onClose: () => void }) {
   const open = Boolean(course)
+
+  useEffect(() => {
+    if (course) {
+      trackCourseView(course.title)
+    }
+  }, [course])
+
   return (
     <div className={`modal ${open ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!open} onClick={(e) => e.currentTarget === e.target && onClose()}>
       <div className="modal-content">
@@ -47,8 +56,8 @@ export default function CourseModal({ course, onClose }: { course: Course | null
                 Agenda al (506) 8805-3660 / (506) 8874-9761 o <a href="mailto:info@117securityindustrial.com">info@117securityindustrial.com</a>
               </p>
               <div className="pill-row">
-                <a className="pill" href="https://wa.me/50688053660" target="_blank" rel="noopener">WhatsApp 8805-3660</a>
-                <a className="pill" href="https://wa.me/50688749761" target="_blank" rel="noopener">WhatsApp 8874-9761</a>
+                <a className="pill" href="https://wa.me/50688053660" target="_blank" rel="noopener" onClick={() => trackWhatsAppClick()}>WhatsApp 8805-3660</a>
+                <a className="pill" href="https://wa.me/50688749761" target="_blank" rel="noopener" onClick={() => trackWhatsAppClick()}>WhatsApp 8874-9761</a>
               </div>
             </div>
           </>

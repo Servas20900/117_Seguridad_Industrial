@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
-import { firstAidKits } from '../data/FirstAidKid'
+import { useEquipment } from '../hooks/useApi'
 import ItemCard from '../components/ItemCard'
 import ItemModal from '../components/ItemModal'
 
 export default function EquipmentPage() {
+  const { equipment: firstAidKits, loading } = useEquipment()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const selectedKit = useMemo(
     () => firstAidKits.find(k => k.id === selectedId) || null,
-    [selectedId]
+    [selectedId, firstAidKits]
   )
 
   const categories = Array.from(new Set(firstAidKits.map(k => k.category)))
@@ -20,6 +21,12 @@ export default function EquipmentPage() {
           <h2>Botiquines e insumos listos para su operación.</h2>
           <p className="lede">Gestione listas de botiquines, recargas y kits especializados para sus necesidades de emergencia.</p>
         </div>
+        {loading ? (
+          <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>
+            Cargando equipamiento...
+          </div>
+        ) : (
+        <>
         {categories.map(category => {
           const items = firstAidKits.filter(k => k.category === category)
           if (!items.length) return null
@@ -41,6 +48,8 @@ export default function EquipmentPage() {
             </section>
           )
         })}
+        </>
+        )}
       </section>
 
       <ItemModal
@@ -53,7 +62,7 @@ export default function EquipmentPage() {
         images={selectedKit?.images}
         sections={
           selectedKit
-            ? selectedKit.contents.map(c => ({
+            ? selectedKit.contents.map((c: any) => ({
                 title: c.section,
                 content: c.items
               }))
@@ -64,7 +73,7 @@ export default function EquipmentPage() {
             <div className="modal-list">
               <h4>Beneficios</h4>
               <ul>
-                {selectedKit.benefits.map((b, idx) => <li key={idx}>{b}</li>)}
+                {selectedKit.benefits.map((b: string, idx: number) => <li key={idx}>{b}</li>)}
               </ul>
             </div>
           ) : undefined
