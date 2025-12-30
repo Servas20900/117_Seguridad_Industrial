@@ -8,11 +8,12 @@ export default function ContactForm() {
     e.preventDefault()
     setIsLoading(true)
     
+    const form = e.currentTarget
+    
     try {
-      const formData = new FormData(e.currentTarget)
+      const formData = new FormData(form)
       
-      // Agregar campos requeridos por Web3Forms
-      formData.append('access_key', 'c4a93f45-ec82-4d6e-a945-b2e9a4e28c6f')
+      formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '')
       formData.append('to_email', 'info@117securityindustrial.com')
       formData.append('from_name', (formData.get('name') as string) || 'Cliente')
 
@@ -25,7 +26,7 @@ export default function ContactForm() {
 
       if (response.ok && data.success) {
         setStatus('✓ Mensaje enviado. Te contactaremos en breve.')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus('Error al enviar. Por favor intenta de nuevo.')
       }
