@@ -139,7 +139,7 @@ export default function LoginPage() {
             disabled={isLoading}
             style={{
               padding: '12px',
-              background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+              background: 'linear-gradient(135deg, #f5d60bff, #f5d60bff)',
               color: 'white',
               border: 'none',
               borderRadius: 'var(--radius-md)',
