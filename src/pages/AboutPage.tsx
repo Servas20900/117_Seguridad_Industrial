@@ -94,6 +94,21 @@ export default function AboutPage() {
           />
         </div>
       </section>
+
+      <section id="experiences" className="panel">
+        <div className="panel-head">
+          <p className="eyebrow">Experiencias</p>
+          <h2>Momentos de capacitación y entrenamiento en acción.</h2>
+          <p className="lede">Galería de fotos de nuestras sesiones de capacitación, simulacros y entrenamientos realizados con nuestros clientes.</p>
+        </div>
+
+        <div style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <ImageCarousel 
+            images={[]} 
+            alt="Experiencias de capacitación"
+          />
+        </div>
+      </section>
     </main>
   )
 }

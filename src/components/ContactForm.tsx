@@ -1,12 +1,40 @@
 import { useState } from 'react'
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<string>('Este formulario es demostrativo. También puede escribirnos por correo o WhatsApp.')
+  const [status, setStatus] = useState<string>('Completa el formulario para contactarnos.')
+  const [isLoading, setIsLoading] = useState(false)
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    e.currentTarget.reset()
-    setStatus('Recibido. Te contactaremos en breve.')
+    setIsLoading(true)
+    
+    try {
+      const formData = new FormData(e.currentTarget)
+      
+      // Agregar campos requeridos por Web3Forms
+      formData.append('access_key', 'c4a93f45-ec82-4d6e-a945-b2e9a4e28c6f')
+      formData.append('to_email', 'info@117securityindustrial.com')
+      formData.append('from_name', (formData.get('name') as string) || 'Cliente')
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus('✓ Mensaje enviado. Te contactaremos en breve.')
+        e.currentTarget.reset()
+      } else {
+        setStatus('Error al enviar. Por favor intenta de nuevo.')
+      }
+    } catch (error) {
+      setStatus('Error de conexión. Por favor intenta de nuevo.')
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -19,10 +47,15 @@ export default function ContactForm() {
         <label>Correo
           <input type="email" name="email" placeholder="correo@empresa.com" required />
         </label>
+        <label>Teléfono <span style={{ color: 'var(--text-subtle)', fontWeight: 'normal' }}>(opcional)</span>
+          <input type="tel" name="phone"  />
+        </label>
         <label>Mensaje
           <textarea name="message" rows={3} placeholder="Curso o equipamiento de interés" required />
         </label>
-        <button className="btn primary" type="submit">Enviar</button>
+        <button className="btn primary" type="submit" disabled={isLoading}>
+          {isLoading ? 'Enviando...' : 'Enviar'}
+        </button>
         <p className="form-hint">{status}</p>
       </form>
     </div>
