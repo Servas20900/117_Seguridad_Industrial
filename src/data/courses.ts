@@ -202,7 +202,7 @@ export const courses: Course[] = [
       'Medición del nivel real de respuesta operativa'
     ],
     pills: ['Evaluación', 'Simulacro', 'Mejora continua'],
-    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767034994/PCI04_xs5rff.png'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767060702/PCI04_d7zgr3.png'
   },
   {
     id: 'hazmat',
@@ -226,6 +226,6 @@ export const courses: Course[] = [
       'Coordinación con protocolos internos y externos'
     ],
     pills: ['HAZMAT', 'EPP', 'Contención', 'Simulación'],
-    image: '/logo-landing.jpeg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767058103/MP01_tmraqq.png'
   }
 ]

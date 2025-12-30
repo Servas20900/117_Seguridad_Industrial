@@ -21,6 +21,8 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
             <p className="eyebrow">Acreditación internacional • Respuesta efectiva</p>
             <h1>Centralizamos la seguridad, la capacitación y el equipamiento en un solo lugar.</h1>
             <p className="lede">Programas de Primeros Auxilios, RCP y DEA, brigadas, HAZMAT y equipamiento listo para ser implementado en su operación.</p>
+            <p>Especialistas en capacitación y asesoría en seguridad y atención de emergencias, enfocados en preparar brigadas y organizaciones para actuar de forma segura, coordinada y eficiente ante situaciones críticas.</p>
+            <br/>
               <div className="cta-row" style={{ flexWrap: 'wrap' }}>
                 <button className="btn primary" type="button" onClick={() => setShowServices(s => !s)}>Ver servicios</button>
               </div>

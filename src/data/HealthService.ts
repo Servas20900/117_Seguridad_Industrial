@@ -56,7 +56,7 @@ export const occupationalHealthServices: OccupationalHealthService[] = [
       'Mejor toma de decisiones'
     ],
     pills: ['ISSO', 'Consultoría', 'Cumplimiento', 'Prevención'],
-    image: '/logo-landing.jpeg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767060702/PCI04_d7zgr3.png'
   },
   {
     id: 'planes-sso-emergencias',
@@ -80,7 +80,7 @@ export const occupationalHealthServices: OccupationalHealthService[] = [
       'Continuidad operativa'
     ],
     pills: ['Planes', 'Emergencias', 'Incendios', 'Residuos'],
-    image: '/logo-landing.jpeg'
+    image: 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1767059635/SO03_xtcl8d.jpg'
   },
   {
     id: 'estudios-higiene-industrial',
