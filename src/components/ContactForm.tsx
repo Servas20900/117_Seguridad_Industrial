@@ -13,7 +13,7 @@ export default function ContactForm() {
     try {
       const formData = new FormData(form)
       
-      formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '')
+      formData.append('access_key', import.meta.env.VITE_WEB3FORMS || '')
       formData.append('to_email', 'info@117securityindustrial.com')
       formData.append('from_name', (formData.get('name') as string) || 'Cliente')
 
