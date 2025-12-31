@@ -16,7 +16,7 @@
     "db:seed": "tsx server/seed.ts"
   },
   "prisma": {
-    "seed": "node --loader ts-node/esm ./server/seed.ts"
+    "seed": "tsx ./server/seed.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
