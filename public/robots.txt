@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://117securityindustrial.com/sitemap.xml
+
+# Bloquear rutas de admin
+Disallow: /admin-login
+Disallow: /admin-117
