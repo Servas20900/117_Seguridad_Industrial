@@ -25,7 +25,7 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
         </nav>
         <div className="actions">
           <button type="button" className="icon-btn" aria-label="Cambiar tema" onClick={onToggle}>
-            {theme === 'dark' ? '🌙' : '☀️'}
+            <i className={`fas fa-${theme === 'dark' ? 'sun' : 'moon'}`}></i>
           </button>
           <Link className="pill" to="/contact">Agendar</Link>
           <button
@@ -50,7 +50,8 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
         <NavLink to="/contact" onClick={closeMenu}>Contacto</NavLink>
         <div style={{ marginTop: 'auto', display: 'flex', gap: '10px' }}>
           <button type="button" className="btn ghost" style={{ flex: 1 }} onClick={onToggle}>
-            {theme === 'dark' ? '🌙 Modo oscuro' : '☀️ Modo claro'}
+            <i className={`fas fa-${theme === 'dark' ? 'sun' : 'moon'}`}></i>
+            <span style={{ marginLeft: '8px' }}>{theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}</span>
           </button>
         </div>
       </nav>

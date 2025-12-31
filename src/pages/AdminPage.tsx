@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../stores/authStore'
+import ImageUploader from '../components/ImageUploader'
 
 interface Course {
   id: string
@@ -36,6 +37,7 @@ interface AboutGallery {
 export default function AdminPage() {
   const navigate = useNavigate()
   const logout = useAuth((state) => state.logout)
+  const editModalRef = useRef<HTMLDivElement>(null)
 
   const [courses, setCourses] = useState<Course[]>([])
   const [health, setHealth] = useState<Health[]>([])
@@ -86,6 +88,10 @@ export default function AdminPage() {
   const handleEdit = (id: string, currentImage: string | string[]) => {
     setEditingId(id)
     setEditingImage(currentImage)
+    // Scroll automático al modal de edición
+    setTimeout(() => {
+      editModalRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
   }
 
   const handleSave = async () => {
@@ -138,16 +144,16 @@ export default function AdminPage() {
       })
 
       if (response.ok) {
-        alert(' Actualizado correctamente')
+        alert('Actualizado correctamente')
         setEditingId(null)
         setEditingImage('')
         loadData()
       } else {
-        alert(' Error al guardar')
+        alert('Error al guardar')
       }
     } catch (error) {
       console.error('Error saving:', error)
-      alert(' Error al guardar')
+      alert('Error al guardar')
     }
   }
 
@@ -171,7 +177,7 @@ export default function AdminPage() {
       <section className="panel">
         <div className="panel-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div>
-            <p className="eyebrow"> Administración</p>
+            <p className="eyebrow">Administración</p>
             <h2>Gestiona las imágenes de tus tarjetas</h2>
             <p className="lede">Actualiza las imágenes de cursos, salud ocupacional, equipamiento y material didáctico desde aquí.</p>
           </div>
@@ -216,17 +222,17 @@ export default function AdminPage() {
                 border: `1px solid ${activeTab === tab ? 'var(--accent)' : 'var(--border)'}`
               }}
             >
-              {tab === 'courses' && ` Cursos (${courses.length})`}
-              {tab === 'health' && ` Salud (${health.length})`}
-              {tab === 'equipment' && ` Equipamiento (${equipment.length})`}
-              {tab === 'about' && ` About (${about.length})`}
+              {tab === 'courses' && `Cursos (${courses.length})`}
+              {tab === 'health' && `Salud (${health.length})`}
+              {tab === 'equipment' && `Equipamiento (${equipment.length})`}
+              {tab === 'about' && `About (${about.length})`}
             </button>
           ))}
         </div>
 
         {/* Edit Modal */}
         {editingId && (
-          <div style={{
+          <div ref={editModalRef} style={{
             backgroundColor: 'var(--surface)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-lg)',
@@ -235,7 +241,7 @@ export default function AdminPage() {
             boxShadow: 'var(--card-glow)'
           }}>
             <h3 style={{ marginBottom: '20px', fontSize: '1.5rem' }}>
-               Editar Imagen{(activeTab === 'equipment' || activeTab === 'about') ? 's' : ''}
+              Editar Imagen{(activeTab === 'equipment' || activeTab === 'about') ? 's' : ''}
             </h3>
 
             {(activeTab === 'equipment' || activeTab === 'about') ? (
@@ -265,7 +271,7 @@ export default function AdminPage() {
                               }}
                               style={{
                                 padding: '6px 12px',
-                                backgroundColor: '#ff4444',
+                                backgroundColor: '#dc2626',
                                 color: 'white',
                                 border: 'none',
                                 borderRadius: 'var(--radius-sm)',
@@ -274,72 +280,25 @@ export default function AdminPage() {
                                 fontWeight: '600'
                               }}
                             >
-                               Eliminar
+                              Eliminar
                             </button>
                           )}
                         </div>
-                        <input
-                          type="url"
-                          value={img}
-                          onChange={(e) => {
+                        <ImageUploader
+                          currentImage={img}
+                          onImageUploaded={(url) => {
                             const newImages = [...(editingImage as string[])]
-                            newImages[idx] = e.target.value
+                            newImages[idx] = url
                             setEditingImage(newImages)
                           }}
-                          placeholder="Pega aquí la URL de tu imagen..."
-                          style={{
-                            width: '100%',
-                            padding: '12px 16px',
-                            marginBottom: '12px',
-                            fontSize: '1rem',
-                            border: '1px solid var(--border)',
-                            borderRadius: 'var(--radius-md)',
-                            boxSizing: 'border-box',
-                            fontFamily: 'monospace',
-                            backgroundColor: 'var(--surface)',
-                            color: 'var(--text)',
-                            transition: 'border var(--transition)',
-                            outline: 'none'
-                          }}
+                          folder={`117/${activeTab === 'equipment' ? 'Botiquines' : 'Material didactico'}`}
+                          buttonText={img ? 'Cambiar Imagen' : 'Subir Imagen'}
+                          showPreview={true}
                         />
-                        {img && (
-                          <img
-                            src={img}
-                            alt={`preview-${idx}`}
-                            style={{
-                              maxWidth: '200px',
-                              maxHeight: '200px',
-                              borderRadius: 'var(--radius-md)',
-                              border: '1px solid var(--border)'
-                            }}
-                            onError={() => alert(` La URL de la imagen ${idx + 1} no es válida`)}
-                          />
-                        )}
                       </div>
                     ))}
                   </div>
-                ) : (
-                  <input
-                    type="url"
-                    value={editingImage}
-                    onChange={(e) => setEditingImage(e.target.value)}
-                    placeholder="Pega aquí la URL de tu imagen..."
-                    style={{
-                      width: '100%',
-                      padding: '12px 16px',
-                      marginBottom: '20px',
-                      fontSize: '1rem',
-                      border: '1px solid var(--border)',
-                      borderRadius: 'var(--radius-md)',
-                      boxSizing: 'border-box',
-                      fontFamily: 'monospace',
-                      backgroundColor: 'var(--surface-strong)',
-                      color: 'var(--text)',
-                      transition: 'border var(--transition)',
-                      outline: 'none'
-                    }}
-                  />
-                )}
+                ) : null}
                 <button
                   onClick={() => {
                     const arr = Array.isArray(editingImage) ? editingImage : [editingImage].filter(Boolean)
@@ -353,59 +312,23 @@ export default function AdminPage() {
                     borderRadius: 'var(--radius-md)',
                     cursor: 'pointer',
                     fontWeight: '600',
+                    marginTop: '16px',
                     marginBottom: '20px'
                   }}
                 >
-                   Agregar otra imagen
+                  Agregar otra imagen
                 </button>
               </>
             ) : (
               // Para cursos y salud - una sola imagen
               <>
-                <input
-                  type="url"
-                  value={typeof editingImage === 'string' ? editingImage : ''}
-                  onChange={(e) => setEditingImage(e.target.value)}
-                  placeholder="Pega aquí la URL de tu imagen..."
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    marginBottom: '20px',
-                    fontSize: '1rem',
-                    border: '1px solid var(--border)',
-                    borderRadius: 'var(--radius-md)',
-                    boxSizing: 'border-box',
-                    fontFamily: 'monospace',
-                    backgroundColor: 'var(--surface-strong)',
-                    color: 'var(--text)',
-                    transition: 'border var(--transition)',
-                    outline: 'none'
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--accent)'
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--border)'
-                  }}
+                <ImageUploader
+                  currentImage={typeof editingImage === 'string' ? editingImage : ''}
+                  onImageUploaded={(url) => setEditingImage(url)}
+                  folder={`117/${activeTab === 'courses' ? 'courses' : 'SaludOcupacional'}`}
+                  buttonText={editingImage ? 'Cambiar Imagen' : 'Subir Imagen'}
+                  showPreview={true}
                 />
-                {typeof editingImage === 'string' && editingImage && (
-                  <div style={{ marginBottom: '20px' }}>
-                    <p style={{ marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text-subtle)' }}>
-                       Vista previa:
-                    </p>
-                    <img
-                      src={editingImage}
-                      alt="preview"
-                      style={{
-                        maxWidth: '300px',
-                        maxHeight: '300px',
-                        borderRadius: 'var(--radius-md)',
-                        border: '1px solid var(--border)'
-                      }}
-                      onError={() => alert(' La URL de la imagen no es válida')}
-                    />
-                  </div>
-                )}
               </>
             )}
 
@@ -414,7 +337,7 @@ export default function AdminPage() {
                 onClick={handleSave}
                 className="btn primary"
               >
-                 Guardar
+                Guardar
               </button>
               <button
                 onClick={() => {
@@ -423,7 +346,7 @@ export default function AdminPage() {
                 }}
                 className="btn ghost"
               >
-                 Cancelar
+                Cancelar
               </button>
             </div>
           </div>
@@ -432,7 +355,7 @@ export default function AdminPage() {
         {/* Grid de Cards */}
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-            <p style={{ color: 'var(--text-subtle)' }}> Cargando datos...</p>
+            <p style={{ color: 'var(--text-subtle)' }}>Cargando datos...</p>
           </div>
         ) : data.length === 0 ? (
           <div style={{
@@ -442,7 +365,7 @@ export default function AdminPage() {
             borderRadius: 'var(--radius-md)',
             border: '1px solid var(--border)'
           }}>
-            <p style={{ color: 'var(--text-subtle)' }}> No hay datos disponibles</p>
+            <p style={{ color: 'var(--text-subtle)' }}>No hay datos disponibles</p>
           </div>
         ) : (
           <div className="card-grid">
@@ -512,7 +435,7 @@ export default function AdminPage() {
                   className="btn primary"
                   style={{ width: '100%', marginTop: '8px' }}
                 >
-                   Editar {(activeTab === 'equipment' || activeTab === 'about') ? 'Imágenes' : 'Imagen'}
+                  Editar {(activeTab === 'equipment' || activeTab === 'about') ? 'Imágenes' : 'Imagen'}
                 </button>
               </div>
             ))}
