@@ -290,20 +290,66 @@ El flujo:
 
 ## Deployment
 
-La aplicación puede deployarse en:
+### Digital Ocean App Platform
 
-- Vercel (Frontend)
-- Railway (Backend + Base de datos)
+La aplicación está configurada para desplegarse en Digital Ocean con un solo servicio que maneja tanto frontend como backend.
+
+#### Configuración en Digital Ocean:
+
+1. **Crear Base de Datos PostgreSQL** en Digital Ocean
+2. **Conectar el repositorio GitHub** a Digital Ocean App Platform
+3. **Configurar variables de entorno** en Digital Ocean Dashboard:
+   ```
+   NODE_ENV=production
+   DATABASE_URL=tu_database_url_de_digital_ocean
+   PORT=3001
+   ADMIN_USERNAME=tu_usuario_admin
+   ADMIN_PASSWORD=tu_password_seguro
+   VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+   VITE_CLOUDINARY_CLOUD_NAME=tu_cloud_name
+   VITE_WEB3FORMS=tu_api_key
+   ```
+
+4. **La configuración de deploy está en** [.do/app.yaml](.do/app.yaml)
+
+#### Para Actualizar en Producción:
+
+```bash
+# 1. Hacer commit de los cambios
+git add .
+git commit -m "Fix: Unified frontend and backend in single service"
+git push origin main
+
+# 2. Digital Ocean auto-despliega con:
+#    Build: npm run build
+#    Run: npm start
+```
+
+El build automáticamente:
+- Genera el cliente Prisma
+- Compila el frontend con Vite
+- Transpila el backend TypeScript
+- Despliega migraciones de base de datos
+
+#### Verificar Deploy:
+
+1. Visita tu URL de Digital Ocean
+2. Verifica que las APIs funcionan: `https://tu-app.ondigitalocean.app/api/health-check`
+3. Verifica que el frontend carga correctamente
+
+### Otros Servicios de Hosting
+
+La aplicación también puede deployarse en:
+- Vercel (Frontend) + Railway (Backend)
 - Heroku
-- DigitalOcean
 - AWS
+- Render
 
-El build se realiza con:
-```
+Para build manual:
+```bash
 npm run build
+npm start
 ```
-
-Esto genera una carpeta `dist/` lista para production.
 
 ## Mantenimiento
 

@@ -16,17 +16,24 @@ const PORT = process.env.PORT || 3001
 app.use(cors())
 app.use(express.json())
 
+// API routes
 app.use('/api/auth', authRouter)
 app.use('/api/courses', coursesRouter)
 app.use('/api/health', healthRouter)
 app.use('/api/equipment', equipmentRouter)
 app.use('/api/about', aboutRouter)
 
+// Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../dist')))
+  const distPath = path.join(__dirname, '../dist')
+  console.log('🚀 Serving static files from:', distPath)
+  app.use(express.static(distPath))
   
+  // All other routes should serve the React app
   app.get('*', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../dist/index.html'))
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(distPath, 'index.html'))
+    }
   })
 }
 

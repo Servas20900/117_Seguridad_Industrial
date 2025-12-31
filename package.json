@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node node_modules/vite/bin/vite.js build",
+    "build": "prisma generate && node node_modules/vite/bin/vite.js build && tsc --project tsconfig.server.json",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "preview": "vite preview",
-    "start": "serve -s dist -l 8080",
+    "start": "node dist-server/index.js",
     "server": "nodemon --watch server --exec tsx server/index.ts",
     "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
-    "db:migrate": "prisma migrate dev",
+    "db:migrate": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "db:seed": "tsx server/seed.ts"
   },
