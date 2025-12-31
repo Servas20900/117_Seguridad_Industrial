@@ -10,7 +10,7 @@ databases:
 
 services:
   # Unified App (Frontend + Backend)
-  - name: app
+  - name: seguridad-industrial-app
     github:
       repo: Servas20900/117_Seguridad_Industrial
       branch: main
