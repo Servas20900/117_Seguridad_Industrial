@@ -23,23 +23,23 @@ app.use('/api/health', healthRouter)
 app.use('/api/equipment', equipmentRouter)
 app.use('/api/about', aboutRouter)
 
+app.get('/api/health-check', (req: Request, res: Response) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() })
+})
+
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  const distPath = path.join(__dirname, '../dist')
+  const distPath = path.join(__dirname, '../../dist')
   console.log('🚀 Serving static files from:', distPath)
   app.use(express.static(distPath))
   
   // All other routes should serve the React app
-  app.get('*', (req: Request, res: Response) => {
+  app.use((req: Request, res: Response) => {
     if (!req.path.startsWith('/api')) {
       res.sendFile(path.join(distPath, 'index.html'))
     }
   })
 }
-
-app.get('/api/health-check', (req: Request, res: Response) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() })
-})
 
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`)
