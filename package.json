@@ -15,6 +15,9 @@
     "db:studio": "prisma studio",
     "db:seed": "tsx server/seed.ts"
   },
+  "prisma": {
+    "seed": "node --loader ts-node/esm ./server/seed.ts"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
     "cors": "^2.8.5",
