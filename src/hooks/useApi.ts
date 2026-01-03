@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
+import type { Course, HealthService, EquipmentItem } from '../types/entities'
 
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:3001/api')
 
 export function useCourses() {
-  const [courses, setCourses] = useState<any[]>([])
+  const [courses, setCourses] = useState<Course[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -12,7 +13,7 @@ export function useCourses() {
       .then(res => res.json())
       .then(data => {
         // Transform database format to expected format
-        const transformed = data.map((item: any) => ({
+        const transformed: Course[] = data.map((item: any) => ({
           id: item.courseId,
           title: item.title,
           category: item.category,
@@ -39,7 +40,7 @@ export function useCourses() {
 }
 
 export function useHealthServices() {
-  const [services, setServices] = useState<any[]>([])
+  const [services, setServices] = useState<HealthService[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -48,7 +49,7 @@ export function useHealthServices() {
       .then(res => res.json())
       .then(data => {
         // Transform database format to expected format
-        const transformed = data.map((item: any) => ({
+        const transformed: HealthService[] = data.map((item: any) => ({
           id: item.serviceId,
           title: item.title,
           category: item.category,
@@ -74,7 +75,7 @@ export function useHealthServices() {
 }
 
 export function useEquipment() {
-  const [equipment, setEquipment] = useState<any[]>([])
+  const [equipment, setEquipment] = useState<EquipmentItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -83,7 +84,7 @@ export function useEquipment() {
       .then(res => res.json())
       .then(data => {
         // Transform database format to expected format
-        const transformed = data.map((item: any) => ({
+        const transformed: EquipmentItem[] = data.map((item: any) => ({
           id: item.kitId,
           title: item.title,
           category: item.category,

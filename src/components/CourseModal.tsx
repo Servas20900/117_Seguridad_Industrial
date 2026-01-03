@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { Course } from '../data/courses'
+import type { Course } from '../types/entities'
 import SafeImage from './SafeImage'
 import { trackCourseView, trackWhatsAppClick } from '../utils/analytics'
 

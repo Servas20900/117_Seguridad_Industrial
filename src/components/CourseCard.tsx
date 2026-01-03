@@ -1,4 +1,4 @@
-import type { Course } from '../data/courses'
+import type { Course } from '../types/entities'
 
 export default function CourseCard({ course, onOpen, programNumber }: { course: Course; onOpen: () => void; programNumber: number }) {
   return (
