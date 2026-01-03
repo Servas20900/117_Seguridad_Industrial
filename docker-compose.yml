@@ -1,23 +1,88 @@
 version: '3.8'
 
+# Configuración por defecto: Conecta a DB en Digital Ocean
+# Para usar DB local, ver sección comentada abajo
+
 services:
-  postgres:
-    image: postgres:15-alpine
-    container_name: seguridad_industrial_db
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seguridad_industrial_web
     restart: unless-stopped
     ports:
-      - '5432:5432'
+      - '5173:5173'  # Vite dev server
+      - '3001:3001'  # Express server
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: seguridad_industrial
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://doadmin:YOUR_PASSWORD_HERE@seguridad-industrial-db-do-user-24121806-0.e.db.ondigitalocean.com:25060/seguridad_industrial?sslmode=require
+      - PORT=3001
+      - VITE_CLOUDINARY_CLOUD_NAME=demo
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U admin']
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - .:/app
+      - /app/node_modules
+    networks:
+      - seguridad_network
+    depends_on:
+      - postgres  # Opcional: para referencia, pero no es requerido si usas DB remota
+
+# ==================== CONFIGURACIÓN ALTERNATIVA LOCAL ====================
+# Si deseas usar una base de datos PostgreSQL local con Docker en lugar de Digital Ocean,
+# descomenta la siguiente sección y comenta la sección 'web' de arriba:
+
+# services:
+#   postgres:
+#     image: postgres:15-alpine
+#     container_name: seguridad_industrial_db_local
+#     restart: unless-stopped
+#     ports:
+#       - '5432:5432'
+#     environment:
+#       POSTGRES_USER: admin
+#       POSTGRES_PASSWORD: admin123
+#       POSTGRES_DB: seguridad_industrial
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     healthcheck:
+#       test: ['CMD-SHELL', 'pg_isready -U admin']
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+#     networks:
+#       - seguridad_network
+
+#   web:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: seguridad_industrial_web
+#     restart: unless-stopped
+#     ports:
+#       - '5173:5173'
+#       - '3001:3001'
+#     environment:
+#       - NODE_ENV=development
+#       - DATABASE_URL=postgresql://admin:admin123@postgres:5432/seguridad_industrial
+#       - PORT=3001
+#       - VITE_CLOUDINARY_CLOUD_NAME=demo
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#     networks:
+#       - seguridad_network
+#     depends_on:
+#       postgres:
+#         condition: service_healthy
+
+# ==================== CONFIGURACIÓN PARA TESTING ====================
+# Para ejecutar el entorno de testing:
+#   docker-compose -f docker-compose.test.yml up
+# Ver docker-compose.test.yml
 
 volumes:
   postgres_data:
+    driver: local
+
+networks:
+  seguridad_network:
+    driver: bridge

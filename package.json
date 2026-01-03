@@ -12,7 +12,16 @@
     "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
     "db:migrate": "prisma migrate deploy",
     "db:studio": "prisma studio",
-    "db:seed": "tsx server/seed.ts"
+    "db:seed": "tsx server/seed.ts",
+    "db:seed:test": "NODE_ENV=test tsx server/seed.ts",
+    "db:reset": "prisma migrate reset --force",
+    "test": "NODE_ENV=test npm run dev:full",
+    "test:docker": "docker-compose -f docker-compose.test.yml up",
+    "test:docker:down": "docker-compose -f docker-compose.test.yml down",
+    "docker:dev": "docker-compose up",
+    "docker:dev:down": "docker-compose down",
+    "docker:dev:local": "docker-compose -f docker-compose.yml up",
+    "docker:build": "docker-compose build"
   },
   "prisma": {
     "seed": "tsx ./server/seed.ts"

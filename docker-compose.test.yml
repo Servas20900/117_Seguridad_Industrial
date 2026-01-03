@@ -1,0 +1,57 @@
+version: '3.8'
+
+# Docker Compose para entorno de TESTING
+# Usa: docker-compose -f docker-compose.test.yml up
+
+services:
+  postgres_test:
+    image: postgres:15-alpine
+    container_name: seguridad_industrial_db_test
+    restart: unless-stopped
+    ports:
+      - '5433:5432'  # Puerto diferente al de desarrollo
+    environment:
+      POSTGRES_USER: testadmin
+      POSTGRES_PASSWORD: testpass123
+      POSTGRES_DB: seguridad_industrial_test
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U testadmin']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - seguridad_network_test
+
+  web_test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seguridad_industrial_web_test
+    restart: unless-stopped
+    ports:
+      - '5174:5173'  # Puerto Vite diferente
+      - '3002:3001'  # Puerto API diferente
+    environment:
+      - NODE_ENV=test
+      - DATABASE_URL=postgresql://testadmin:testpass123@postgres_test:5432/seguridad_industrial_test
+      - PORT=3001
+      - VITE_CLOUDINARY_CLOUD_NAME=demo
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - seguridad_network_test
+    depends_on:
+      postgres_test:
+        condition: service_healthy
+    command: sh -c "npm run db:migrate && npm run db:seed && npm run dev:full"
+
+volumes:
+  postgres_test_data:
+    driver: local
+
+networks:
+  seguridad_network_test:
+    driver: bridge

@@ -1,5 +1,7 @@
 generator client {
   provider = "prisma-client-js"
+  // Log queries in development and test
+  // log     = ["query", "error", "warn", "info"]
 }
 
 datasource db {
