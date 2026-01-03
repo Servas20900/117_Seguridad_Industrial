@@ -9,17 +9,18 @@ describe('SafeImage Component', () => {
     expect(img.src).toBe('https://example.com/image.jpg')
   })
 
-  it('should render placeholder when image src is not provided', () => {
-    render(<SafeImage src="" alt="placeholder" />)
-    const container = screen.getByAltText('placeholder').parentElement
-    expect(container).toHaveStyle({ display: 'flex' })
+  it('should render error placeholder when image src is not provided', () => {
+    const { container } = render(<SafeImage src="" alt="placeholder" />)
+    const errorDiv = container.querySelector('[aria-label*="Error al cargar imagen"]')
+    expect(errorDiv).toBeTruthy()
+    expect(errorDiv?.textContent).toContain('Error al cargar imagen')
   })
 
-  it('should apply custom className', () => {
+  it('should apply custom className to image', () => {
     const { container } = render(
       <SafeImage src="test.jpg" alt="test" className="custom-class" />
     )
     const img = container.querySelector('img')
-    expect(img).toHaveClass('custom-class')
+    expect(img?.className).toContain('custom-class')
   })
 })
