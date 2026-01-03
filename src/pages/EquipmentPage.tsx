@@ -17,9 +17,44 @@ export default function EquipmentPage() {
     <main>
       <section id="equipment" className="panel">
         <div className="panel-head">
-          <p className="eyebrow">Equipamiento</p>
-          <h2>Botiquines e insumos listos para su operación.</h2>
-          <p className="lede">Gestione listas de botiquines, recargas y kits especializados para sus necesidades de emergencia.</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
+            <div>
+              <p className="eyebrow">Equipamiento</p>
+              <h2>Botiquines e insumos listos para su operación.</h2>
+              <p className="lede">Gestione listas de botiquines, recargas y kits especializados para sus necesidades de emergencia.</p>
+            </div>
+            <a
+              href="/publicidad-botiquin.pdf"
+              download="publicidad-botiquin.pdf"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 16px',
+                backgroundColor: 'var(--accent)',
+                color: '#0b0c10',
+                borderRadius: 'var(--radius-md)',
+                textDecoration: 'none',
+                fontWeight: '700',
+                transition: 'transform var(--transition), box-shadow var(--transition)',
+                boxShadow: 'var(--shadow-soft)',
+                whiteSpace: 'nowrap'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
+              }}
+              title="Descargar PDF de publicidad de botiquines"
+              aria-label="Descargar publicidad de botiquines"
+            >
+              <i className="fas fa-download"></i>
+              <span>Publicidad Botiquín</span>
+            </a>
+          </div>
         </div>
         {loading ? (
           <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>

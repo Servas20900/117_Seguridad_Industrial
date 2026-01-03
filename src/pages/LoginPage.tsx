@@ -41,128 +41,48 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: 'var(--bg-primary)',
-      padding: '16px'
-    }}>
-      <div style={{
-        width: '100%',
-        maxWidth: '400px',
-        padding: '32px',
-        background: 'var(--bg-secondary)',
-        borderRadius: 'var(--radius-lg)',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}>
-        <h2 style={{ marginBottom: '24px', textAlign: 'center', color: 'var(--text-primary)' }}>
-          Panel de Administrador
-        </h2>
-        
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <main className="auth-shell">
+      <section className="auth-card" aria-labelledby="admin-login-title">
+        <h2 id="admin-login-title">Panel de Administrador</h2>
+
+        <form onSubmit={handleSubmit} className="auth-actions">
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '8px', 
-              fontSize: '14px',
-              fontWeight: '500',
-              color: 'var(--text-primary)'
-            }}>
+            <label>
               Usuario
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Ingresa tu usuario"
+                disabled={isLoading}
+                required
+              />
             </label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Ingresa tu usuario"
-              disabled={isLoading}
-              required
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid var(--border-color)',
-                borderRadius: 'var(--radius-md)',
-                fontSize: '14px',
-                background: 'var(--bg-primary)',
-                color: 'var(--text-primary)',
-                boxSizing: 'border-box'
-              }}
-            />
           </div>
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '8px', 
-              fontSize: '14px',
-              fontWeight: '500',
-              color: 'var(--text-primary)'
-            }}>
+            <label>
               Contraseña
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Ingresa tu contraseña"
+                disabled={isLoading}
+                required
+              />
             </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Ingresa tu contraseña"
-              disabled={isLoading}
-              required
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid var(--border-color)',
-                borderRadius: 'var(--radius-md)',
-                fontSize: '14px',
-                background: 'var(--bg-primary)',
-                color: 'var(--text-primary)',
-                boxSizing: 'border-box'
-              }}
-            />
           </div>
 
-          {error && (
-            <div style={{
-              padding: '12px',
-              background: '#fee',
-              color: '#c33',
-              borderRadius: 'var(--radius-md)',
-              fontSize: '14px'
-            }}>
-              {error}
-            </div>
-          )}
+          {error && <div className="auth-error" role="alert">{error}</div>}
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            style={{
-              padding: '12px',
-              background: 'linear-gradient(135deg, #f5d60bff, #f5d60bff)',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: isLoading ? 'not-allowed' : 'pointer',
-              opacity: isLoading ? 0.6 : 1,
-              transition: 'opacity 0.2s'
-            }}
-          >
+          <button type="submit" disabled={isLoading} className="btn primary full">
             {isLoading ? 'Autenticando...' : 'Ingresar'}
           </button>
         </form>
 
-        <p style={{
-          marginTop: '24px',
-          fontSize: '12px',
-          color: 'var(--text-secondary)',
-          textAlign: 'center'
-        }}>
-          Panel seguro • Credenciales configuradas en el servidor
-        </p>
-      </div>
-    </div>
+        <p className="auth-meta">Panel seguro • Credenciales configuradas en el servidor</p>
+      </section>
+    </main>
   )
 }

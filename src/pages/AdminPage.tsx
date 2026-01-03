@@ -175,52 +175,22 @@ export default function AdminPage() {
   return (
     <main>
       <section className="panel">
-        <div className="panel-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div className="panel-head admin-header-bar">
           <div>
             <p className="eyebrow">Administración</p>
             <h2>Gestiona las imágenes de tus tarjetas</h2>
             <p className="lede">Actualiza las imágenes de cursos, salud ocupacional, equipamiento y material didáctico desde aquí.</p>
           </div>
-          <button
-            onClick={handleLogout}
-            style={{
-              padding: '8px 16px',
-              background: '#dc2626',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontSize: '14px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            Cerrar sesión
-          </button>
+          <button onClick={handleLogout} className="btn danger">Cerrar sesión</button>
         </div>
 
         {/* Tabs */}
-        <div style={{
-          display: 'flex',
-          gap: '12px',
-          marginBottom: '32px',
-          flexWrap: 'wrap',
-          borderBottom: '1px solid var(--border)',
-          paddingBottom: '16px'
-        }}>
+        <div className="admin-tabs">
           {(['courses', 'health', 'equipment', 'about'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className="pill"
-              style={{
-                backgroundColor: activeTab === tab ? 'var(--accent)' : 'var(--surface)',
-                color: activeTab === tab ? '#0b0c10' : 'var(--text)',
-                borderColor: activeTab === tab ? 'var(--accent)' : 'var(--border)',
-                fontWeight: activeTab === tab ? '700' : '600',
-                cursor: 'pointer',
-                border: `1px solid ${activeTab === tab ? 'var(--accent)' : 'var(--border)'}`
-              }}
+              className={activeTab === tab ? 'active' : ''}
             >
               {tab === 'courses' && `Cursos (${courses.length})`}
               {tab === 'health' && `Salud (${health.length})`}
@@ -269,16 +239,8 @@ export default function AdminPage() {
                                 const newImages = (editingImage as string[]).filter((_, i) => i !== idx)
                                 setEditingImage(newImages)
                               }}
-                              style={{
-                                padding: '6px 12px',
-                                backgroundColor: '#dc2626',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: 'var(--radius-sm)',
-                                cursor: 'pointer',
-                                fontSize: '0.9rem',
-                                fontWeight: '600'
-                              }}
+                              className="btn danger"
+                              style={{ padding: '8px 12px', fontSize: '0.9rem' }}
                             >
                               Eliminar
                             </button>
@@ -304,17 +266,8 @@ export default function AdminPage() {
                     const arr = Array.isArray(editingImage) ? editingImage : [editingImage].filter(Boolean)
                     setEditingImage([...arr, ''])
                   }}
-                  style={{
-                    padding: '10px 16px',
-                    backgroundColor: 'var(--accent)',
-                    color: '#0b0c10',
-                    border: 'none',
-                    borderRadius: 'var(--radius-md)',
-                    cursor: 'pointer',
-                    fontWeight: '600',
-                    marginTop: '16px',
-                    marginBottom: '20px'
-                  }}
+                  className="btn primary"
+                  style={{ width: 'fit-content', marginTop: '16px', marginBottom: '20px' }}
                 >
                   Agregar otra imagen
                 </button>
@@ -432,8 +385,8 @@ export default function AdminPage() {
                 {/* Botón Editar */}
                 <button
                   onClick={() => handleEdit(item.id, (activeTab === 'equipment' || activeTab === 'about') ? item.images : (item.image || ''))}
-                  className="btn primary"
-                  style={{ width: '100%', marginTop: '8px' }}
+                  className="btn primary full"
+                  style={{ marginTop: '8px' }}
                 >
                   Editar {(activeTab === 'equipment' || activeTab === 'about') ? 'Imágenes' : 'Imagen'}
                 </button>
