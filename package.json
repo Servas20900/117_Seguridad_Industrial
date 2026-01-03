@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "build": "prisma generate && vite build && tsc --project tsconfig.server.json",
+    "build": "prisma generate && vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "start": "node dist-server/server/index.js",
+    "start": "tsx server/index.ts",
     "server": "nodemon --watch server --exec tsx server/index.ts",
     "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
     "db:migrate": "prisma migrate deploy",
