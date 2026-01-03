@@ -66,10 +66,7 @@ export default function AboutPage() {
           <h3 style={{ marginBottom: '12px' }}>Maniquíes de RCP</h3>
           <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>Simuladores de alta fidelidad para entrenamiento en técnicas de reanimación cardiopulmonar y compresiones torácicas.</p>
           <ImageCarousel 
-            images={["https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964515/MD02_sock0b.png",
-               "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964521/MD05_g3ttig.png",
-                "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964519/MD04_dbp6kx.png",
-                 "https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964518/MD01_qwhllr.png"]} 
+            images={[]} 
             alt="Maniquíes de RCP"
           />
         </div>
