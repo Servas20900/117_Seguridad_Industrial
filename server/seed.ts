@@ -2,16 +2,12 @@ import { PrismaClient } from "@prisma/client"
 import { courses } from "./seed-data/courses"
 import { occupationalHealthServices } from "./seed-data/HealthService"
 import { firstAidKits } from "./seed-data/FirstAidKid"
-import { testCourses, testHealthServices, testFirstAidKits, testGalleries } from "./seed-data/test-data"
 
 const prisma = new PrismaClient()
-const isTestEnvironment = process.env.NODE_ENV === 'test'
 
 async function main() {
-  const environment = isTestEnvironment ? 'TEST' : 'PRODUCTION'
-  console.log(`🌱 Starting database seed (${environment} environment)...`)
+  console.log('🌱 Starting database seed...')
 
-  // Clear existing data
   await prisma.course.deleteMany()
   await prisma.healthService.deleteMany()
   await prisma.firstAidKit.deleteMany()
@@ -19,14 +15,7 @@ async function main() {
 
   console.log('  ✓ Cleared existing data')
 
-  // Select data based on environment
-  const coursesToSeed = isTestEnvironment ? testCourses : courses
-  const healthServices = isTestEnvironment ? testHealthServices : occupationalHealthServices
-  const kits = isTestEnvironment ? testFirstAidKits : firstAidKits
-  const galleries = isTestEnvironment ? testGalleries : []
-
-  // Seed Courses
-  for (const course of coursesToSeed) {
+  for (const course of courses) {
     await prisma.course.create({
       data: {
         courseId: course.id,
@@ -43,10 +32,10 @@ async function main() {
       }
     })
   }
-  console.log(`  ✓ Seeded ${coursesToSeed.length} courses`)
+  console.log(`  ✓ Seeded ${courses.length} courses`)
 
   // Seed Health Services
-  for (const service of healthServices) {
+  for (const service of occupationalHealthServices) {
     await prisma.healthService.create({
       data: {
         serviceId: service.id,
@@ -62,10 +51,10 @@ async function main() {
       }
     })
   }
-  console.log(`  ✓ Seeded ${healthServices.length} health services`)
+  console.log(`  ✓ Seeded ${occupationalHealthServices.length} health services`)
 
   // Seed First Aid Kits / Equipment
-  for (const kit of kits) {
+  for (const kit of firstAidKits) {
     await prisma.firstAidKit.create({
       data: {
         kitId: kit.id,
@@ -79,25 +68,9 @@ async function main() {
       }
     })
   }
-  console.log(`  ✓ Seeded ${kits.length} equipment items`)
+  console.log(`  ✓ Seeded ${firstAidKits.length} equipment items`)
 
-  // Seed Galleries (only for test)
-  for (const gallery of galleries) {
-    await prisma.galleries.create({
-      data: {
-        title: gallery.title,
-        category: gallery.category,
-        images: gallery.images
-      }
-    })
-  }
-  if (galleries.length > 0) {
-    console.log(`  ✓ Seeded ${galleries.length} galleries`)
-  } else {
-    console.log(`  ℹ Galleries seeding skipped (managed from DB/admin).`)
-  }
-
-  console.log(`✨ Database seeded successfully! (${environment})`)
+  console.log(`✨ Database seeded successfully!`)
 }
 
 main()
