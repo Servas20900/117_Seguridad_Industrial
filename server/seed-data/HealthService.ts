@@ -2,13 +2,13 @@
   id: string
   title: string
   category: string
-  standards: string[]        // ISO, NFPA, OSHA, INTE, etc.
-  modality?: string          // En sitio / Mixto / Consultor├¡a
-  scope: string              // Qu├⌐ abarca el servicio
-  includes: string[]         // Qu├⌐ se entrega
-  benefits: string[]        // Beneficios para la empresa
-  pills: string[]            // Tags r├ípidos
-  image?: string             // Cloudinary Public ID
+  standards: string[]
+  modality?: string     
+  scope: string              
+  includes: string[]        
+  benefits: string[]        
+  pills: string[]            
+  image?: string            
 }
 
 export const occupationalHealthServices: OccupationalHealthService[] = [

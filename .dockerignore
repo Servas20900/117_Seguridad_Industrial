@@ -12,11 +12,11 @@ yarn-error.log
 .env
 .env.local
 .env.test
-.env.docker
 
 # Build outputs
 dist
 dist-server
+coverage
 
 # IDE
 .vscode
@@ -30,15 +30,12 @@ dist-server
 Thumbs.db
 
 # Documentation
-README.md
-README-SETUP.md
-CHANGELOG.md
+*.md
 
 # Docker
 docker-compose.yml
-docker-compose.test.yml
 Dockerfile
 
-# Testing
-coverage
-.coverage
+# Tests
+tests/
+vitest.config.ts
