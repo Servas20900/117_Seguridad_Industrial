@@ -53,7 +53,6 @@ async function main() {
   }
   console.log(` Seeded ${occupationalHealthServices.length} health services`)
 
-  // Seed First Aid Kits
   for (const kit of firstAidKits) {
     await prisma.firstAidKit.create({
       data: {
@@ -61,7 +60,7 @@ async function main() {
         title: kit.title,
         category: kit.category,
         description: kit.description,
-        contents: kit.contents as any, // JSON field
+        contents: kit.contents as any, 
         benefits: kit.benefits,
         pills: kit.pills,
         images: kit.images
@@ -70,40 +69,7 @@ async function main() {
   }
   console.log(` Seeded ${firstAidKits.length} equipment items`)
 
-  // Seed About Galleries
-  const galleries = [
-    {
-      title: 'Maniquíes de RCP',
-      category: 'Equipamiento',
-      images: [
-        'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964515/MD02_sock0b.png',
-        'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964521/MD05_g3ttig.png',
-        'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964519/MD04_dbp6kx.png',
-        'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766964518/MD01_qwhllr.png'
-      ]
-    },
-    {
-      title: 'DEA de entrenamiento',
-      category: 'Equipamiento',
-      images: []
-    },
-    {
-      title: 'Kits y suministros',
-      category: 'Equipamiento',
-      images: []
-    }
-  ]
-
-  for (const gallery of galleries) {
-    await prisma.galleries.create({
-      data: {
-        title: gallery.title,
-        category: gallery.category,
-        images: gallery.images
-      }
-    })
-  }
-  console.log(` Seeded ${galleries.length} about galleries`)
+  console.log(' Galleries seeding skipped (managed from DB/admin).')
 
   console.log(' Database seeded successfully!')
 }
