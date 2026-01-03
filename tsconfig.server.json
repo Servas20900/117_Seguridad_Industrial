@@ -11,6 +11,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["server/**/*", "src/data/**/*"],
+  "include": ["server/**/*"],
   "exclude": ["node_modules", "dist", "dist-server"]
 }
