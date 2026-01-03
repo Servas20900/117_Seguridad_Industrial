@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client"
-import { courses } from "../src/data/courses"
-import { occupationalHealthServices } from "../src/data/HealthService"
-import { firstAidKits } from "../src/data/FirstAidKid"
+import { courses } from "./seed-data/courses"
+import { occupationalHealthServices } from "./seed-data/HealthService"
+import { firstAidKits } from "./seed-data/FirstAidKid"
 
 const prisma = new PrismaClient()
 
