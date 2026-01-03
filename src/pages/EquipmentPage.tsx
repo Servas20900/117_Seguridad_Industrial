@@ -52,7 +52,7 @@ export default function EquipmentPage() {
               aria-label="Descargar publicidad de botiquines"
             >
               <i className="fas fa-download"></i>
-              <span>Publicidad Botiquín</span>
+              <span>Catálogo Botiquín</span>
             </a>
           </div>
         </div>
