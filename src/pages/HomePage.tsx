@@ -62,39 +62,9 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
                 }}
                 title="Descargar catálogo de cursos"
               >
-                <span>Explorar Servicios</span>
-              </a>
-              <a
-                href="/perfil-empresa.pdf"
-                download="perfil-empresa.pdf"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 18px',
-                  backgroundColor: 'transparent',
-                  color: 'var(--text)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-md)',
-                  textDecoration: 'none',
-                  fontWeight: '700',
-                  transition: 'transform var(--transition), border var(--transition), background var(--transition)',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-1px)'
-                  e.currentTarget.style.borderColor = 'var(--accent)'
-                  e.currentTarget.style.backgroundColor = 'var(--surface-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.borderColor = 'var(--border)'
-                  e.currentTarget.style.backgroundColor = 'transparent'
-                }}
-                title="Descargar perfil de la empresa"
-              >
                 <span>Perfil de Empresa</span>
               </a>
+
             </div>
           </div>
         </div>
