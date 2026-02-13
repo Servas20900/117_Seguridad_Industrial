@@ -5,7 +5,7 @@ import CourseCard from '../../src/components/CourseCard'
 
 // Helper para envolver con Router (necesario por react-router-dom)
 const renderWithRouter = (ui: React.ReactElement) => {
-  return render(<BrowserRouter>{ui}</BrowserRouter>)
+  return render(<BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>{ui}</BrowserRouter>)
 }
 
 describe('CourseCard Component', () => {

@@ -1,9 +1,12 @@
 import SafeImage from '../components/SafeImage'
 import ImageCarousel from '../components/ImageCarousel'
+import { aboutGalleries } from '../data/galleries'
 
 export default function AboutPage() {
   const logoNegroAmarillo = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903804/logo-negro-amarillo_uvlvgd.jpg'
   const logoNegroBlanco = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903786/logo-negro-blanco_wxiszp.jpg'
+  const materialGalleries = aboutGalleries.filter(gallery => gallery.id !== 'experiencias')
+  const experienceGallery = aboutGalleries.find(gallery => gallery.id === 'experiencias')
 
   return (
     <main>
@@ -61,35 +64,16 @@ export default function AboutPage() {
           <p className="lede">Equipamiento profesional para entrenamiento práctico en Primeros Auxilios, RCP, DEA y brigadas de emergencia.</p>
         </div>
 
-        {/* Categoría 1: Maniquíes de RCP */}
-        <div style={{ marginBottom: '48px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
-          <h3 style={{ marginBottom: '12px' }}>Maniquíes de RCP</h3>
-          <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>Simuladores de alta fidelidad para entrenamiento en técnicas de reanimación cardiopulmonar y compresiones torácicas.</p>
-          <ImageCarousel 
-            images={[]} 
-            alt="Maniquíes de RCP"
-          />
-        </div>
-
-        {/* Categoría 2: DEA de entrenamiento */}
-        <div style={{ marginBottom: '48px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
-          <h3 style={{ marginBottom: '12px' }}>DEA de entrenamiento</h3>
-          <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>Desfibriladores Externos Automáticos de práctica con electrodos de entrenamiento para familiarización sin riesgos.</p>
-          <ImageCarousel 
-            images={[]} 
-            alt="DEA de entrenamiento"
-          />
-        </div>
-
-        {/* Categoría 3: Kits y suministros */}
-        <div style={{ marginBottom: '24px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
-          <h3 style={{ marginBottom: '12px' }}>Kits y suministros</h3>
-          <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>Botiquines completos, vendajes, inmovilizadores, equipamiento de trauma y materiales de práctica profesional.</p>
-          <ImageCarousel 
-            images={[]} 
-            alt="Kits y suministros"
-          />
-        </div>
+        {materialGalleries.map((gallery) => (
+          <div
+            key={gallery.id}
+            style={{ marginBottom: '48px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}
+          >
+            <h3 style={{ marginBottom: '12px' }}>{gallery.title}</h3>
+            <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>{gallery.description}</p>
+            <ImageCarousel images={gallery.images} alt={gallery.title} />
+          </div>
+        ))}
       </section>
 
       <section id="experiences" className="panel">
@@ -99,12 +83,11 @@ export default function AboutPage() {
           <p className="lede">Galería de fotos de nuestras sesiones de capacitación, simulacros y entrenamientos realizados con nuestros clientes.</p>
         </div>
 
-        <div style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
-          <ImageCarousel 
-            images={[]} 
-            alt="Experiencias de capacitación"
-          />
-        </div>
+        {experienceGallery && (
+          <div style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+            <ImageCarousel images={experienceGallery.images} alt={experienceGallery.title} />
+          </div>
+        )}
       </section>
     </main>
   )

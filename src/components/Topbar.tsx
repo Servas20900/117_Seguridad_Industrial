@@ -9,6 +9,14 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
   return (
     <>
       <header className="topbar">
+        <button
+          type="button"
+          className="hamburger"
+          aria-label="Abrir menú"
+          onClick={() => setMenuOpen(true)}
+        >
+          ☰
+        </button>
         <div className="brand">
           <Link to="/" className="brand-mark" aria-hidden="true">117</Link>
           <div className="brand-text">
@@ -28,14 +36,6 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
             <i className={`fas fa-${theme === 'dark' ? 'sun' : 'moon'}`}></i>
           </button>
           <Link className="pill" to="/contact">Agendar</Link>
-          <button
-            type="button"
-            className="hamburger"
-            aria-label="Abrir menú"
-            onClick={() => setMenuOpen(true)}
-          >
-            ☰
-          </button>
         </div>
       </header>
 

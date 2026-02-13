@@ -14,7 +14,7 @@ const rootEl = document.getElementById('root')
 if (rootEl) {
   const root = createRoot(rootEl)
   root.render(
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <App />
     </BrowserRouter>
   )

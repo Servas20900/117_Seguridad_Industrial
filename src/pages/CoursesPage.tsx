@@ -1,18 +1,14 @@
-import { useMemo, useState } from 'react'
-import { useCourses } from '../hooks/useApi'
+import { useNavigate } from 'react-router-dom'
+import { courses } from '../data/courses'
 import CourseCard from '../components/CourseCard'
-import CourseModal from '../components/CourseModal'
 
 export default function CoursesPage() {
-  const { courses, loading } = useCourses()
-  const [selectedId, setSelectedId] = useState<string | null>(null)
-  const selectedCourse = useMemo(() => courses.find(c => c.id === selectedId) || null, [selectedId, courses])
+  const navigate = useNavigate()
+  const categories = Array.from(new Set(courses.map(course => course.category)))
 
-  const categories = [
-    'Primeros Auxilios',
-    'Control de Incendios',
-    'Manejo de Materiales Peligrosos',
-  ]
+  const handleCardClick = (courseId: string) => {
+    navigate(`/courses/${courseId}`)
+  }
 
   return (
     <main>
@@ -57,12 +53,6 @@ export default function CoursesPage() {
             </a>
           </div>
         </div>
-        {loading ? (
-          <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>
-            Cargando cursos...
-          </div>
-        ) : (
-        <>
         {categories.map(category => {
           const items = courses.filter(c => c.category === category)
           if (!items.length) return null
@@ -71,22 +61,23 @@ export default function CoursesPage() {
               <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
               <div className="card-grid" aria-live="polite">
                 {items.map((course, idx) => (
-                  <CourseCard
+                  <div
                     key={course.id}
-                    course={course}
-                    programNumber={idx + 1}
-                    onOpen={() => setSelectedId(course.id)}
-                  />
+                    onClick={() => handleCardClick(course.id)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <CourseCard
+                      course={course}
+                      programNumber={idx + 1}
+                      onOpen={() => handleCardClick(course.id)}
+                    />
+                  </div>
                 ))}
               </div>
             </section>
           )
         })}
-        </>
-        )}
       </section>
-
-      <CourseModal course={selectedCourse} onClose={() => setSelectedId(null)} />
     </main>
   )
 }

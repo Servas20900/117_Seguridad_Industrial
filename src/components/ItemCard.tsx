@@ -1,32 +1,64 @@
 interface ItemCardProps {
   title: string
-  meta?: string
+  image?: string
   summary?: string
+  meta?: string
   pills?: string[]
   onOpen: () => void
   itemNumber?: number
+  icon?: string
 }
 
-export default function ItemCard({ title, meta, summary, pills, onOpen, itemNumber }: ItemCardProps) {
+export default function ItemCard({ 
+  title, 
+  image, 
+  summary, 
+  meta, 
+  pills, 
+  onOpen, 
+  itemNumber,
+  icon 
+}: ItemCardProps) {
   return (
     <article
       className="card"
-      style={{ height: '100%' }}
       onClick={onOpen}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onOpen()}
     >
-      {itemNumber && <span className="badge">Opción {itemNumber}</span>}
-      <h3>{title}</h3>
-      {meta && <p className="meta">{meta}</p>}
-      {summary && <p>{summary}</p>}
-      {pills && pills.length > 0 && (
-        <div className="pill-row" style={{ marginTop: '8px', gap: '6px' }}>
-          {pills.map((p) => <span className="pill" key={p}>{p}</span>)}
+      {/* Imagen del item */}
+      {image && (
+        <div className="card-image">
+          <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       )}
-      <button className="text-btn" type="button">Ver detalles</button>
+
+      {/* Badge */}
+      {itemNumber && <span className="badge">#{itemNumber}</span>}
+
+      {/* Contenido */}
+      <div className="card-content">
+        <h3>{title}</h3>
+        {summary && <p className="card-summary">{summary}</p>}
+        {meta && <p className="card-meta">{meta}</p>}
+        
+        {/* Pills */}
+        {pills && pills.length > 0 && (
+          <div className="card-pills">
+            {pills.map((p) => (
+              <span key={p} className="card-pill">{p}</span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div className="card-footer">
+        <button className="card-action" type="button">
+          Ver detalles
+        </button>
+      </div>
     </article>
   )
 }

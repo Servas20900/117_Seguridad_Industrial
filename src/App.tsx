@@ -79,5 +79,3 @@ export default function App() {
     </>
   )
 }
-
-// ContactForm moved to components/ContactForm and used in ContactPage

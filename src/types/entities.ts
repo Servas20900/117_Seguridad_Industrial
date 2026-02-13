@@ -33,5 +33,6 @@ export interface EquipmentItem {
   contents: Array<{ section: string; items: string[] }>
   benefits?: string[]
   pills: string[]
+  cardImage?: string
   images: string[]
 }

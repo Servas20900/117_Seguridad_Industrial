@@ -24,18 +24,14 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const currentImage = images[currentIndex]
 
   return (
-    <div style={{ position: 'relative', marginBottom: '16px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+    <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ position: 'relative', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         <SafeImage
           src={currentImage.startsWith('/') ? currentImage : currentImage}
           alt={alt}
-          width={600}
-          height={280}
           style={{
             width: '100%',
-            maxWidth: '600px',
-            height: '280px',
-            borderRadius: 'var(--radius-md)',
+            height: '100%',
             objectFit: 'cover',
             display: 'block'
           }}
@@ -62,7 +58,8 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '18px',
-              transition: 'background 160ms ease'
+              transition: 'background 160ms ease',
+              zIndex: 10
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(0, 0, 0, 0.5)')}
@@ -89,7 +86,8 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '18px',
-              transition: 'background 160ms ease'
+              transition: 'background 160ms ease',
+              zIndex: 10
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(0, 0, 0, 0.5)')}
@@ -103,7 +101,8 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               display: 'flex',
               justifyContent: 'center',
               gap: '6px',
-              marginTop: '12px'
+              padding: '12px 0 0',
+              zIndex: 10
             }}
           >
             {images.map((_, idx) => (

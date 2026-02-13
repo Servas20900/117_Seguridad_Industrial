@@ -1,17 +1,15 @@
-import { useMemo, useState } from 'react'
-import { useEquipment } from '../hooks/useApi'
+import { useNavigate } from 'react-router-dom'
+import { equipmentItems } from '../data/equipment'
 import ItemCard from '../components/ItemCard'
-import ItemModal from '../components/ItemModal'
 
 export default function EquipmentPage() {
-  const { equipment: firstAidKits, loading } = useEquipment()
-  const [selectedId, setSelectedId] = useState<string | null>(null)
-  const selectedKit = useMemo(
-    () => firstAidKits.find(k => k.id === selectedId) || null,
-    [selectedId, firstAidKits]
-  )
-
+  const navigate = useNavigate()
+  const firstAidKits = equipmentItems
   const categories = Array.from(new Set(firstAidKits.map(k => k.category)))
+
+  const handleCardClick = (equipmentId: string) => {
+    navigate(`/equipment/${equipmentId}`)
+  }
 
   return (
     <main>
@@ -56,12 +54,6 @@ export default function EquipmentPage() {
             </a>
           </div>
         </div>
-        {loading ? (
-          <div className="loading" style={{ textAlign: 'center', padding: '60px 20px' }}>
-            Cargando equipamiento...
-          </div>
-        ) : (
-        <>
         {categories.map(category => {
           const items = firstAidKits.filter(k => k.category === category)
           if (!items.length) return null
@@ -70,50 +62,26 @@ export default function EquipmentPage() {
               <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
               <div className="card-grid" aria-live="polite">
                 {items.map((kit, idx) => (
-                  <ItemCard
+                  <div
                     key={kit.id}
-                    title={kit.title}
-                    summary={kit.description}
-                    pills={kit.pills}
-                    itemNumber={idx + 1}
-                    onOpen={() => setSelectedId(kit.id)}
-                  />
+                    onClick={() => handleCardClick(kit.id)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <ItemCard
+                      title={kit.title}
+                      image={kit.cardImage}
+                      summary={kit.description}
+                      pills={kit.pills}
+                      itemNumber={idx + 1}
+                      onOpen={() => handleCardClick(kit.id)}
+                    />
+                  </div>
                 ))}
               </div>
             </section>
           )
         })}
-        </>
-        )}
       </section>
-
-      <ItemModal
-        open={!!selectedKit}
-        onClose={() => setSelectedId(null)}
-        title={selectedKit?.title}
-        subtitle={selectedKit?.category}
-        summary={selectedKit?.description}
-        pills={selectedKit?.pills}
-        images={selectedKit?.images}
-        sections={
-          selectedKit
-            ? selectedKit.contents.map((c: any) => ({
-                title: c.section,
-                content: c.items
-              }))
-            : undefined
-        }
-        customContent={
-          selectedKit?.benefits && selectedKit.benefits.length > 0 ? (
-            <div className="modal-list">
-              <h4>Beneficios</h4>
-              <ul>
-                {selectedKit.benefits.map((b: string, idx: number) => <li key={idx}>{b}</li>)}
-              </ul>
-            </div>
-          ) : undefined
-        }
-      />
     </main>
   )
 }
