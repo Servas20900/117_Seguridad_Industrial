@@ -81,7 +81,7 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
               <h2>Programas destacados</h2>
               <p className="lede">Una muestra de nuestros cursos más solicitados para respuesta ante emergencias.</p>
             </div>
-            <Link className="pill" to="/courses">Ver todos</Link>
+            <Link className="pill home-view-all" to="/courses">Ver todos</Link>
           </div>
           <div className="card-grid" aria-live="polite">
             {featuredCourses.map((course, idx) => (
@@ -105,7 +105,7 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
               <h2>Servicios destacados</h2>
               <p className="lede">Soluciones de cumplimiento y bienestar ocupacional para su organización.</p>
             </div>
-            <Link className="pill" to="/health">Ver todos</Link>
+            <Link className="pill home-view-all" to="/health">Ver todos</Link>
           </div>
           <div className="card-grid" aria-live="polite">
             {featuredHealth.map((service, idx) => (
@@ -133,7 +133,7 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
               <h2>Botiquines e insumos destacados</h2>
               <p className="lede">Elementos esenciales para fortalecer su capacidad de respuesta.</p>
             </div>
-            <Link className="pill" to="/equipment">Ver todos</Link>
+            <Link className="pill home-view-all" to="/equipment">Ver todos</Link>
           </div>
           <div className="card-grid" aria-live="polite">
             {featuredEquipment.map((item, idx) => (

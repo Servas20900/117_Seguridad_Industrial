@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import SafeImage from './SafeImage'
 
 export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; onToggle: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const logoNegroAmarillo = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903804/logo-negro-amarillo_uvlvgd.jpg'
+  const logoNegroBlanco = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903786/logo-negro-blanco_wxiszp.jpg'
+  const navbarLogo = theme === 'dark' ? logoNegroAmarillo : logoNegroBlanco
 
   const closeMenu = () => setMenuOpen(false)
+  const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
 
   return (
     <>
@@ -18,13 +23,19 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
           ☰
         </button>
         <div className="brand">
-          <Link to="/" className="brand-mark" aria-hidden="true">117</Link>
-          <div className="brand-text">
+          <Link to="/" className="brand-mark" aria-label="Ir al inicio" onClick={scrollToTop}>
+            <SafeImage
+              src={navbarLogo}
+              alt="117 Seguridad Industrial"
+              style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+            />
+          </Link>
+          <Link to="/" className="brand-text" aria-label="Ir al inicio" onClick={scrollToTop}>
             <span className="brand-name">Seguridad Industrial</span>
-          </div>
+          </Link>
         </div>
         <nav className="nav">
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end onClick={scrollToTop}>Home</NavLink>
           <NavLink to="/about">Quiénes somos</NavLink>
           <NavLink to="/courses">Cursos</NavLink>
           <NavLink to="/health">Salud ocupacional</NavLink>
@@ -41,7 +52,16 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
       <div className={`mobile-overlay ${menuOpen ? 'open' : ''}`} onClick={closeMenu} />
       <nav className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
         <button type="button" className="icon-btn close" aria-label="Cerrar menú" onClick={closeMenu}>✕</button>
-        <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
+        <NavLink
+          to="/"
+          end
+          onClick={() => {
+            closeMenu()
+            scrollToTop()
+          }}
+        >
+          Home
+        </NavLink>
         <NavLink to="/about" onClick={closeMenu}>Quiénes somos</NavLink>
         <NavLink to="/courses" onClick={closeMenu}>Cursos</NavLink>
         <NavLink to="/health" onClick={closeMenu}>Salud ocupacional</NavLink>

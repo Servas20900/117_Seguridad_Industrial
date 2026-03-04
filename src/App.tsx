@@ -29,6 +29,7 @@ export default function App() {
   useEffect(() => {
     // Track page view on route change
     trackPageView(location.pathname, document.title)
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname])
 
   return (

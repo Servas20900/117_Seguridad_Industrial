@@ -47,7 +47,8 @@ p { margin: 0; color: var(--text-subtle); }
 
 .topbar { position: sticky; top: 0; z-index: 100; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 16px 28px; background: color-mix(in srgb, var(--bg) 90%, var(--surface) 10%); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
 .brand { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
-.brand-mark { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); color: #0b0c10; display: grid; place-items: center; font-weight: 800; box-shadow: var(--shadow-soft); }
+.brand-mark { width: 46px; height: 46px; border-radius: 50%; background: transparent; display: grid; place-items: center; box-shadow: none; overflow: hidden; }
+.brand-text { text-decoration: none; display: inline-flex; align-items: center; }
 .brand-name { font-weight: 700; }
 .brand-tag { font-size: 0.82rem; color: var(--text-subtle); }
 
@@ -102,6 +103,8 @@ main { display: flex; flex-direction: column; gap: 32px; }
 .home-section-head h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin-bottom: 12px; }
 .home-section-head .lede { margin: 8px 0 0; }
 .home-section-head a { white-space: nowrap; flex-shrink: 0; }
+.home-view-all { background: var(--accent); border-color: var(--accent); color: #0b0c10; }
+.home-view-all:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: #0b0c10; }
 
 .about-grid, .card-grid, .contact-grid, .logo-wall { display: grid; gap: 16px; }
 .about-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 1100px; margin: 0 auto; }
@@ -484,6 +487,8 @@ input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: va
   .brand-text { font-size: 0.85rem; }
   .brand-tag { display: none; }
   .pill, .btn { width: 100%; justify-content: center; }
+  .home-section-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .home-section-head .home-view-all { width: auto; justify-content: center; align-self: flex-start; }
   .quick-grid { grid-template-columns: 1fr; }
   .logo-tile { width: 140px; font-size: 2rem; }
   .hero-copy h1 { font-size: 1.8rem; }
