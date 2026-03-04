@@ -8,6 +8,7 @@ import HealthServiceDetailPage from '../pages/HealthServiceDetailPage'
 import EquipmentPage from '../pages/EquipmentPage'
 import EquipmentDetailPage from '../pages/EquipmentDetailPage'
 import ContactPage from '../pages/ContactPage'
+import GalleryPage from '../pages/Gallery'
 
 export default function AppRoutes({ theme }: { theme: 'light' | 'dark' }) {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes({ theme }: { theme: 'light' | 'dark' }) {
       <Route path="/health" element={<HealthPage />} />
       <Route path="/health/:id" element={<HealthServiceDetailPage />} />
       <Route path="/equipment" element={<EquipmentPage />} />
+      <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/equipment/:id" element={<EquipmentDetailPage />} />
       <Route path="/contact" element={<ContactPage />} />
     </Routes>

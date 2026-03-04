@@ -21,7 +21,6 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
           <Link to="/" className="brand-mark" aria-hidden="true">117</Link>
           <div className="brand-text">
             <span className="brand-name">Seguridad Industrial</span>
-            <span className="brand-tag"> Capacitación • Salud • Equipamiento</span>
           </div>
         </div>
         <nav className="nav">
@@ -35,7 +34,7 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
           <button type="button" className="icon-btn" aria-label="Cambiar tema" onClick={onToggle}>
             <i className={`fas fa-${theme === 'dark' ? 'sun' : 'moon'}`}></i>
           </button>
-          <Link className="pill" to="/contact">Agendar</Link>
+          <Link className="pill" to="/contact">Contactar</Link>
         </div>
       </header>
 

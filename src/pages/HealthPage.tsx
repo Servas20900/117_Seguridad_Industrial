@@ -23,7 +23,7 @@ export default function HealthPage() {
           const items = occupationalHealthServices.filter(s => s.category === category)
           if (!items.length) return null
           return (
-            <section key={category} className="panel" style={{ padding: '0', marginBottom: '12px' }}>
+            <section key={category} className="panel" style={{ padding: '0 12px', margin: '0 auto 12px', maxWidth: '1200px' }}>
               <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
               <div className="card-grid" aria-live="polite">
                 {items.map((service, idx) => (

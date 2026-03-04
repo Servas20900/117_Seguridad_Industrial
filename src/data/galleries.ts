@@ -10,13 +10,13 @@ export const aboutGalleries: AboutGallery[] = [
     id: 'maniquies-rcp',
     title: 'Maniquíes de RCP',
     description: 'Simuladores de alta fidelidad para entrenamiento en técnicas de reanimación cardiopulmonar y compresiones torácicas.',
-    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg']
+    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1772604073/Curso_Contenido_Intermedio_1_mj6bvx.png']
   },
   {
     id: 'dea-entrenamiento',
     title: 'DEA de entrenamiento',
     description: 'Desfibriladores Externos Automáticos de práctica con electrodos de entrenamiento para familiarización segura.',
-    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg']
+    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1772604070/Curso_Contenido_Intermedio__2_1_t6hzwq.png']
   },
   {
     id: 'kits-suministros',
