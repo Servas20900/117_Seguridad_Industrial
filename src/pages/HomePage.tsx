@@ -5,6 +5,8 @@ import { equipmentItems } from '../data/equipment'
 import { healthServices } from '../data/healthServices'
 import CourseCard from '../components/CourseCard'
 import ItemCard from '../components/ItemCard'
+import { aboutGalleries } from '../data/galleries'
+import galleryItems from '../data/galleryItems'
 
 export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   const navigate = useNavigate()
@@ -16,6 +18,10 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   const featuredCourses = courses.slice(0, 3)
   const featuredEquipment = equipmentItems.slice(0, 3)
   const featuredHealth = healthServices.slice(0, 3)
+
+  // galleryItems
+  const materialGalleries = aboutGalleries.filter(gallery => gallery.id !== 'experiencias')
+  const previewGalleryItems = galleryItems.slice(0, 3)
 
   return (
     <main>
@@ -30,9 +36,9 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
             />
           </div>
           <div className="hero-copy">
-            <p className="eyebrow">Acreditación internacional • Asesoría y Capacitación de Brigadas • Servicio de Salud Ocupacional</p>
-            <h1>Gestión estratégica en Salud y Seguridad Ocupacional. </h1>
-            <p className="lede">Preparamos brigadas empresariales, planes técnicos y entrenamientos especializados alineados con normativa nacional e internacional, garantizando respuesta eficaz y cumplimiento regulatorio.</p>
+            <p className="eyebrow"> Capacitación certificada • Simulacros • Respuesta coordinada</p>
+            <h1>Entrenamiento real para emergencias reales.</h1>
+            <p className="lede">Preparamos brigadas y organizaciones para responder de forma segura y eficiente ante emergencias, con capacitación práctica en primeros auxilios, control de incendios, materiales peligrosos y administración de emergencias.</p>
             <br />
             <div className="cta-row" style={{ flexWrap: 'wrap' }}>
               <a
@@ -151,6 +157,57 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
           </div>
         </div>
       </section>
+
+      <section id="gallery-preview" className="panel">
+        <div className="panel-head">
+          <p className="eyebrow">Galería</p>
+          <h2>Evidencia de entrenamientos y acompañamiento en campo.</h2>
+          <p className="lede">Mostramos una vista previa de actividades reales para que conozca cómo trabajamos con cada empresa.</p>
+        </div>
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 12px' }}>
+          <div className="card-grid" aria-live="polite">
+            {previewGalleryItems.map((item) => (
+              <article key={item.id} className="info-card" style={{ width: '100%' }}>
+                <SafeImage
+                  src={item.image}
+                  alt={item.description}
+                  style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+                />
+              </article>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+            <Link
+              to="/gallery"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 16px',
+                backgroundColor: 'var(--accent)',
+                color: '#0b0c10',
+                borderRadius: 'var(--radius-md)',
+                textDecoration: 'none',
+                fontWeight: '700',
+                transition: 'transform var(--transition), box-shadow var(--transition)',
+                boxShadow: 'var(--shadow-soft)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
+              }}
+            >
+              <span>Ver más</span>
+            </Link>
+          </div>
+        </div>
+      </section> 
 
     </main>
   )
