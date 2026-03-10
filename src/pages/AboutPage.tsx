@@ -1,33 +1,32 @@
 import SafeImage from '../components/SafeImage'
 import ImageCarousel from '../components/ImageCarousel'
 import { Link } from 'react-router-dom'
-import { aboutGalleries } from '../data/galleries'
+import { materialDidacticoItems } from '../data/materialDidactico'
 import galleryItems from '../data/galleryItems'
 
-export default function AboutPage() {
-  const logoNegroAmarillo = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903804/logo-negro-amarillo_uvlvgd.jpg'
-  const logoNegroBlanco = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903786/logo-negro-blanco_wxiszp.jpg'
-  const materialGalleries = aboutGalleries.filter(gallery => gallery.id !== 'experiencias')
+export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
+  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoamarillo_nboosr.png'
+  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoletrasblancas_ciawmi.png'
   const previewGalleryItems = galleryItems.slice(0, 3)
 
   return (
     <main>
-      <section id="who-we-are" className="hero">
-        <div className="hero-content">
-          <div className="logo-tile" aria-hidden="true" style={{ background: 'transparent' }}>
-            <SafeImage
-              src={logoNegroAmarillo}
-              alt="117 Seguridad Industrial"
-              style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
-            />
-          </div>
+      <section id="who-we-are" className="hero hero--home">
+        <div className="hero-banner-frame" role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
+          <SafeImage
+            src={theme === 'dark' ? logoForDarkBackground : logoForLightBackground}
+            alt="117 Seguridad Industrial"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+
+        <div className="hero-content hero-content--home">
           <div className="hero-copy">
-            <h2>¿Quiénes Somos?</h2>
-            <br></br>
-            <p>En 117 Seguridad Industrial preparamos a las empresas para responder con seguridad, control y eficacia ante cualquier emergencia. Nos especializamos en capacitación y asesoría en Salud, Seguridad Ocupacional y manejo de emergencias, alineados con los protocolos de los entes de primera respuesta.</p>
-            <p>Transformamos la prevención en acción, fortaleciendo brigadas internas con entrenamiento técnico, práctico y actualizado. Nuestro compromiso es proteger vidas, reducir riesgos y garantizar operaciones seguras y confiables.</p>
-            <br></br>
-            <p><strong>Porque cuando la emergencia ocurre, estar preparados marca la diferencia.</strong></p>
+            <p className="eyebrow">Quiénes somos</p>
+            <h1 className="hero-title">Entrenamos equipos para actuar con seguridad cuando cada segundo cuenta.</h1>
+            <p className="lede hero-lede">En 117 Seguridad Industrial preparamos a las empresas para responder con control y eficacia ante cualquier emergencia. Nos especializamos en capacitación y asesoría en Salud, Seguridad Ocupacional y manejo de emergencias, alineados con protocolos de los entes de primera respuesta.</p>
+            <p className="lede hero-lede">Transformamos la prevención en acción, fortaleciendo brigadas internas con entrenamiento técnico, práctico y actualizado para proteger vidas, reducir riesgos y garantizar operaciones seguras y confiables.</p>
+            <p className="lede hero-lede"><strong>Porque cuando la emergencia ocurre, estar preparados marca la diferencia.</strong></p>
           </div>
         </div>
       </section>
@@ -76,13 +75,13 @@ export default function AboutPage() {
           <p className="lede">Equipamiento profesional para entrenamiento práctico en Primeros Auxilios, RCP, DEA y brigadas de emergencia.</p>
         </div>
 
-        {materialGalleries.map((gallery) => (
+        {materialDidacticoItems.map((gallery) => (
           <div
             key={gallery.id}
             style={{ marginBottom: '48px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}
           >
             <h3 style={{ marginBottom: '12px' }}>{gallery.title}</h3>
-            <p style={{ marginBottom: '24px', color: 'var(--text-secondary)' }}>{gallery.description}</p>
+            <p style={{ marginBottom: '24px', color: 'var(--text-subtle)' }}>{gallery.description}</p>
             <ImageCarousel images={gallery.images} alt={gallery.title} />
           </div>
         ))}

@@ -5,13 +5,12 @@ import { equipmentItems } from '../data/equipment'
 import { healthServices } from '../data/healthServices'
 import CourseCard from '../components/CourseCard'
 import ItemCard from '../components/ItemCard'
-import { aboutGalleries } from '../data/galleries'
 import galleryItems from '../data/galleryItems'
 
 export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   const navigate = useNavigate()
-  const logoNegroAmarillo = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903804/logo-negro-amarillo_uvlvgd.jpg'
-  const logoNegroBlanco = 'https://res.cloudinary.com/dcwxslhjf/image/upload/v1766903786/logo-negro-blanco_wxiszp.jpg'
+  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoamarillo_nboosr.png'
+  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoletrasblancas_ciawmi.png'
   const companyProfilePdf = '/perfil-empresa.pdf'
 
   // Get 3 first items from each category
@@ -19,27 +18,25 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   const featuredEquipment = equipmentItems.slice(0, 3)
   const featuredHealth = healthServices.slice(0, 3)
 
-  // galleryItems
-  const materialGalleries = aboutGalleries.filter(gallery => gallery.id !== 'experiencias')
   const previewGalleryItems = galleryItems.slice(0, 3)
 
   return (
     <main>
       {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-content">
-          <div className="logo-tile" aria-hidden="true" style={{ background: 'transparent' }}>
-            <SafeImage
-              src={theme === 'dark' ? logoNegroAmarillo : logoNegroBlanco}
-              alt="117 Seguridad Industrial"
-              style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
-            />
-          </div>
+      <section id="home" className="hero hero--home">
+        <div className="hero-banner-frame" role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
+          <SafeImage
+            src={theme === 'dark' ? logoForDarkBackground : logoForLightBackground}
+            alt="117 Seguridad Industrial"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+
+        <div className="hero-content hero-content--home">
           <div className="hero-copy">
             <p className="eyebrow"> Capacitación certificada • Simulacros • Respuesta coordinada</p>
-            <h1>Entrenamiento real para emergencias reales.</h1>
-            <p className="lede">Preparamos brigadas y organizaciones para responder de forma segura y eficiente ante emergencias, con capacitación práctica en primeros auxilios, control de incendios, materiales peligrosos y administración de emergencias.</p>
-            <br />
+            <h1 className="hero-title">Entrenamiento real para emergencias reales.</h1>
+            <p className="lede hero-lede">Preparamos brigadas y organizaciones para responder de forma segura y eficiente ante emergencias, con capacitación práctica en primeros auxilios, control de incendios, materiales peligrosos y administración de emergencias.</p>
             <div className="cta-row" style={{ flexWrap: 'wrap' }}>
               <a
                 href={companyProfilePdf}

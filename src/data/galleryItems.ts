@@ -7,12 +7,12 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   {
     id: 'gal-1',
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1772604073/Curso_Contenido_Intermedio_1_mj6bvx.png',
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773106269/Mu%C3%B1ecosRCP_h2h6te.jpg',
     description: 'Práctica de RCP con maniquíes de entrenamiento en sesión guiada.'
   },
   {
     id: 'gal-2',
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1772604070/Curso_Contenido_Intermedio__2_1_t6hzwq.png',
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773106269/DEA_s1ppkv.jpg',
     description: 'Entrenamiento con DEA de práctica y simulación de respuesta inicial.'
   },
   {
@@ -32,7 +32,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: 'gal-6',
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1772604073/Curso_Contenido_Intermedio_1_mj6bvx.png',
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773106269/botiquines_gskfay.jpg',
     description: 'Simulacros aplicados para evaluación de tiempos de respuesta del equipo.'
   }
 ]

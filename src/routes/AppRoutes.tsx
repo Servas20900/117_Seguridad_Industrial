@@ -14,7 +14,7 @@ export default function AppRoutes({ theme }: { theme: 'light' | 'dark' }) {
   return (
     <Routes>
       <Route path="/" element={<HomePage theme={theme} />} />
-      <Route path="/about" element={<AboutPage />} />
+      <Route path="/about" element={<AboutPage theme={theme} />} />
       <Route path="/courses" element={<CoursesPage />} />
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route path="/health" element={<HealthPage />} />
