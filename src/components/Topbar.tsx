@@ -36,9 +36,9 @@ export default function Topbar({ theme, onToggle }: { theme: 'light' | 'dark'; o
         </div>
         <nav className="nav">
           <NavLink to="/" end onClick={scrollToTop}>Home</NavLink>
-          <NavLink to="/about">Quiénes somos</NavLink>
+          <NavLink to="/about">Quiénes Somos</NavLink>
           <NavLink to="/courses">Cursos</NavLink>
-          <NavLink to="/health">Salud ocupacional</NavLink>
+          <NavLink to="/health">Salud Ocupacional</NavLink>
           <NavLink to="/equipment">Equipamiento</NavLink>
         </nav>
         <div className="actions">

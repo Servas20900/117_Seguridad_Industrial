@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import App from './App'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { initializeGA } from './utils/analytics'
 import './styles.css'
 
@@ -14,8 +14,8 @@ const rootEl = document.getElementById('root')
 if (rootEl) {
   const root = createRoot(rootEl)
   root.render(
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   )
 }

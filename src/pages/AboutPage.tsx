@@ -40,7 +40,7 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
         <div className="about-grid">
           <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
             <SafeImage
-              src="https://res.cloudinary.com/dcwxslhjf/image/upload/v1766947215/PYME_t20kuv.png"
+              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773451049/WhatsApp_Image_2026-03-13_at_7.15.24_PM_1_stfupb.jpg"
               alt="Sello PYME MEIC"
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />
@@ -52,7 +52,7 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
 
           <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
             <SafeImage
-              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773449093/WhatsApp_Image_2026-03-10_at_12.43.39_AM_4_z3uogm.jpg"
+              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450655/LogoAbout_qyqs2b.jpg"
               alt="Sello PYME MEIC"
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />
@@ -64,7 +64,7 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
 
           <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
             <SafeImage
-              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1772603348/aces_zwtmel.jpg"
+              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773451060/WhatsApp_Image_2026-03-13_at_7.15.24_PM_s8b5wc.jpg"
               alt="Sello PYME MEIC"
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />

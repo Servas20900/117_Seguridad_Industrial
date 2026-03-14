@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 interface DetailCTAProps {
   title: string
   description: string
@@ -17,9 +19,9 @@ export default function DetailCTA({
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
-      <a href={buttonHref} className="btn primary">
+      <Link to={buttonHref} className="btn primary">
         {buttonText}
-      </a>
+      </Link>
     </div>
   )
 }
