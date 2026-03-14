@@ -20,7 +20,7 @@ export const courses: Course[] = [
       'Manejo del atragantamiento en adulto y niño'
     ],
     pills: ['RCP', 'DEA', 'Atragantamiento', 'Ventilación'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773448563/Curso01_zlatla.jpg'
   },
   {
     id: 'pab',
@@ -43,7 +43,7 @@ export const courses: Course[] = [
       'Entrega segura del paciente a cuerpos de emergencia'
     ],
     pills: ['RCP con manos', 'DEA', 'Sangrados', 'Vendajes'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773448563/Curso02_z0jvwo.jpg'
   },
   {
     id: 'pae',
@@ -68,7 +68,7 @@ export const courses: Course[] = [
       'Entrega del paciente a personal de emergencia'
     ],
     pills: ['RCP con ventilación', 'Trauma', 'Emergencias médicas', 'Ambientales'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773448563/Curso03_nvy8ms.jpg'
   },
   {
     id: 'sangrados',
@@ -87,7 +87,7 @@ export const courses: Course[] = [
       'Reconocimiento y control de sangrados exanguinantes'
     ],
     pills: ['Sesión rápida', 'DEA', 'Sangrados'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773448562/Curso04_qsvcvr.jpg'
   },
   {
     id: 'recert',
@@ -110,8 +110,11 @@ export const courses: Course[] = [
       'Simulación integral para brigadas'
     ],
     pills: ['Recertificación', 'Simulacro', 'Brigadas'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773448563/Curso05_jsdmf3.jpg'
   },
+
+
+  
   {
     id: 'extintores',
     title: 'Manejo Básico de Extintores',

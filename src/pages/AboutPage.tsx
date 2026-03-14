@@ -23,7 +23,7 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
         <div className="hero-content hero-content--home">
           <div className="hero-copy">
             <p className="eyebrow">Quiénes somos</p>
-            <h1 className="hero-title">Entrenamos equipos para actuar con seguridad cuando cada segundo cuenta.</h1>
+            <h1 className="hero-title">Entrenamos personas para actuar con seguridad cuando cada segundo cuenta.</h1>
             <p className="lede hero-lede">En 117 Seguridad Industrial preparamos a las empresas para responder con control y eficacia ante cualquier emergencia. Nos especializamos en capacitación y asesoría en Salud, Seguridad Ocupacional y manejo de emergencias, alineados con protocolos de los entes de primera respuesta.</p>
             <p className="lede hero-lede">Transformamos la prevención en acción, fortaleciendo brigadas internas con entrenamiento técnico, práctico y actualizado para proteger vidas, reducir riesgos y garantizar operaciones seguras y confiables.</p>
             <p className="lede hero-lede"><strong>Porque cuando la emergencia ocurre, estar preparados marca la diferencia.</strong></p>
