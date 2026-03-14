@@ -133,7 +133,7 @@ export const courses: Course[] = [
       'Valoración del equipo existente en la empresa'
     ],
     pills: ['Fuego', 'Extintores', 'Seguridad'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773452865/Curos06_z9ugfw.jpg'
   },
   {
     id: 'mangueras',
@@ -155,7 +155,7 @@ export const courses: Course[] = [
       'Almacenamiento y recogida'
     ],
     pills: ['Mangueras', 'Operación', 'Seguridad'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773452868/Curos09_v8qn0c.jpg'
   },
   {
     id: 'brigadas',
@@ -173,7 +173,7 @@ export const courses: Course[] = [
       'Guías para la entrega de escena a cuerpos de emergencia'
     ],
     pills: ['Brigadas', 'Plan a medida', 'Incendios'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773452865/Curos07_efdgts.jpg'
   },
   {
     id: 'evaluativo',
@@ -192,8 +192,10 @@ export const courses: Course[] = [
       'Medición del nivel real de respuesta operativa'
     ],
     pills: ['Evaluación', 'Simulacro', 'Mejora continua'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
-  },
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773452866/Curos08_mmy6ei.jpg'
+  }
+  
+  ,
   {
     id: 'hazmat',
     title: 'Manejo Inicial de Incidentes con Materiales Peligrosos (HAZMAT)',
@@ -216,6 +218,6 @@ export const courses: Course[] = [
       'Coordinación con protocolos internos y externos'
     ],
     pills: ['HAZMAT', 'EPP', 'Contención', 'Simulación'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773453171/Curso10_r10zp0.jpg'
   }
 ]
