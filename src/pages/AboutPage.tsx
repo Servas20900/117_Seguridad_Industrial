@@ -49,9 +49,17 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
               <p>Somos una empresa PYME reconocida por el MEIC, especializada en metodologías prácticas orientadas a la acción. </p>
             </div>
           </article>
-          <article className="info-card">
-            <h3>Metodología práctica</h3>
-            <p>Aprender haciendo. Nuestra metodología práctica permite que cada participante experimente, ejecute y responda como si estuviera ante una emergencia real.</p>
+
+          <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
+            <SafeImage
+              src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773449093/WhatsApp_Image_2026-03-10_at_12.43.39_AM_4_z3uogm.jpg"
+              alt="Sello PYME MEIC"
+              style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
+            />
+            <div style={{ display: 'grid', gap: '6px' }}>
+              <h3 style={{ margin: 0 }}>Metodología práctica</h3>
+              <p> Aprender haciendo. Nuestra metodología práctica permite que cada participante experimente, ejecute y responda como si estuviera ante una emergencia real. </p>
+            </div>
           </article>
 
           <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
