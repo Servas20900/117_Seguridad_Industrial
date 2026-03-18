@@ -5,8 +5,8 @@ import { materialDidacticoItems } from '../data/materialDidactico'
 import galleryItems from '../data/galleryItems'
 
 export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
-  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoamarillo_nboosr.png'
-  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773107413/Logoletrasblancas_ciawmi.png'
+  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450868/Logoamarillo_nboosr_tmbqhv.png'
+  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
   const previewGalleryItems = galleryItems.slice(0, 3)
 
   return (
