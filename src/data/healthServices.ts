@@ -8,7 +8,7 @@ export const healthServices: HealthService[] = [
     standards: ['ISO', 'OSHA', 'INTE'],
     modality: 'En sitio',
     scope:
-      'Programas de formación orientados a la prevención de riesgos laborales, fortaleciendo la cultura de seguridad y bienestar dentro de la organización.',
+      'Ofrecemos programas de formación orientados a la prevención, donde los colaboradores junto con sus superiores se capacitan para identificar, controlar y eliminar riesgos, fortaleciendo una cultura organizacional de seguridad y bienestar.',
     includes: [
       'Identificación de riesgos laborales',
       'Control y eliminación de riesgos',
