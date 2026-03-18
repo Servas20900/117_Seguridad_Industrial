@@ -22,7 +22,7 @@ export const healthServices: HealthService[] = [
       'Fortalecimiento de la cultura organizacional'
     ],
     pills: ['Prevención', 'Riesgos laborales', 'Capacitación', 'Normativa'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450868/Logoamarillo_nboosr_tmbqhv.png'
   },
   {
     id: 'asesoria-tecnica-sso',
@@ -45,7 +45,7 @@ export const healthServices: HealthService[] = [
       'Mejor toma de decisiones'
     ],
     pills: ['SSO', 'Consultoría', 'Cumplimiento', 'Prevención'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
   },
   {
     id: 'planes-sso-emergencias',
@@ -69,7 +69,7 @@ export const healthServices: HealthService[] = [
       'Continuidad operativa'
     ],
     pills: ['Planes', 'Emergencias', 'Incendios', 'Residuos'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450868/Logoamarillo_nboosr_tmbqhv.png'
   },
   {
     id: 'estudios-higiene-industrial',
@@ -92,6 +92,6 @@ export const healthServices: HealthService[] = [
       'Prevención de enfermedades profesionales'
     ],
     pills: ['Ruido', 'Iluminación', 'Higiene industrial', 'Evaluación'],
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1770941513/logo-landing_sbryhs.jpg'
+    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
   }
 ]

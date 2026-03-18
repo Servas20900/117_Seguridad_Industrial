@@ -12,11 +12,6 @@ export const galleryItems: GalleryItem[] = [
     description: ''
   },
   {
-    id: 'gal-2',
-    image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773449093/WhatsApp_Image_2026-03-10_at_12.43.39_AM_4_z3uogm.jpg',
-    description: ''
-  },
-  {
     id: 'gal-3',
     image: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773809169/Galeria05_msncxz.jpg',
     description: ''

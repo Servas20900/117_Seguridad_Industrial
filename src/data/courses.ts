@@ -50,7 +50,7 @@ export const courses: Course[] = [
     title: 'Primeros Auxilios Estándares, RCP & DEA',
     category: 'Primeros Auxilios',
     accreditation: 'Acreditación Internacional',
-    duration: 'Duración: 24 horas',
+    duration: 'Duración: 8 horas',
     minimum: 'Mínimo: 5 personas',
     modality: 'En sitio',
     summary: 'Cobertura completa de primeros auxilios con RCP, DEA, trauma, emergencias médicas y ambientales.',
