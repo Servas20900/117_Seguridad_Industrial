@@ -12,11 +12,12 @@ export const materialDidacticoItems: MaterialDidacticoItem[] = [
     description: 'Simuladores de alta fidelidad para entrenamiento en técnicas de reanimación cardiopulmonar y compresiones torácicas.',
     images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1773449352/aboutequipo_zqquws.jpg']
   },
-  {
-    id: 'dea-entrenamiento',
-    title: 'DEA de entrenamiento',
-    description: 'Desfibriladores Externos Automáticos de práctica con electrodos de entrenamiento para familiarización segura.',
-    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1773449351/aboutdea_jw8fqx.jpg']
+
+    {
+    id: 'Brazo-Control-de-Sangrado',
+    title: 'Brazo de control de sangrado',
+    description: 'Simulador de alta fidelidad para entrenamiento en técnicas de control de sangrado y manejo de heridas.',
+    images: ['https://res.cloudinary.com/deqpuhfzt/image/upload/v1773809215/Brazo_ulppmh.jpg']
   },
   {
     id: 'kits-suministros',
