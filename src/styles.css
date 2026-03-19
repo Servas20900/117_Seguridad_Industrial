@@ -336,6 +336,45 @@ input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: va
 .modal.open { opacity: 1; pointer-events: auto; }
 .modal-content { position: relative; max-width: 720px; width: min(720px, 96vw); max-height: 90vh; overflow: auto; padding: 24px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-strong); display: grid; gap: 12px; }
 
+.gallery-image-button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.gallery-image-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+.gallery-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.gallery-zoom-content {
+  position: relative;
+  width: min(1100px, 100%);
+  max-height: 90vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background: color-mix(in srgb, var(--surface) 92%, #000 8%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .modal-list ul, .modal-list ul { list-style: disc; padding-left: 20px; display: grid; gap: 6px; }
 .contact-inline { padding: 12px; border-radius: var(--radius-md); background: var(--surface-strong); border: 1px solid var(--border); display: grid; gap: 8px; }
@@ -556,6 +595,8 @@ input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: va
   .panel { padding: 24px 16px; }
   .modal-content { padding: 18px; padding-top: 50px; }
   .icon-btn.close { top: 10px; right: 10px; z-index: 10; }
+  .gallery-zoom-overlay { padding: 12px; }
+  .gallery-zoom-content { padding: 12px; }
 }
 
 /* ========================================
