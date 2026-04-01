@@ -9,8 +9,8 @@ import galleryItems from '../data/galleryItems'
 
 export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   const navigate = useNavigate()
-  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450868/Logoamarillo_nboosr_tmbqhv.png'
-  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
+  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836272/Logo3_ipylvo.jpg'
+  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836271/Logo4_opdowt.jpg'
   const companyProfilePdf = '/perfil-empresa.pdf'
 
   // Get 3 first items from each category

@@ -16,9 +16,8 @@ export default function CoursesPage() {
         <div className="panel-head">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
             <div>
-              <p className="eyebrow">Cursos</p>
-              <h2>Capacitación con cartas de contenido claras.</h2>
-              <p className="lede">Cards con resumen y vista detallada con objetivos, duración y requisitos de cada programa.</p>
+              <p className="eyebrow">Cursos 117 Seguridad Industrial</p>
+              <h2>Programas de capacitación especializados</h2>
             </div>
             <a
               href="/catalogo-cursos.pdf"

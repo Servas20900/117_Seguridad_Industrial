@@ -44,9 +44,12 @@ export const equipmentItems: EquipmentItem[] = [
       'Organización eficiente de insumos de emergencia'
     ],
     pills: ['Botiquín', 'Primeros Auxilios', 'Emergencias', 'Sangrados'],
-    cardImage: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773810777/boti_dirot0.jpg',
+    cardImage: 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836249/AidKit_p9tgdz.jpg',
     images: [
-      'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773810777/boti_dirot0.jpg'
+      'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836249/AidKit_p9tgdz.jpg',
+      'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836248/AidKit2_y6euys.jpg',
+      'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836249/AidKit3_ke6tlg.jpg',
+      'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836248/AidKit4_w4gua3.jpg'
     ]
   }
 ]
