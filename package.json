@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "typecheck": "tsc --noEmit",
-    "preview": "vite preview",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "typecheck": "npx tsc --noEmit",
+    "preview": "npx vite preview",
+    "test": "npx vitest",
+    "test:ui": "npx vitest --ui",
+    "test:run": "npx vitest run",
+    "test:coverage": "npx vitest run --coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
