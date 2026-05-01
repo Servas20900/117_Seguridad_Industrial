@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "index.html",
+      "statusCode": 200
+    }
+  ],
+  "mimeTypes": {
+    ".woff2": "font/woff2"
+  },
+  "auth": {
+    "rolesSource": "/auth/me"
+  },
+  "navigationFallback": {
+    "rewrite": "index.html",
+    "exclude": [
+      "*.{css,scss,gif,jpeg,jpg,js,png,txt,svg,woff,woff2,ttf,otf}"
+    ]
+  }
+}
