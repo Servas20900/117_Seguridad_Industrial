@@ -20,7 +20,7 @@ export default function ContactPage() {
             <h3 className="m-0">{t('directChannels')}</h3>
             <ul className={contactList}>
               <li><a href="mailto:info@117securityindustrial.com">info@117securityindustrial.com</a></li>
-              <li><a href="tel:+50688053660">(506) 8805-3660</a> • <a href="https://wa.me/50688053660" target="_blank" rel="noopener">WhatsApp</a></li>
+              <li><a href="tel:+50672395067">(506) 7239-5067</a> • <a href="https://wa.me/50672395067" target="_blank" rel="noopener">WhatsApp</a></li>
               <li><a href="tel:+50688749761">(506) 8874-9761</a> • <a href="https://wa.me/50688749761" target="_blank" rel="noopener">WhatsApp</a></li>
             </ul>
             <p className={noteText}>{t('note')}</p>

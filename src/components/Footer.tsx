@@ -61,13 +61,13 @@ export default function Footer() {
               </p>
               <p className="m-0 mb-2 text-text-subtle">
                 <a
-                  href="https://wa.me/50688053660"
+                  href="https://wa.me/50672395067"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick()}
                   className={contactLinkClass}
                 >
-                  (506) 8805-3660
+                  (506) 7239-5067
                 </a>
               </p>
               <p className="m-0 text-text-subtle">
