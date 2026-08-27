@@ -1,0 +1,97 @@
+{
+  "page": {
+    "eyebrow": "Salud ocupacional",
+    "title": "Capacitaciones y cumplimiento",
+    "lede": "Soluciones integrales en salud y seguridad ocupacional adaptadas a las necesidades de tu organización."
+  },
+  "categories": {
+    "Salud y Seguridad Ocupacional": "Salud y Seguridad Ocupacional",
+    "Consultoría Técnica": "Consultoría Técnica",
+    "Planes y Gestión": "Planes y Gestión",
+    "Evaluación de Riesgos": "Evaluación de Riesgos"
+  },
+  "detail": {
+    "detailsTitle": "Detalles del Servicio",
+    "modality": "Modalidad",
+    "includesTitle": "¿Qué Incluye?",
+    "benefitsTitle": "Beneficios",
+    "standardsTitle": "Estándares y Normativa",
+    "keywordsTitle": "Palabras Clave",
+    "ctaTitle": "¿Interesado en este servicio?",
+    "ctaDescription": "Contáctanos para conocer cómo podemos ayudarte a implementar este servicio en tu organización.",
+    "backText": "Volver a salud ocupacional",
+    "notFoundType": "El servicio",
+    "notFoundText": "El servicio que buscas no existe."
+  },
+  "items": {
+    "capacitacion-salud-ocupacional": {
+      "title": "Capacitación en Salud Ocupacional",
+      "scope": "Ofrecemos programas de formación orientados a la prevención, donde los colaboradores junto con sus superiores se capacitan para identificar, controlar y eliminar riesgos, fortaleciendo una cultura organizacional de seguridad y bienestar.",
+      "includes": [
+        "Identificación de riesgos laborales",
+        "Control y eliminación de riesgos",
+        "Capacitación a colaboradores y supervisores",
+        "Enfoque preventivo ante enfermedades y accidentes laborales"
+      ],
+      "benefits": [
+        "Reducción de accidentes laborales",
+        "Cumplimiento normativo",
+        "Mejora del bienestar del personal",
+        "Fortalecimiento de la cultura organizacional"
+      ],
+      "pills": ["Prevención", "Riesgos laborales", "Capacitación", "Normativa"]
+    },
+    "asesoria-tecnica-sso": {
+      "title": "Asesoría Técnica Especializada en Salud Ocupacional",
+      "scope": "Asesoría profesional brindada por Ingenieros en Salud y Seguridad Ocupacional, Prevencionistas y Gestores Ambientales.",
+      "includes": [
+        "Diseño de planes estratégicos",
+        "Elaboración y ejecución de programas de salud ocupacional",
+        "Acompañamiento técnico continuo",
+        "Alineación con legislación vigente"
+      ],
+      "benefits": [
+        "Prevención de sanciones legales",
+        "Planes adaptados a la empresa",
+        "Soporte técnico especializado",
+        "Mejor toma de decisiones"
+      ],
+      "pills": ["SSO", "Consultoría", "Cumplimiento", "Prevención"]
+    },
+    "planes-sso-emergencias": {
+      "title": "Elaboración y Ejecución de Planes de Salud Ocupacional",
+      "scope": "Desarrollo de planes integrales ajustados a las necesidades reales de cada organización.",
+      "includes": [
+        "Planes de Salud Ocupacional",
+        "Planes de Preparativos y Respuesta ante Emergencias",
+        "Planes de Gestión Integral de Residuos",
+        "Planes Básicos de Protección Contra Incendios",
+        "Planes de Manejo de Derrames Químicos"
+      ],
+      "benefits": [
+        "Cumplimiento legal",
+        "Mejor organización ante emergencias",
+        "Reducción de riesgos humanos y materiales",
+        "Continuidad operativa"
+      ],
+      "pills": ["Planes", "Emergencias", "Incendios", "Residuos"]
+    },
+    "estudios-higiene-industrial": {
+      "title": "Estudios de Higiene Industrial",
+      "scope": "Evaluación técnica de las condiciones laborales para identificar factores que afectan la salud del trabajador.",
+      "includes": [
+        "Medición de ruido ocupacional y ambiental",
+        "Análisis de niveles de iluminación",
+        "Estudios de riesgos ocupacionales",
+        "Informes técnicos para toma de decisiones"
+      ],
+      "benefits": [
+        "Identificación temprana de riesgos",
+        "Mejora de condiciones laborales",
+        "Datos técnicos confiables",
+        "Prevención de enfermedades profesionales"
+      ],
+      "pills": ["Ruido", "Iluminación", "Higiene industrial", "Evaluación"]
+    }
+  }
+}

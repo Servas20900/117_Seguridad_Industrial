@@ -1,17 +1,34 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SafeImage from '../components/SafeImage'
-import { courses } from '../data/courses'
-import { equipmentItems } from '../data/equipment'
-import { healthServices } from '../data/healthServices'
 import CourseCard from '../components/CourseCard'
 import ItemCard from '../components/ItemCard'
+import Reveal from '../components/Reveal'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 import galleryItems from '../data/galleryItems'
+import { trackDownloadCatalog } from '../utils/analytics'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useLocalizedCourses from '../hooks/useLocalizedCourses'
+import useLocalizedHealthServices from '../hooks/useLocalizedHealthServices'
+import useLocalizedEquipment from '../hooks/useLocalizedEquipment'
+import {
+  eyebrow, lede, panel, panelHead,
+  heroSection, heroHome, heroBannerFrame, heroContentHome, heroCopyHome, heroTitle, heroLede, ctaRow,
+  homeSection, homeSectionHead, homeSectionHeadTitle, homeViewAll,
+  cardGrid, glassCard, btnPrimary
+} from '../styles/classNames'
 
-export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
+export default function HomePage() {
+  const { t } = useTranslation('home')
+  useDocumentTitle()
   const navigate = useNavigate()
-  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836272/Logo3_ipylvo.jpg'
-  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836271/Logo4_opdowt.jpg'
+  const { path } = useLocalizedPath()
+  const heroLogo = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1774836271/Logo4_opdowt.jpg'
   const companyProfilePdf = '/perfil-empresa.pdf'
+
+  const courses = useLocalizedCourses()
+  const equipmentItems = useLocalizedEquipment()
+  const healthServices = useLocalizedHealthServices()
 
   // Get 3 first items from each category
   const featuredCourses = courses.slice(0, 3)
@@ -23,96 +40,74 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
   return (
     <main>
       {/* Hero Section */}
-      <section id="home" className="hero hero--home">
-        <div className="hero-banner-frame" role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
+      <section id="home" className={`${heroSection} ${heroHome}`}>
+        <div className={heroBannerFrame} role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
           <SafeImage
-            src={theme === 'dark' ? logoForDarkBackground : logoForLightBackground}
+            src={heroLogo}
             alt="117 Seguridad Industrial"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
 
-        <div className="hero-content hero-content--home">
-          <div className="hero-copy">
-            <p className="eyebrow"> Capacitación certificada • Simulacros • Respuesta coordinada</p>
-            <h1 className="hero-title">Entrenamiento real para emergencias reales.</h1>
-            <p className="lede hero-lede">Preparamos brigadas y organizaciones para responder de forma segura y eficiente ante emergencias, con capacitación práctica en primeros auxilios, control de incendios, materiales peligrosos y administración de emergencias.</p>
-            <div className="cta-row" style={{ flexWrap: 'wrap' }}>
+        <div className={heroContentHome}>
+          <div className={heroCopyHome}>
+            <p className={eyebrow}> {t('hero.eyebrow')}</p>
+            <h1 className={heroTitle}>{t('hero.title')}</h1>
+            <p className={`${lede} ${heroLede} mt-3 mb-4.5`}>{t('hero.lede')}</p>
+            <div className={ctaRow}>
               <a
                 href={companyProfilePdf}
                 download="perfil-empresa.pdf"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 18px',
-                  backgroundColor: 'var(--accent)',
-                  color: '#0b0c10',
-                  border: 'none',
-                  borderRadius: 'var(--radius-md)',
-                  textDecoration: 'none',
-                  fontWeight: '700',
-                  transition: 'transform var(--transition), box-shadow var(--transition)',
-                  cursor: 'pointer',
-                  boxShadow: 'var(--shadow-soft)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)'
-                  e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-                }}
-                title="Descargar perfil de empresa"
-                aria-label="Descargar perfil de empresa"
+                onClick={() => trackDownloadCatalog()}
+                className={btnPrimary}
+                title={t('hero.downloadProfile')}
+                aria-label={t('hero.downloadProfile')}
               >
                 <i className="fas fa-download" aria-hidden="true"></i>
-                <span>Perfil de Empresa</span>
+                <span>{t('hero.downloadProfile')}</span>
               </a>
-
             </div>
           </div>
         </div>
       </section>
 
-      <section className="panel">
-        <div className="home-section">
-          <div className="home-section-head">
+      <section className={panel}>
+        <Reveal className={homeSection}>
+          <div className={homeSectionHead}>
             <div>
-              <p className="eyebrow">Cursos</p>
-              <h2>Programas destacados</h2>
-              <p className="lede">Una muestra de nuestros cursos más solicitados para respuesta ante emergencias.</p>
+              <p className={eyebrow}>{t('coursesSection.eyebrow')}</p>
+              <h2 className={homeSectionHeadTitle}>{t('coursesSection.title')}</h2>
+              <p className={lede}>{t('coursesSection.lede')}</p>
             </div>
-            <Link className="pill home-view-all" to="/courses">Ver todos</Link>
+            <Link className={`${btnPrimary} ${homeViewAll}`} to={path('/courses')}>{t('buttons.viewAll', { ns: 'common' })}</Link>
           </div>
-          <div className="card-grid" aria-live="polite">
+          <div className={cardGrid} aria-live="polite">
             {featuredCourses.map((course, idx) => (
-              <div key={course.id} style={{ width: '100%', cursor: 'pointer' }}>
+              <div key={course.id} className="w-full cursor-pointer">
                 <CourseCard
                   course={course}
                   programNumber={idx + 1}
-                  onOpen={() => navigate(`/courses/${course.id}`)}
+                  onOpen={() => navigate(path(`/courses/${course.id}`))}
                 />
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="panel">
-        <div className="home-section">
-          <div className="home-section-head">
+      <section className={panel}>
+        <Reveal className={homeSection}>
+          <div className={homeSectionHead}>
             <div>
-              <p className="eyebrow">Salud ocupacional</p>
-              <h2>Servicios destacados</h2>
-              <p className="lede">Soluciones de cumplimiento y bienestar ocupacional para su organización.</p>
+              <p className={eyebrow}>{t('healthSection.eyebrow')}</p>
+              <h2 className={homeSectionHeadTitle}>{t('healthSection.title')}</h2>
+              <p className={lede}>{t('healthSection.lede')}</p>
             </div>
-            <Link className="pill home-view-all" to="/health">Ver todos</Link>
+            <Link className={`${btnPrimary} ${homeViewAll}`} to={path('/health')}>{t('buttons.viewAll', { ns: 'common' })}</Link>
           </div>
-          <div className="card-grid" aria-live="polite">
+          <div className={cardGrid} aria-live="polite">
             {featuredHealth.map((service, idx) => (
-              <div key={service.id} style={{ width: '100%', cursor: 'pointer' }}>
+              <div key={service.id} className="w-full cursor-pointer">
                 <ItemCard
                   title={service.title}
                   image={service.image}
@@ -120,91 +115,70 @@ export default function HomePage({ theme }: { theme: 'light' | 'dark' }) {
                   summary={service.scope}
                   pills={service.pills}
                   itemNumber={idx + 1}
-                  onOpen={() => navigate(`/health/${service.id}`)}
+                  onOpen={() => navigate(path(`/health/${service.id}`))}
                 />
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="panel">
-        <div className="home-section">
-          <div className="home-section-head">
+      <section className={panel}>
+        <Reveal className={homeSection}>
+          <div className={homeSectionHead}>
             <div>
-              <p className="eyebrow">Equipamiento</p>
-              <h2>Botiquines e insumos destacados</h2>
-              <p className="lede">Elementos esenciales para fortalecer su capacidad de respuesta.</p>
+              <p className={eyebrow}>{t('equipmentSection.eyebrow')}</p>
+              <h2 className={homeSectionHeadTitle}>{t('equipmentSection.title')}</h2>
+              <p className={lede}>{t('equipmentSection.lede')}</p>
             </div>
-            <Link className="pill home-view-all" to="/equipment">Ver todos</Link>
+            <Link className={`${btnPrimary} ${homeViewAll}`} to={path('/equipment')}>{t('buttons.viewAll', { ns: 'common' })}</Link>
           </div>
-          <div className="card-grid" aria-live="polite">
+          <div className={cardGrid} aria-live="polite">
             {featuredEquipment.map((item, idx) => (
-              <div key={item.id} style={{ width: '100%', cursor: 'pointer' }}>
+              <div key={item.id} className="w-full cursor-pointer">
                 <ItemCard
                   title={item.title}
                   image={item.cardImage}
                   summary={item.description}
                   pills={item.pills}
                   itemNumber={idx + 1}
-                  onOpen={() => navigate(`/equipment/${item.id}`)}
+                  onOpen={() => navigate(path(`/equipment/${item.id}`))}
                 />
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section id="gallery-preview" className="panel">
-        <div className="panel-head">
-          <p className="eyebrow">Galería</p>
-          <h2>Evidencia de entrenamientos y acompañamiento en campo.</h2>
-          <p className="lede">Mostramos una vista previa de actividades reales para que conozca cómo trabajamos con cada empresa.</p>
-        </div>
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 12px' }}>
-          <div className="card-grid" aria-live="polite">
-            {previewGalleryItems.map((item) => (
-              <article key={item.id} className="info-card" style={{ width: '100%' }}>
-                <SafeImage
-                  src={item.image}
-                  alt={item.description}
-                  style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
-                />
-              </article>
-            ))}
+      <section id="gallery-preview" className={panel}>
+        <Reveal>
+          <div className={panelHead}>
+            <p className={eyebrow}>{t('gallerySection.eyebrow')}</p>
+            <h2 className="mb-2.5 text-[clamp(1.6rem,3vw,2.2rem)] tracking-tight">{t('gallerySection.title')}</h2>
+            <p className={lede}>{t('gallerySection.lede')}</p>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <Link
-              to="/gallery"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 16px',
-                backgroundColor: 'var(--accent)',
-                color: '#0b0c10',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                transition: 'transform var(--transition), box-shadow var(--transition)',
-                boxShadow: 'var(--shadow-soft)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-              }}
-            >
-              <span>Ver más</span>
-            </Link>
+          <div className="mx-auto max-w-[1200px] px-3">
+            <div className={cardGrid} aria-live="polite">
+              {previewGalleryItems.map((item) => (
+                <article key={item.id} className={`${glassCard} w-full`}>
+                  <SafeImage
+                    src={item.image}
+                    alt={item.description}
+                    style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+                  />
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-5 flex justify-center">
+              <Link to={path('/gallery')} className={btnPrimary}>
+                <span>{t('buttons.viewMore', { ns: 'common' })}</span>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section> 
+        </Reveal>
+      </section>
 
     </main>
   )

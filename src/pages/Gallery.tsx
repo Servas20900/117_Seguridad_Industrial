@@ -1,11 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import Lightbox from 'yet-another-react-lightbox'
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails'
+import 'yet-another-react-lightbox/styles.css'
+import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import SafeImage from '../components/SafeImage'
 import galleryItems from '../data/galleryItems'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import { eyebrow, lede, panel, panelHead, panelHeadTitle, btnGhost, cardGrid, glassCard } from '../styles/classNames'
 
 export default function GalleryPage() {
-	const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null)
+	const { t } = useTranslation('gallery')
+	useDocumentTitle(t('eyebrow'))
+	const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 	const navigate = useNavigate()
+	const { path } = useLocalizedPath()
 
 	const handleBack = () => {
 		if (window.history.length > 1) {
@@ -13,78 +25,57 @@ export default function GalleryPage() {
 			return
 		}
 
-		navigate('/')
+		navigate(path('/'))
 	}
 
-	useEffect(() => {
-		if (!selectedImage) return
-
-		const onKeyDown = (event: KeyboardEvent) => {
-			if (event.key === 'Escape') {
-				setSelectedImage(null)
-			}
-		}
-
-		window.addEventListener('keydown', onKeyDown)
-		return () => window.removeEventListener('keydown', onKeyDown)
-	}, [selectedImage])
-
-	const closeModal = () => setSelectedImage(null)
+	const slides = galleryItems.map((item) => ({
+		src: item.image,
+		alt: item.description || t('fallbackAlt')
+	}))
 
 	return (
 		<main>
-			<section id="gallery" className="panel">
-				<div className="panel-head">
-					<button type="button" className="btn ghost" onClick={handleBack} style={{ marginBottom: '14px' }}>
+			<section id="gallery" className={panel}>
+				<div className={panelHead}>
+					<button type="button" className={`${btnGhost} mb-3.5`} onClick={handleBack}>
 						<i className="fas fa-arrow-left" aria-hidden="true"></i>
-						<span>Volver</span>
+						<span>{t('back')}</span>
 					</button>
-					<p className="eyebrow">Galería</p>
-					<h2>Evidencia visual de nuestros procesos de capacitación.</h2>
-					<p className="lede">Cada carta muestra una imagen y una breve descripción de actividades reales realizadas con empresas.</p>
+					<p className={eyebrow}>{t('eyebrow')}</p>
+					<h2 className={panelHeadTitle}>{t('title')}</h2>
+					<p className={lede}>{t('lede')}</p>
 				</div>
 
-				<div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 12px' }}>
-					<div className="card-grid" aria-live="polite">
-						{galleryItems.map((item) => (
-							<article key={item.id} className="info-card" style={{ width: '100%' }}>
+				<div className="mx-auto max-w-[1200px] px-3">
+					<div className={cardGrid} aria-live="polite">
+						{galleryItems.map((item, index) => (
+							<article key={item.id} className={`${glassCard} w-full`}>
 								<button
 									type="button"
-									onClick={() => setSelectedImage({ src: item.image, alt: item.description || 'Imagen de galeria' })}
+									onClick={() => setLightboxIndex(index)}
 									className="gallery-image-button"
-									aria-label="Ver imagen en grande"
+									aria-label={t('viewLarger')}
 								>
 									<SafeImage
 										src={item.image}
-										alt={item.description || 'Imagen de galeria'}
+										alt={item.description || t('fallbackAlt')}
 										style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
 									/>
 								</button>
-								<p style={{ marginTop: '10px' }}>{item.description}</p>
+								<p className="mt-2.5">{item.description}</p>
 							</article>
 						))}
 					</div>
 				</div>
 			</section>
 
-			{selectedImage && (
-				<div
-					className="gallery-zoom-overlay"
-					onClick={closeModal}
-					role="dialog"
-					aria-modal="true"
-					aria-label="Vista ampliada de imagen"
-				>
-					<div className="gallery-zoom-content" onClick={(event) => event.stopPropagation()}>
-						<button type="button" className="icon-btn close" onClick={closeModal} aria-label="Cerrar imagen ampliada">✕</button>
-						<SafeImage
-							src={selectedImage.src}
-							alt={selectedImage.alt}
-							style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: 'var(--radius-md)' }}
-						/>
-					</div>
-				</div>
-			)}
+			<Lightbox
+				open={lightboxIndex !== null}
+				close={() => setLightboxIndex(null)}
+				index={lightboxIndex ?? 0}
+				slides={slides}
+				plugins={[Zoom, Thumbnails]}
+			/>
 		</main>
 	)
 }

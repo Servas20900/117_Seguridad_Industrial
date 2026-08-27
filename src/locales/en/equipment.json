@@ -1,0 +1,61 @@
+{
+  "page": {
+    "eyebrow": "Equipment",
+    "title": "First aid kits and supplies, ready to deploy.",
+    "lede": "Manage first aid kit lists, refills, and specialized kits for your emergency needs.",
+    "downloadCatalog": "Kit Catalog",
+    "downloadCatalogTitle": "Download the first aid kit brochure (PDF)",
+    "downloadCatalogAria": "Download first aid kit brochure"
+  },
+  "categories": {
+    "Equipamiento de Emergencias": "Emergency Equipment"
+  },
+  "detail": {
+    "specsTitle": "Specifications",
+    "contentsTitle": "{{title}} Contents",
+    "benefitsTitle": "Benefits",
+    "featuresTitle": "Features",
+    "ctaTitle": "Need this equipment?",
+    "ctaDescription": "Contact us for quotes and availability.",
+    "backText": "Back to equipment",
+    "notFoundType": "This equipment",
+    "notFoundText": "The equipment you're looking for doesn't exist."
+  },
+  "items": {
+    "botiquin-primeros-auxilios": {
+      "title": "First Aid Kit",
+      "description": "A kit designed for initial emergency care, enabling a fast, safe, and organized response to workplace incidents.",
+      "sections": {
+        "Equipo de Protección": {
+          "title": "Protective Equipment",
+          "items": ["Protective gloves", "Face masks", "Hand sanitizer"]
+        },
+        "Control de Sangrados": {
+          "title": "Bleeding Control",
+          "items": [
+            "Trauma tourniquet",
+            "Sterile dressings",
+            "Rolled gauze",
+            "Abdominal pad",
+            "Blunt-tip scissors",
+            "Saline solution",
+            "Adhesive bandages",
+            "Elastic bandages",
+            "Medical tape"
+          ]
+        },
+        "Equipos Varios": {
+          "title": "Miscellaneous Supplies",
+          "items": ["Thermal blanket", "Tongue depressors", "Applicators", "Cotton", "Waste disposal bag"]
+        }
+      },
+      "benefits": [
+        "Immediate care for injuries and bleeding",
+        "Reduced risk during initial response",
+        "Essential support for brigades and first responders",
+        "Efficient organization of emergency supplies"
+      ],
+      "pills": ["First Aid Kit", "First Aid", "Emergencies", "Bleeding"]
+    }
+  }
+}

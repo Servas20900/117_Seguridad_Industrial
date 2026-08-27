@@ -1,10 +1,17 @@
+import { useTranslation } from 'react-i18next'
 import type { Course } from '../types/entities'
 import SafeImage from './SafeImage'
+import {
+  card, cardImageWrap, cardImage, cardBadge, cardContent, cardTitle, cardSummary,
+  cardMetaRow, cardMetaPill, cardFooter, cardAction
+} from '../styles/classNames'
 
 export default function CourseCard({ course, onOpen, programNumber }: { course: Course; onOpen: () => void; programNumber: number }) {
+  const { t } = useTranslation('common')
+
   return (
     <article
-      className="card"
+      className={card}
       onClick={onOpen}
       role="button"
       tabIndex={0}
@@ -12,7 +19,7 @@ export default function CourseCard({ course, onOpen, programNumber }: { course: 
     >
       {/* Imagen del curso */}
       {course.image && (
-        <div className="card-image">
+        <div className={cardImageWrap}>
           <SafeImage
             src={course.image}
             alt={course.title}
@@ -22,24 +29,25 @@ export default function CourseCard({ course, onOpen, programNumber }: { course: 
       )}
 
       {/* Badge */}
-      <span className="badge">P{programNumber}</span>
+      <span className={cardBadge}>P{programNumber}</span>
 
       {/* Contenido */}
-      <div className="card-content">
-        <h3>{course.title}</h3>
-        <p className="card-summary">{course.summary}</p>
-        {course.modality && (
-          <p className="card-meta">
-            <span>{course.modality}</span>
-            <span>{course.duration.split(':')[1]?.trim()}</span>
+      <div className={cardContent}>
+        <h3 className={cardTitle}>{course.title}</h3>
+        <p className={cardSummary}>{course.summary}</p>
+        {(course.modality || course.duration || course.price) && (
+          <p className={cardMetaRow}>
+            {course.modality && <span className={cardMetaPill}>{course.modality}</span>}
+            {course.duration && <span className={cardMetaPill}>{course.duration.split(':')[1]?.trim() ?? course.duration}</span>}
+            {course.price && <span className={cardMetaPill}>{course.price}</span>}
           </p>
         )}
       </div>
 
       {/* Footer */}
-      <div className="card-footer">
-        <button className="card-action" type="button">
-          Ver detalles
+      <div className={cardFooter}>
+        <button className={cardAction} type="button">
+          {t('buttons.viewDetails')}
         </button>
       </div>
     </article>

@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "eyebrow": "Certified training • Drills • Coordinated response",
+    "title": "Real training for real emergencies.",
+    "lede": "We prepare brigades and organizations to respond safely and efficiently to emergencies, with hands-on training in first aid, fire control, hazardous materials, and emergency management.",
+    "downloadProfile": "Company Profile"
+  },
+  "coursesSection": {
+    "eyebrow": "Courses",
+    "title": "Featured programs",
+    "lede": "A sample of our most requested emergency-response courses."
+  },
+  "healthSection": {
+    "eyebrow": "Occupational health",
+    "title": "Featured services",
+    "lede": "Comprehensive compliance and occupational wellness solutions for your organization."
+  },
+  "equipmentSection": {
+    "eyebrow": "Equipment",
+    "title": "Featured kits and supplies",
+    "lede": "Essential items to strengthen your response capacity."
+  },
+  "gallerySection": {
+    "eyebrow": "Gallery",
+    "title": "Evidence of our training and on-site support.",
+    "lede": "A preview of real activities so you can see how we work with each company."
+  }
+}

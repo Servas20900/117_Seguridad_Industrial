@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "courses": "Courses",
+    "health": "Occupational Health",
+    "equipment": "Equipment",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "contactMobile": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "buttons": {
+    "viewDetails": "View details",
+    "viewAll": "View all",
+    "viewMore": "View more",
+    "back": "Back",
+    "requestInfo": "Request Information"
+  },
+  "footer": {
+    "brandDescription": "Specialists in training, consulting, and equipment for occupational safety and emergency response.",
+    "credentials": "MEIC SME Seal • International Accreditation",
+    "servicesTitle": "Services",
+    "aboutLink": "About Us",
+    "trainingLink": "Training",
+    "equipmentLink": "Equipment",
+    "healthLink": "Occupational Health",
+    "galleryLink": "Gallery",
+    "resourcesTitle": "Resources",
+    "companyProfile": "Company Profile",
+    "coursesCatalog": "Course Catalog",
+    "firstAidKitCatalog": "First Aid Kit Catalog",
+    "contactTitle": "Contact",
+    "copyright": "117 Seguridad Industrial. All rights reserved."
+  },
+  "notFound": {
+    "error": "Error",
+    "title": "{{type}} not found"
+  },
+  "modalities": {
+    "En sitio": "On-site",
+    "Consultoría": "Consulting",
+    "Teórico-práctico": "Theoretical-practical",
+    "Teórico-operativo": "Theoretical-operational"
+  },
+  "accreditations": {
+    "Acreditación Internacional": "International Accreditation",
+    "Teórico-práctico": "Theoretical-practical",
+    "Plan a medida": "Custom plan",
+    "Evaluación operativa": "Operational evaluation",
+    "Especializado": "Specialized"
+  },
+  "standards": {
+    "Legislación Nacional": "National Legislation",
+    "Normativa Nacional": "National Regulations",
+    "Buenas Prácticas Internacionales": "International Best Practices"
+  },
+  "whatsapp": {
+    "ariaLabel": "Contact us on WhatsApp",
+    "title": "Contact us: (506) 8874-9761"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switchTo": "Switch language"
+  }
+}

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { infoStatCard, infoStatCardHighlighted, infoStatLabel, infoStatValue } from '../styles/classNames'
 
 interface InfoCardProps {
   label: string
@@ -8,9 +9,9 @@ interface InfoCardProps {
 
 export default function InfoCard({ label, value, highlighted = false }: InfoCardProps) {
   return (
-    <div className={`info-card ${highlighted ? 'highlighted' : ''}`}>
-      <p className="info-card-label">{label}</p>
-      <p className="info-card-value">{value}</p>
+    <div className={`${infoStatCard} ${highlighted ? infoStatCardHighlighted : ''}`}>
+      <p className={infoStatLabel}>{label}</p>
+      <p className={infoStatValue}>{value}</p>
     </div>
   )
 }

@@ -1,0 +1,231 @@
+{
+  "page": {
+    "eyebrow": "Cursos 117 Seguridad Industrial",
+    "title": "Programas de capacitación especializados",
+    "downloadCatalog": "Descargar Catálogo",
+    "downloadCatalogTitle": "Descargar catálogo de cursos en PDF",
+    "downloadCatalogAria": "Descargar catálogo de cursos",
+    "allCategories": "Todos los cursos"
+  },
+  "categories": {
+    "Primeros Auxilios": "Primeros Auxilios",
+    "Control de Incendios": "Control de Incendios",
+    "Manejo de Materiales Peligrosos": "Manejo de Materiales Peligrosos"
+  },
+  "detail": {
+    "infoTitle": "Información del Curso",
+    "modality": "Modalidad",
+    "notSpecified": "No especificada",
+    "accreditation": "Acreditación",
+    "investment": "Inversión",
+    "tbdNote": "Duración y mínimo de participantes: a confirmar con 117 Seguridad Industrial.",
+    "topicsTitle": "Temas a Cubrir",
+    "keywordsTitle": "Palabras Clave",
+    "ctaTitle": "¿Interesado en este curso?",
+    "ctaDescription": "Contáctanos para más información y disponibilidad de fechas.",
+    "backText": "Volver a cursos",
+    "notFoundType": "El curso",
+    "notFoundText": "El curso que buscas no existe."
+  },
+  "items": {
+    "rcp-obstruccion": {
+      "title": "Reanimación cardiopulmonar y obstrucción de vía aérea",
+      "summary": "Entrenamiento en RCP, uso del DEA y manejo de atragantamientos en adultos y niños.",
+      "duration": "Duración: 6 horas",
+      "minimum": "Mínimo: 5 personas",
+      "price": "₡30.000 por persona",
+      "topics": [
+        "Pasos iniciales ante una emergencia",
+        "Reconocimiento del paciente en parada cardiorrespiratoria y atragantamiento",
+        "Activación del sistema de emergencias",
+        "Compresiones torácicas en adulto y niño",
+        "Uso del desfibrilador externo automático (DEA)",
+        "Uso del dispositivo de ventilación",
+        "Manejo del atragantamiento en adulto y niño"
+      ],
+      "pills": ["RCP", "DEA", "Atragantamiento", "Ventilación"]
+    },
+    "pab": {
+      "title": "Primeros Auxilios Básicos, RCP & DEA",
+      "summary": "Respuesta inicial ante emergencias con RCP solo manos, uso de DEA y control de sangrados.",
+      "duration": "Duración: 8 horas",
+      "minimum": "Mínimo: 5 personas",
+      "price": "₡34.000 por persona",
+      "topics": [
+        "Pasos iniciales y activación del sistema de emergencias",
+        "Reconocimiento de paro cardiorrespiratorio",
+        "RCP solo con manos en adultos y niños",
+        "Uso del DEA y manejo de atragantamientos",
+        "Control de sangrados exanguinantes",
+        "Vendajes, quemaduras y heridas en tórax y abdomen",
+        "Inmovilización de extremidades",
+        "Reconocimiento de emergencias médicas (infartos, ACV, convulsiones, asma, hipoglicemia)",
+        "Entrega segura del paciente a cuerpos de emergencia"
+      ],
+      "pills": ["RCP con manos", "DEA", "Sangrados", "Vendajes"]
+    },
+    "pae": {
+      "title": "Primeros Auxilios Estándares, RCP & DEA",
+      "summary": "Cobertura completa de primeros auxilios con RCP, DEA, trauma, emergencias médicas y ambientales.",
+      "duration": "Duración: 8 horas",
+      "minimum": "Mínimo: 5 personas",
+      "price": "₡55.000 por persona",
+      "topics": [
+        "Anatomía y fisiología básica",
+        "Evaluación de la escena y del paciente",
+        "Aspectos éticos y legales",
+        "RCP en adultos y niños con compresiones y ventilaciones",
+        "Uso del DEA y manejo de atragantamientos",
+        "Control de sangrados, vendajes y lesiones en tórax y abdomen",
+        "Manejo de quemaduras y traumas contusos",
+        "Restricción de movimiento espinal y signos vitales",
+        "Emergencias médicas (ACV, infartos, convulsiones, asma, hipoglicemia)",
+        "Emergencias ambientales y atención de partos",
+        "Entrega del paciente a personal de emergencia"
+      ],
+      "pills": ["RCP con ventilación", "Trauma", "Emergencias médicas", "Ambientales"]
+    },
+    "sangrados": {
+      "title": "Sangrados, RCP & DEA",
+      "summary": "Entrenamiento breve en RCP solo manos, uso de DEA y control de sangrados críticos.",
+      "duration": "Duración: 4 horas",
+      "minimum": "Mínimo: 5 personas",
+      "price": "₡20.000 por persona",
+      "topics": [
+        "Activación del sistema de emergencias",
+        "Reconocimiento del paro cardiorrespiratorio",
+        "RCP solo con manos",
+        "Uso del DEA",
+        "Reconocimiento y control de sangrados exanguinantes"
+      ],
+      "pills": ["Sesión rápida", "DEA", "Sangrados"]
+    },
+    "recert": {
+      "title": "Recertificación en Primeros Auxilios, RCP y DEA",
+      "summary": "Simulaciones y estaciones prácticas para brigadas que requieren recertificación.",
+      "duration": "Duración: 8 horas",
+      "minimum": "Mínimo: 5 personas",
+      "price": "₡40.000 por persona",
+      "topics": [
+        "Simulacro y evaluación del personal de brigada",
+        "RCP y DEA",
+        "Obstrucción de vía aérea",
+        "Control de sangrados",
+        "Vendajes en trauma de tórax y abdomen",
+        "Inmovilización y manejo de trauma",
+        "Restricción de movimiento espinal",
+        "Emergencias médicas",
+        "Simulación integral para brigadas"
+      ],
+      "pills": ["Recertificación", "Simulacro", "Brigadas"]
+    },
+    "extintores": {
+      "title": "Manejo Básico de Extintores",
+      "summary": "Uso seguro de extintores, tipos de combustibles y métodos de extinción.",
+      "duration": "Duración: 3 a 4 horas",
+      "minimum": "Grupo sugerido: 10-20 personas",
+      "price": "₡14.000 por participante",
+      "topics": [
+        "Química del fuego y tipos de combustibles",
+        "Tipos de extintores",
+        "Métodos de extinción",
+        "Normas de seguridad",
+        "Inspección, mantenimiento y recarga",
+        "Valoración del equipo existente en la empresa"
+      ],
+      "pills": ["Fuego", "Extintores", "Seguridad"]
+    },
+    "mangueras": {
+      "title": "Uso de Mangueras Contra Incendios",
+      "summary": "Práctica guiada sobre despliegue, conexión y avance con mangueras contra incendio.",
+      "duration": "Duración: 3 a 4 horas",
+      "minimum": "Grupo sugerido: 10-20 personas",
+      "price": "₡14.000 por participante",
+      "topics": [
+        "Tipos de mangueras y sus características",
+        "Componentes del sistema",
+        "Inspección y mantenimiento",
+        "Despliegue y conexión",
+        "Técnicas de avance y ataque",
+        "Trabajo en equipo y comunicación",
+        "Seguridad durante la operación",
+        "Almacenamiento y recogida"
+      ],
+      "pills": ["Mangueras", "Operación", "Seguridad"]
+    },
+    "brigadas": {
+      "title": "Capacitación para Brigadas de Emergencia",
+      "summary": "Entrenamiento integral de brigadas: extintores, mangueras, sistemas fijos y entrega de escena.",
+      "duration": "Duración según diagnóstico",
+      "minimum": "Costo según alcance",
+      "price": "Cotización personalizada",
+      "topics": [
+        "Manejo básico de extintores",
+        "Uso de mangueras contra incendio",
+        "Uso de sistemas fijos contra incendios",
+        "Guías para la entrega de escena a cuerpos de emergencia"
+      ],
+      "pills": ["Brigadas", "Plan a medida", "Incendios"]
+    },
+    "evaluativo": {
+      "title": "Programa Evaluativo para Brigadistas",
+      "summary": "Simulacro con evaluación de desempeño y retroalimentación según hallazgos.",
+      "duration": "Duración según simulacro",
+      "minimum": "Costo según alcance",
+      "price": "Cotización personalizada",
+      "topics": [
+        "Simulacro o simulación práctica",
+        "Evaluación del desempeño del personal",
+        "Identificación de áreas de mejora",
+        "Charla teórico-práctica según resultados",
+        "Medición del nivel real de respuesta operativa"
+      ],
+      "pills": ["Evaluación", "Simulacro", "Mejora continua"]
+    },
+    "hazmat": {
+      "title": "Manejo Inicial de Incidentes con Materiales Peligrosos (HAZMAT)",
+      "summary": "Atención inicial de incidentes con materiales peligrosos para brigadas empresariales.",
+      "duration": "Duración ajustable",
+      "minimum": "Costo según alcance",
+      "price": "Cotización personalizada",
+      "topics": [
+        "Introducción y clasificación de materiales peligrosos (GHS y ONU)",
+        "Identificación de riesgos químicos, físicos y biológicos",
+        "Legislación y normativa aplicable",
+        "Identificación y etiquetado (SDS y pictogramas)",
+        "Uso adecuado del Equipo de Protección Personal (EPP)",
+        "Métodos de contención y absorción de derrames",
+        "Procedimientos de descontaminación",
+        "Rol de la brigada dentro del plan de respuesta",
+        "Simulaciones teórico-operativas y toma de decisiones bajo presión",
+        "Coordinación con protocolos internos y externos"
+      ],
+      "pills": ["HAZMAT", "EPP", "Contención", "Simulación"]
+    },
+    "laboratorio-fuego-espumas": {
+      "title": "Laboratorio de Fuego & Espumas",
+      "summary": "Entrenamiento práctico y controlado para reconocer el comportamiento del fuego según el tipo de combustible y dominar el uso correcto de agentes espumantes en la extinción.",
+      "price": "Cotización personalizada",
+      "topics": [
+        "Fuego con hidrocarburos",
+        "Fuego con alcoholes",
+        "Uso de espuma SFFF",
+        "Uso de espuma AFFF",
+        "Uso de espuma ARFFF"
+      ],
+      "pills": ["Espumas", "Hidrocarburos", "Alcoholes", "Nuevo"]
+    },
+    "primeros-auxilios-psicologicos": {
+      "title": "Primeros Auxilios Psicológicos",
+      "summary": "La atención de una emergencia no es solo física: este programa prepara a la brigada para brindar contención emocional inmediata a víctimas y compañeros durante y después de un incidente crítico.",
+      "price": "Cotización personalizada",
+      "topics": [
+        "Fundamentos de los primeros auxilios psicológicos",
+        "Reacciones en crisis",
+        "Protocolos de intervención",
+        "Prácticas guiadas"
+      ],
+      "pills": ["Apoyo psicológico", "Crisis", "Nuevo"]
+    }
+  }
+}

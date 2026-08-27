@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Quiénes Somos",
+    "courses": "Cursos",
+    "health": "Salud Ocupacional",
+    "equipment": "Equipamiento",
+    "gallery": "Galería",
+    "contact": "Contactar",
+    "contactMobile": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "buttons": {
+    "viewDetails": "Ver detalles",
+    "viewAll": "Ver todos",
+    "viewMore": "Ver más",
+    "back": "Volver",
+    "requestInfo": "Solicitar Información"
+  },
+  "footer": {
+    "brandDescription": "Especialistas en capacitación, asesoría y equipamiento para seguridad ocupacional y atención de emergencias.",
+    "credentials": "Sello PYME MEIC • Acreditación Internacional",
+    "servicesTitle": "Servicios",
+    "aboutLink": "Quiénes Somos",
+    "trainingLink": "Capacitación",
+    "equipmentLink": "Equipamiento",
+    "healthLink": "Salud Ocupacional",
+    "galleryLink": "Galería",
+    "resourcesTitle": "Recursos",
+    "companyProfile": "Perfil Empresa",
+    "coursesCatalog": "Catálogo Cursos",
+    "firstAidKitCatalog": "Catálogo Botiquines",
+    "contactTitle": "Contacto",
+    "copyright": "117 Seguridad Industrial. Todos los derechos reservados."
+  },
+  "notFound": {
+    "error": "Error",
+    "title": "{{type}} no encontrado"
+  },
+  "modalities": {
+    "En sitio": "En sitio",
+    "Consultoría": "Consultoría",
+    "Teórico-práctico": "Teórico-práctico",
+    "Teórico-operativo": "Teórico-operativo"
+  },
+  "accreditations": {
+    "Acreditación Internacional": "Acreditación Internacional",
+    "Teórico-práctico": "Teórico-práctico",
+    "Plan a medida": "Plan a medida",
+    "Evaluación operativa": "Evaluación operativa",
+    "Especializado": "Especializado"
+  },
+  "standards": {
+    "Legislación Nacional": "Legislación Nacional",
+    "Normativa Nacional": "Normativa Nacional",
+    "Buenas Prácticas Internacionales": "Buenas Prácticas Internacionales"
+  },
+  "whatsapp": {
+    "ariaLabel": "Contactar por WhatsApp",
+    "title": "Contactar: (506) 8874-9761"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switchTo": "Cambiar idioma"
+  }
+}

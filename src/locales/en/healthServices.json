@@ -1,0 +1,97 @@
+{
+  "page": {
+    "eyebrow": "Occupational health",
+    "title": "Training and compliance",
+    "lede": "Comprehensive occupational health and safety solutions tailored to your organization's needs."
+  },
+  "categories": {
+    "Salud y Seguridad Ocupacional": "Occupational Health and Safety",
+    "Consultoría Técnica": "Technical Consulting",
+    "Planes y Gestión": "Plans and Management",
+    "Evaluación de Riesgos": "Risk Assessment"
+  },
+  "detail": {
+    "detailsTitle": "Service Details",
+    "modality": "Modality",
+    "includesTitle": "What's Included?",
+    "benefitsTitle": "Benefits",
+    "standardsTitle": "Standards and Regulations",
+    "keywordsTitle": "Keywords",
+    "ctaTitle": "Interested in this service?",
+    "ctaDescription": "Contact us to learn how we can help you implement this service in your organization.",
+    "backText": "Back to occupational health",
+    "notFoundType": "This service",
+    "notFoundText": "The service you're looking for doesn't exist."
+  },
+  "items": {
+    "capacitacion-salud-ocupacional": {
+      "title": "Occupational Health Training",
+      "scope": "We offer prevention-focused training programs where employees and their supervisors learn to identify, control, and eliminate risks, strengthening a culture of safety and wellness.",
+      "includes": [
+        "Identifying workplace hazards",
+        "Controlling and eliminating hazards",
+        "Training for employees and supervisors",
+        "Preventive approach to occupational illness and accidents"
+      ],
+      "benefits": [
+        "Fewer workplace accidents",
+        "Regulatory compliance",
+        "Improved staff wellbeing",
+        "A stronger organizational safety culture"
+      ],
+      "pills": ["Prevention", "Workplace hazards", "Training", "Compliance"]
+    },
+    "asesoria-tecnica-sso": {
+      "title": "Specialized Occupational Health Consulting",
+      "scope": "Professional advisory services provided by Occupational Health and Safety Engineers, Prevention Specialists, and Environmental Managers.",
+      "includes": [
+        "Strategic plan design",
+        "Development and execution of occupational health programs",
+        "Ongoing technical support",
+        "Alignment with current legislation"
+      ],
+      "benefits": [
+        "Avoiding legal penalties",
+        "Plans tailored to your company",
+        "Specialized technical support",
+        "Better-informed decision-making"
+      ],
+      "pills": ["OHS", "Consulting", "Compliance", "Prevention"]
+    },
+    "planes-sso-emergencias": {
+      "title": "Occupational Health Plan Development and Execution",
+      "scope": "Development of comprehensive plans tailored to each organization's real needs.",
+      "includes": [
+        "Occupational Health Plans",
+        "Emergency Preparedness and Response Plans",
+        "Comprehensive Waste Management Plans",
+        "Basic Fire Protection Plans",
+        "Chemical Spill Management Plans"
+      ],
+      "benefits": [
+        "Legal compliance",
+        "Better emergency organization",
+        "Reduced human and material risk",
+        "Operational continuity"
+      ],
+      "pills": ["Plans", "Emergencies", "Fire", "Waste"]
+    },
+    "estudios-higiene-industrial": {
+      "title": "Industrial Hygiene Studies",
+      "scope": "Technical assessment of working conditions to identify factors affecting worker health.",
+      "includes": [
+        "Occupational and environmental noise measurement",
+        "Lighting level analysis",
+        "Occupational risk studies",
+        "Technical reports for decision-making"
+      ],
+      "benefits": [
+        "Early risk identification",
+        "Improved working conditions",
+        "Reliable technical data",
+        "Prevention of occupational illness"
+      ],
+      "pills": ["Noise", "Lighting", "Industrial hygiene", "Assessment"]
+    }
+  }
+}

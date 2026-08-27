@@ -1,36 +1,43 @@
 import { useNavigate } from 'react-router-dom'
-import { healthServices } from '../data/healthServices'
+import { useTranslation } from 'react-i18next'
 import ItemCard from '../components/ItemCard'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useLocalizedHealthServices from '../hooks/useLocalizedHealthServices'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import { eyebrow, lede, panel, panelHead, panelHeadTitle, cardGrid } from '../styles/classNames'
 
 export default function HealthPage() {
+  const { t } = useTranslation('healthServices')
+  useDocumentTitle(t('page.title'))
   const navigate = useNavigate()
-  const occupationalHealthServices = healthServices
+  const { path } = useLocalizedPath()
+  const occupationalHealthServices = useLocalizedHealthServices()
   const categories = Array.from(new Set(occupationalHealthServices.map(s => s.category)))
 
   const handleCardClick = (serviceId: string) => {
-    navigate(`/health/${serviceId}`)
+    navigate(path(`/health/${serviceId}`))
   }
 
   return (
     <main>
-      <section id="health" className="panel">
-        <div className="panel-head">
-          <p className="eyebrow">Salud ocupacional</p>
-          <h2>Capacitaciones y cumplimiento</h2>
-          <p className="lede">Soluciones integrales en salud y seguridad ocupacional adaptadas a las necesidades de tu organización.</p>
+      <section id="health" className={panel}>
+        <div className={panelHead}>
+          <p className={eyebrow}>{t('page.eyebrow')}</p>
+          <h2 className={panelHeadTitle}>{t('page.title')}</h2>
+          <p className={lede}>{t('page.lede')}</p>
         </div>
         {categories.map(category => {
           const items = occupationalHealthServices.filter(s => s.category === category)
           if (!items.length) return null
           return (
-            <section key={category} className="panel" style={{ padding: '0 12px', margin: '0 auto 12px', maxWidth: '1200px' }}>
-              <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
-              <div className="card-grid" aria-live="polite">
+            <section key={category} className="mx-auto mb-3 max-w-[1200px] px-3">
+              <h3 className="mb-3">{category}</h3>
+              <div className={cardGrid} aria-live="polite">
                 {items.map((service, idx) => (
                   <div
                     key={service.id}
                     onClick={() => handleCardClick(service.id)}
-                    style={{ cursor: 'pointer' }}
+                    className="cursor-pointer"
                   >
                     <ItemCard
                       title={service.title}

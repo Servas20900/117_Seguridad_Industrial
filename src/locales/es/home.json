@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "eyebrow": "Capacitación certificada • Simulacros • Respuesta coordinada",
+    "title": "Entrenamiento real para emergencias reales.",
+    "lede": "Preparamos brigadas y organizaciones para responder de forma segura y eficiente ante emergencias, con capacitación práctica en primeros auxilios, control de incendios, materiales peligrosos y administración de emergencias.",
+    "downloadProfile": "Perfil de Empresa"
+  },
+  "coursesSection": {
+    "eyebrow": "Cursos",
+    "title": "Programas destacados",
+    "lede": "Una muestra de nuestros cursos más solicitados para respuesta ante emergencias."
+  },
+  "healthSection": {
+    "eyebrow": "Salud ocupacional",
+    "title": "Servicios destacados",
+    "lede": "Soluciones de cumplimiento y bienestar ocupacional para su organización."
+  },
+  "equipmentSection": {
+    "eyebrow": "Equipamiento",
+    "title": "Botiquines e insumos destacados",
+    "lede": "Elementos esenciales para fortalecer su capacidad de respuesta."
+  },
+  "gallerySection": {
+    "eyebrow": "Galería",
+    "title": "Evidencia de entrenamientos y acompañamiento en campo.",
+    "lede": "Mostramos una vista previa de actividades reales para que conozca cómo trabajamos con cada empresa."
+  }
+}

@@ -1,3 +1,9 @@
+import { useTranslation } from 'react-i18next'
+import {
+  card, cardImageWrap, cardImage, cardBadge, cardContent, cardTitle, cardSummary,
+  cardMetaRow, cardMetaPill, cardPillsRow, cardPill, cardFooter, cardAction
+} from '../styles/classNames'
+
 interface ItemCardProps {
   title: string
   image?: string
@@ -6,22 +12,22 @@ interface ItemCardProps {
   pills?: string[]
   onOpen: () => void
   itemNumber?: number
-  icon?: string
 }
 
-export default function ItemCard({ 
-  title, 
-  image, 
-  summary, 
-  meta, 
-  pills, 
-  onOpen, 
-  itemNumber,
-  icon 
+export default function ItemCard({
+  title,
+  image,
+  summary,
+  meta,
+  pills,
+  onOpen,
+  itemNumber
 }: ItemCardProps) {
+  const { t } = useTranslation('common')
+
   return (
     <article
-      className="card"
+      className={card}
       onClick={onOpen}
       role="button"
       tabIndex={0}
@@ -29,34 +35,34 @@ export default function ItemCard({
     >
       {/* Imagen del item */}
       {image && (
-        <div className="card-image">
-          <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div className={cardImageWrap}>
+          <img src={image} alt={title} className={cardImage} />
         </div>
       )}
 
       {/* Badge */}
-      {itemNumber && <span className="badge">#{itemNumber}</span>}
+      {itemNumber && <span className={cardBadge}>#{itemNumber}</span>}
 
       {/* Contenido */}
-      <div className="card-content">
-        <h3>{title}</h3>
-        {summary && <p className="card-summary">{summary}</p>}
-        {meta && <p className="card-meta">{meta}</p>}
-        
+      <div className={cardContent}>
+        <h3 className={cardTitle}>{title}</h3>
+        {summary && <p className={cardSummary}>{summary}</p>}
+        {meta && <p className={cardMetaRow}><span className={cardMetaPill}>{meta}</span></p>}
+
         {/* Pills */}
         {pills && pills.length > 0 && (
-          <div className="card-pills">
+          <div className={cardPillsRow}>
             {pills.map((p) => (
-              <span key={p} className="card-pill">{p}</span>
+              <span key={p} className={cardPill}>{p}</span>
             ))}
           </div>
         )}
       </div>
 
       {/* Footer */}
-      <div className="card-footer">
-        <button className="card-action" type="button">
-          Ver detalles
+      <div className={cardFooter}>
+        <button className={cardAction} type="button">
+          {t('buttons.viewDetails')}
         </button>
       </div>
     </article>

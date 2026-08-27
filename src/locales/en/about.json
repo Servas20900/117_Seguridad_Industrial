@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "About us",
+    "title": "We train people to act safely when every second counts.",
+    "lede1": "At 117 Seguridad Industrial we prepare companies to respond to any emergency with control and effectiveness. We specialize in training and consulting in health, occupational safety, and emergency management, aligned with first-responder protocols.",
+    "lede2": "We turn prevention into action, strengthening internal brigades with technical, practical, up-to-date training to protect lives, reduce risk, and ensure safe, reliable operations.",
+    "lede3": "Because when the emergency happens, being prepared makes the difference."
+  },
+  "aboutSection": {
+    "eyebrow": "About us",
+    "title": "Institutional backing, real training",
+    "lede": "We strengthen brigades, standardize protocols, and equip your team with the right gear to respond to emergencies."
+  },
+  "cards": {
+    "pyme": { "title": "MEIC SME Seal", "text": "We are an SME recognized by Costa Rica's Ministry of Economy (MEIC), specialized in practical, action-oriented methodologies." },
+    "methodology": { "title": "Hands-on methodology", "text": "Learning by doing. Our hands-on methodology lets every participant experience, execute, and respond as if facing a real emergency." },
+    "accreditation": { "title": "International accreditation", "text": "International certification backed by ACES Internacional, standards recognized across Latin America." }
+  },
+  "materialSection": {
+    "eyebrow": "Training materials",
+    "title": "Equipment and simulators we use in our courses.",
+    "lede": "Professional equipment for hands-on training in first aid, CPR, AED, and emergency brigades."
+  },
+  "materialItems": {
+    "maniquies-rcp": { "title": "CPR Manikins", "description": "High-fidelity simulators for training in cardiopulmonary resuscitation techniques and chest compressions." },
+    "Brazo-Control-de-Sangrado": { "title": "Bleeding Control Arm", "description": "High-fidelity simulator for training in bleeding control techniques and wound management." },
+    "kits-suministros": { "title": "Kits and Supplies", "description": "Complete first-aid kits, bandages, splints, trauma equipment, and professional practice materials." }
+  },
+  "galleryPreview": {
+    "eyebrow": "Gallery",
+    "title": "Evidence of our training and on-site support.",
+    "lede": "A preview of real activities so you can see how we work with each company."
+  }
+}

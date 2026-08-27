@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from 'framer-motion'
+
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
@@ -6,162 +8,53 @@ interface ModalProps {
   type?: 'success' | 'error' | 'info'
 }
 
+const iconByType = { success: '✓', error: '✕', info: 'ℹ' }
+const iconWrapClassByType = {
+  success: 'bg-accent/10 text-accent-strong',
+  error: 'bg-red-600/10 text-red-600',
+  info: 'bg-text-subtle/10 text-text-subtle'
+}
+
 export default function Modal({ isOpen, onClose, title, message, type = 'info' }: ModalProps) {
-  if (!isOpen) return null
-
-  const getIcon = () => {
-    switch (type) {
-      case 'success':
-        return '✓'
-      case 'error':
-        return '✕'
-      default:
-        return 'ℹ'
-    }
-  }
-
-  const getTypeColor = () => {
-    switch (type) {
-      case 'success':
-        return 'var(--accent)'
-      case 'error':
-        return '#dc2626'
-      default:
-        return 'var(--text-subtle)'
-    }
-  }
-
   return (
-    <>
-      {/* Overlay */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          backdropFilter: 'blur(4px)',
-          animation: 'fadeIn 200ms ease-out'
-        }}
-        onClick={onClose}
-      />
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          <motion.div
+            className="fixed inset-0 z-1000 backdrop-blur-sm"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+          />
+          <motion.div
+            className="fixed top-1/2 left-1/2 z-1001 grid w-full max-w-[720px] gap-3 rounded-lg border border-border bg-surface p-8 shadow-strong"
+            style={{ maxHeight: '90vh', overflow: 'auto' }}
+            initial={{ opacity: 0, x: '-50%', y: '-45%' }}
+            animate={{ opacity: 1, x: '-50%', y: '-50%' }}
+            exit={{ opacity: 0, x: '-50%', y: '-45%' }}
+            transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`grid h-[60px] w-[60px] place-items-center rounded-full text-[28px] font-bold ${iconWrapClassByType[type]}`}>
+              {iconByType[type]}
+            </div>
 
-      {/* Modal */}
-      <div
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'var(--surface)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '32px',
-          maxWidth: '90%',
-          width: '100%',
-          maxHeight: '90vh',
-          overflow: 'auto',
-          boxShadow: 'var(--shadow-strong)',
-          zIndex: 1001,
-          border: `1px solid var(--border)`,
-          animation: 'slideUp 300ms cubic-bezier(0.34, 1.56, 0.64, 1)'
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Icon */}
-        <div
-          style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            backgroundColor: type === 'success' ? 'rgba(244, 197, 66, 0.1)' : type === 'error' ? 'rgba(220, 38, 38, 0.1)' : 'rgba(107, 114, 128, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '28px',
-            color: getTypeColor(),
-            marginBottom: '16px',
-            fontWeight: 'bold'
-          }}
-        >
-          {getIcon()}
-        </div>
+            <h2 className="m-0 font-display text-2xl text-text">{title}</h2>
 
-        {/* Title */}
-        <h2
-          style={{
-            margin: '0 0 12px 0',
-            fontSize: '1.5rem',
-            color: 'var(--text)',
-            fontFamily: 'var(--font-display)'
-          }}
-        >
-          {title}
-        </h2>
+            <p className="m-0 text-base leading-relaxed text-text-subtle">{message}</p>
 
-        {/* Message */}
-        <p
-          style={{
-            margin: '0 0 24px 0',
-            color: 'var(--text-subtle)',
-            lineHeight: '1.6',
-            fontSize: '1rem'
-          }}
-        >
-          {message}
-        </p>
-
-        {/* Button */}
-        <button
-          onClick={onClose}
-          style={{
-            padding: '12px 24px',
-            backgroundColor: 'var(--accent)',
-            color: '#0b0c10',
-            border: 'none',
-            borderRadius: 'var(--radius-md)',
-            fontWeight: '700',
-            cursor: 'pointer',
-            transition: 'transform var(--transition), box-shadow var(--transition)',
-            boxShadow: 'var(--shadow-soft)',
-            fontSize: '1rem'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)'
-            e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-          }}
-        >
-          Entendido
-        </button>
-      </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translate(-50%, -45%);
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-          }
-        }
-      `}</style>
-    </>
+            <button
+              onClick={onClose}
+              className="w-fit cursor-pointer rounded-md border-none bg-accent px-6 py-3 text-base font-bold text-[#0b0c10] shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-strong"
+            >
+              Entendido
+            </button>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   )
 }

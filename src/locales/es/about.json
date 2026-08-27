@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Quiénes somos",
+    "title": "Entrenamos personas para actuar con seguridad cuando cada segundo cuenta.",
+    "lede1": "En 117 Seguridad Industrial preparamos a las empresas para responder con control y eficacia ante cualquier emergencia. Nos especializamos en capacitación y asesoría en Salud, Seguridad Ocupacional y manejo de emergencias, alineados con protocolos de los entes de primera respuesta.",
+    "lede2": "Transformamos la prevención en acción, fortaleciendo brigadas internas con entrenamiento técnico, práctico y actualizado para proteger vidas, reducir riesgos y garantizar operaciones seguras y confiables.",
+    "lede3": "Porque cuando la emergencia ocurre, estar preparados marca la diferencia."
+  },
+  "aboutSection": {
+    "eyebrow": "Quiénes somos",
+    "title": "Respaldo institucional, entrenamiento real",
+    "lede": "Fortalecemos brigadas, estandarizamos protocolos y dotamos a su equipo del equipamiento correcto para responder ante emergencias."
+  },
+  "cards": {
+    "pyme": { "title": "Sello PYME MEIC", "text": "Somos una empresa PYME reconocida por el MEIC, especializada en metodologías prácticas orientadas a la acción." },
+    "methodology": { "title": "Metodología práctica", "text": "Aprender haciendo. Nuestra metodología práctica permite que cada participante experimente, ejecute y responda como si estuviera ante una emergencia real." },
+    "accreditation": { "title": "Acreditación internacional", "text": "Certificación internacional respaldada por ACES Internacional, estándares reconocidos en América Latina." }
+  },
+  "materialSection": {
+    "eyebrow": "Material didáctico",
+    "title": "Equipos y simuladores que usamos en los cursos.",
+    "lede": "Equipamiento profesional para entrenamiento práctico en Primeros Auxilios, RCP, DEA y brigadas de emergencia."
+  },
+  "materialItems": {
+    "maniquies-rcp": { "title": "Maniquíes de RCP", "description": "Simuladores de alta fidelidad para entrenamiento en técnicas de reanimación cardiopulmonar y compresiones torácicas." },
+    "Brazo-Control-de-Sangrado": { "title": "Brazo de control de sangrado", "description": "Simulador de alta fidelidad para entrenamiento en técnicas de control de sangrado y manejo de heridas." },
+    "kits-suministros": { "title": "Kits y suministros", "description": "Botiquines completos, vendajes, inmovilizadores, equipamiento de trauma y materiales de práctica profesional." }
+  },
+  "galleryPreview": {
+    "eyebrow": "Galería",
+    "title": "Evidencia de entrenamientos y acompañamiento en campo.",
+    "lede": "Mostramos una vista previa de actividades reales para que conozca cómo trabajamos con cada empresa."
+  }
+}

@@ -1,111 +1,141 @@
+import { useState } from 'react'
 import SafeImage from '../components/SafeImage'
-import ImageCarousel from '../components/ImageCarousel'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import Lightbox from 'yet-another-react-lightbox'
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails'
+import 'yet-another-react-lightbox/styles.css'
+import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import { materialDidacticoItems } from '../data/materialDidactico'
 import galleryItems from '../data/galleryItems'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import {
+  eyebrow, lede, panel, panelHead, panelHeadTitle,
+  heroSection, heroHome, heroBannerFrame, heroContentHome, heroCopyHome, heroTitle, heroLede,
+  aboutGrid, cardGrid, glassCard, btnPrimary
+} from '../styles/classNames'
 
-export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
-  const logoForDarkBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450868/Logoamarillo_nboosr_tmbqhv.png'
-  const logoForLightBackground = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
+export default function AboutPage() {
+  const { t } = useTranslation('about')
+  useDocumentTitle(t('aboutSection.title'))
+  const { path } = useLocalizedPath()
+  const [lightboxSlides, setLightboxSlides] = useState<{ src: string; alt: string }[] | null>(null)
+  const heroLogo = 'https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450867/Logoletrasblancas_ciawmi_qnnxr0.png'
   const previewGalleryItems = galleryItems.slice(0, 3)
 
   return (
     <main>
-      <section id="who-we-are" className="hero hero--home">
-        <div className="hero-banner-frame" role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
+      <section id="who-we-are" className={`${heroSection} ${heroHome}`}>
+        <div className={heroBannerFrame} role="img" aria-label="Logo 117 Seguridad Industrial en formato hero">
           <SafeImage
-            src={theme === 'dark' ? logoForDarkBackground : logoForLightBackground}
+            src={heroLogo}
             alt="117 Seguridad Industrial"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
 
-        <div className="hero-content hero-content--home">
-          <div className="hero-copy">
-            <p className="eyebrow">Quiénes somos</p>
-            <h1 className="hero-title">Entrenamos personas para actuar con seguridad cuando cada segundo cuenta.</h1>
-            <p className="lede hero-lede">En 117 Seguridad Industrial preparamos a las empresas para responder con control y eficacia ante cualquier emergencia. Nos especializamos en capacitación y asesoría en Salud, Seguridad Ocupacional y manejo de emergencias, alineados con protocolos de los entes de primera respuesta.</p>
-            <p className="lede hero-lede">Transformamos la prevención en acción, fortaleciendo brigadas internas con entrenamiento técnico, práctico y actualizado para proteger vidas, reducir riesgos y garantizar operaciones seguras y confiables.</p>
-            <p className="lede hero-lede"><strong>Porque cuando la emergencia ocurre, estar preparados marca la diferencia.</strong></p>
+        <div className={heroContentHome}>
+          <div className={heroCopyHome}>
+            <p className={eyebrow}>{t('hero.eyebrow')}</p>
+            <h1 className={heroTitle}>{t('hero.title')}</h1>
+            <p className={`${lede} ${heroLede} mt-3 mb-4.5`}>{t('hero.lede1')}</p>
+            <p className={`${lede} ${heroLede} mt-3 mb-4.5`}>{t('hero.lede2')}</p>
+            <p className={`${lede} ${heroLede} mt-3 mb-4.5`}><strong>{t('hero.lede3')}</strong></p>
           </div>
         </div>
       </section>
 
-      <section id="about" className="panel">
-        <div className="panel-head">
-          <p className="eyebrow">Quiénes somos</p>
-          <h2>Respaldo institucional, entrenamiento real</h2>
-          <p className="lede">Fortalecemos brigadas, estandarizamos protocolos y dotamos a su equipo del equipamiento correcto para responder ante emergencias.</p>
+      <section id="about" className={panel}>
+        <div className={panelHead}>
+          <p className={eyebrow}>{t('aboutSection.eyebrow')}</p>
+          <h2 className={panelHeadTitle}>{t('aboutSection.title')}</h2>
+          <p className={lede}>{t('aboutSection.lede')}</p>
         </div>
-        <div className="about-grid">
-          <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
+        <div className={aboutGrid}>
+          <article className={`${glassCard} grid-cols-[120px_1fr] items-center`} style={{ display: 'grid' }}>
             <SafeImage
               src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773451049/WhatsApp_Image_2026-03-13_at_7.15.24_PM_1_stfupb.jpg"
-              alt="Sello PYME MEIC"
+              alt={t('cards.pyme.title')}
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />
-            <div style={{ display: 'grid', gap: '6px' }}>
-              <h3 style={{ margin: 0 }}>Sello PYME MEIC</h3>
-              <p>Somos una empresa PYME reconocida por el MEIC, especializada en metodologías prácticas orientadas a la acción. </p>
+            <div className="grid gap-1.5">
+              <h3 className="m-0">{t('cards.pyme.title')}</h3>
+              <p>{t('cards.pyme.text')}</p>
             </div>
           </article>
 
-          <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
+          <article className={`${glassCard} grid-cols-[120px_1fr] items-center`} style={{ display: 'grid' }}>
             <SafeImage
               src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773450655/LogoAbout_qyqs2b.jpg"
-              alt="Sello PYME MEIC"
+              alt={t('cards.methodology.title')}
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />
-            <div style={{ display: 'grid', gap: '6px' }}>
-              <h3 style={{ margin: 0 }}>Metodología práctica</h3>
-              <p> Aprender haciendo. Nuestra metodología práctica permite que cada participante experimente, ejecute y responda como si estuviera ante una emergencia real. </p>
+            <div className="grid gap-1.5">
+              <h3 className="m-0">{t('cards.methodology.title')}</h3>
+              <p>{t('cards.methodology.text')}</p>
             </div>
           </article>
 
-          <article className="info-card" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '14px', alignItems: 'center' }}>
+          <article className={`${glassCard} grid-cols-[120px_1fr] items-center`} style={{ display: 'grid' }}>
             <SafeImage
               src="https://res.cloudinary.com/deqpuhfzt/image/upload/v1773451060/WhatsApp_Image_2026-03-13_at_7.15.24_PM_s8b5wc.jpg"
-              alt="Sello PYME MEIC"
+              alt={t('cards.accreditation.title')}
               style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'var(--radius-md)', background: 'var(--surface-strong)', padding: '10px' }}
             />
-            <div style={{ display: 'grid', gap: '6px' }}>
-              <h3 style={{ margin: 0 }}>Acreditación internacional</h3>
-              <p>Certificación internacional respaldada por ACES Internacional, estándares reconocidos en América Latina. </p>
+            <div className="grid gap-1.5">
+              <h3 className="m-0">{t('cards.accreditation.title')}</h3>
+              <p>{t('cards.accreditation.text')}</p>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="material" className="panel">
-        <div className="panel-head">
-          <p className="eyebrow">Material didáctico</p>
-          <h2>Equipos y simuladores que usamos en los cursos.</h2>
-          <p className="lede">Equipamiento profesional para entrenamiento práctico en Primeros Auxilios, RCP, DEA y brigadas de emergencia.</p>
+      <section id="material" className={panel}>
+        <div className={panelHead}>
+          <p className={eyebrow}>{t('materialSection.eyebrow')}</p>
+          <h2 className={panelHeadTitle}>{t('materialSection.title')}</h2>
+          <p className={lede}>{t('materialSection.lede')}</p>
         </div>
 
-        {materialDidacticoItems.map((gallery) => (
-          <div
-            key={gallery.id}
-            style={{ marginBottom: '48px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}
-          >
-            <h3 style={{ marginBottom: '12px' }}>{gallery.title}</h3>
-            <p style={{ marginBottom: '24px', color: 'var(--text-subtle)' }}>{gallery.description}</p>
-            <ImageCarousel images={gallery.images} alt={gallery.title} />
-          </div>
-        ))}
+        <div className={aboutGrid}>
+          {materialDidacticoItems.map((gallery) => {
+            const title = t(`materialItems.${gallery.id}.title`, { defaultValue: gallery.title })
+            const description = t(`materialItems.${gallery.id}.description`, { defaultValue: gallery.description })
+            return (
+              <article key={gallery.id} className={`${glassCard} text-center`}>
+                <button
+                  type="button"
+                  onClick={() => setLightboxSlides(gallery.images.map((src) => ({ src, alt: title })))}
+                  className="gallery-image-button w-full"
+                  aria-label={title}
+                >
+                  <SafeImage
+                    src={gallery.images[0]}
+                    alt={title}
+                    style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+                  />
+                </button>
+                <h3 className="mt-3.5 mb-1.5">{title}</h3>
+                <p className="text-text-subtle">{description}</p>
+              </article>
+            )
+          })}
+        </div>
       </section>
 
-      <section id="gallery-preview" className="panel">
-        <div className="panel-head">
-          <p className="eyebrow">Galería</p>
-          <h2>Evidencia de entrenamientos y acompañamiento en campo.</h2>
-          <p className="lede">Mostramos una vista previa de actividades reales para que conozca cómo trabajamos con cada empresa.</p>
+      <section id="gallery-preview" className={panel}>
+        <div className={panelHead}>
+          <p className={eyebrow}>{t('galleryPreview.eyebrow')}</p>
+          <h2 className={panelHeadTitle}>{t('galleryPreview.title')}</h2>
+          <p className={lede}>{t('galleryPreview.lede')}</p>
         </div>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 12px' }}>
-          <div className="card-grid" aria-live="polite">
+        <div className="mx-auto max-w-[1200px] px-3">
+          <div className={cardGrid} aria-live="polite">
             {previewGalleryItems.map((item) => (
-              <article key={item.id} className="info-card" style={{ width: '100%' }}>
+              <article key={item.id} className={`${glassCard} w-full`}>
                 <SafeImage
                   src={item.image}
                   alt={item.description}
@@ -115,36 +145,20 @@ export default function AboutPage({ theme }: { theme: 'light' | 'dark' }) {
             ))}
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <Link
-              to="/gallery"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 16px',
-                backgroundColor: 'var(--accent)',
-                color: '#0b0c10',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                transition: 'transform var(--transition), box-shadow var(--transition)',
-                boxShadow: 'var(--shadow-soft)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-              }}
-            >
-              <span>Ver más</span>
+          <div className="mt-5 flex justify-center">
+            <Link to={path('/gallery')} className={btnPrimary}>
+              <span>{t('buttons.viewMore', { ns: 'common' })}</span>
             </Link>
           </div>
         </div>
       </section>
+
+      <Lightbox
+        open={lightboxSlides !== null}
+        close={() => setLightboxSlides(null)}
+        slides={lightboxSlides ?? []}
+        plugins={[Zoom, Thumbnails]}
+      />
     </main>
   )
 }

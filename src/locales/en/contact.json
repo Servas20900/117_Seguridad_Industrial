@@ -1,0 +1,31 @@
+{
+  "eyebrow": "Contact",
+  "title": "Let's talk and schedule your training.",
+  "lede": "info@117securityindustrial.com • (506) 8805-3660 • (506) 8874-9761",
+  "directChannels": "Direct channels",
+  "note": "We currently assist in Spanish. Please include a tentative date, location, and number of people.",
+  "form": {
+    "title": "Quick form",
+    "name": "Name",
+    "namePlaceholder": "Full name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "phone": "Phone",
+    "phoneOptional": "(optional)",
+    "message": "Message",
+    "messagePlaceholder": "Course or equipment you're interested in",
+    "sending": "Sending...",
+    "send": "Send",
+    "defaultHint": "Fill out the form to get in touch.",
+    "rateLimitTitle": "Hold on a moment",
+    "rateLimitMessage": "You already sent an email from this address. Please try again in {{minutes}} minute{{plural}}.",
+    "successTitle": "Message sent!",
+    "successMessage": "Thanks for reaching out. We'll receive your message and get back to you soon.",
+    "errorTitle": "Error sending message",
+    "errorMessage": "There was a problem sending your message. Please try again.",
+    "errorHint": "Error sending message. Please try again.",
+    "connectionErrorTitle": "Connection error",
+    "connectionErrorMessage": "We couldn't connect to the server. Please try again.",
+    "connectionErrorHint": "Connection error. Please try again."
+  }
+}

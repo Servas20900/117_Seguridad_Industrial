@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { trackContactForm } from '../utils/analytics'
 import Modal from './Modal'
+import { contactCard, formLabel, formInput, formHint, btnPrimary } from '../styles/classNames'
 
 const RATE_LIMIT_MINUTES = 15
 const RATE_LIMIT_KEY = 'contact_form_rate_limit'
@@ -19,7 +21,7 @@ function isEmailRateLimited(email: string): boolean {
   const data = getRateLimitData()
   const lastSent = data[email]
   if (!lastSent) return false
-  
+
   const timeDiff = Date.now() - lastSent
   const minutes = timeDiff / (1000 * 60)
   return minutes < RATE_LIMIT_MINUTES
@@ -29,7 +31,7 @@ function getTimeUntilCanSend(email: string): number {
   const data = getRateLimitData()
   const lastSent = data[email]
   if (!lastSent) return 0
-  
+
   const timeDiff = Date.now() - lastSent
   const minutes = timeDiff / (1000 * 60)
   return Math.ceil(RATE_LIMIT_MINUTES - minutes)
@@ -42,7 +44,8 @@ function recordEmailSent(email: string) {
 }
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<string>('Completa el formulario para contactarnos.')
+  const { t } = useTranslation('contact')
+  const [status, setStatus] = useState<string>(t('form.defaultHint'))
   const [isLoading, setIsLoading] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [modalData, setModalData] = useState({ title: '', message: '', type: 'info' as 'success' | 'error' | 'info' })
@@ -50,7 +53,7 @@ export default function ContactForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setIsLoading(true)
-    
+
     const form = e.currentTarget
     const email = (form.querySelector('input[name="email"]') as HTMLInputElement)?.value || ''
 
@@ -58,18 +61,18 @@ export default function ContactForm() {
     if (isEmailRateLimited(email)) {
       const minutosRestantes = getTimeUntilCanSend(email)
       setModalData({
-        title: 'Espera un momento',
-        message: `Ya enviaste un correo desde esta dirección. Por favor intenta nuevamente en ${minutosRestantes} minuto${minutosRestantes !== 1 ? 's' : ''}.`,
+        title: t('form.rateLimitTitle'),
+        message: t('form.rateLimitMessage', { minutes: minutosRestantes, plural: minutosRestantes !== 1 ? 's' : '' }),
         type: 'info'
       })
       setModalOpen(true)
       setIsLoading(false)
       return
     }
-    
+
     try {
       const formData = new FormData(form)
-      
+
       formData.append('access_key', import.meta.env.VITE_WEB3FORMS || '')
       formData.append('to_email', 'info@117securityindustrial.com')
       formData.append('from_name', (formData.get('name') as string) || 'Cliente')
@@ -85,32 +88,32 @@ export default function ContactForm() {
         // Registrar el envío en rate limiting
         recordEmailSent(email)
         trackContactForm()
-        
+
         setModalData({
-          title: '¡Mensaje enviado!',
-          message: 'Gracias por contactarte. Recibiremos tu mensaje y nos pondremos en contacto pronto.',
+          title: t('form.successTitle'),
+          message: t('form.successMessage'),
           type: 'success'
         })
         setModalOpen(true)
         form.reset()
-        setStatus('Completa el formulario para contactarnos.')
+        setStatus(t('form.defaultHint'))
       } else {
         setModalData({
-          title: 'Error al enviar',
-          message: 'Hubo un problema enviando tu mensaje. Por favor intenta de nuevo.',
+          title: t('form.errorTitle'),
+          message: t('form.errorMessage'),
           type: 'error'
         })
         setModalOpen(true)
-        setStatus('Error al enviar. Por favor intenta de nuevo.')
+        setStatus(t('form.errorHint'))
       }
     } catch (error) {
       setModalData({
-        title: 'Error de conexión',
-        message: 'No pudimos conectar con el servidor. Por favor intenta de nuevo.',
+        title: t('form.connectionErrorTitle'),
+        message: t('form.connectionErrorMessage'),
         type: 'error'
       })
       setModalOpen(true)
-      setStatus('Error de conexión. Por favor intenta de nuevo.')
+      setStatus(t('form.connectionErrorHint'))
       console.error(error)
     } finally {
       setIsLoading(false)
@@ -119,25 +122,25 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className="contact-card">
-        <h3>Formulario breve</h3>
-        <form onSubmit={onSubmit} noValidate>
-          <label>Nombre
-            <input type="text" name="name" placeholder="Nombre completo" required />
+      <div className={contactCard}>
+        <h3 className="m-0">{t('form.title')}</h3>
+        <form onSubmit={onSubmit} noValidate className="grid gap-2.5">
+          <label className={formLabel}>{t('form.name')}
+            <input className={formInput} type="text" name="name" placeholder={t('form.namePlaceholder')} required />
           </label>
-          <label>Correo
-            <input type="email" name="email" placeholder="correo@empresa.com" required />
+          <label className={formLabel}>{t('form.email')}
+            <input className={formInput} type="email" name="email" placeholder={t('form.emailPlaceholder')} required />
           </label>
-          <label>Teléfono <span style={{ color: 'var(--text-subtle)', fontWeight: 'normal' }}>(opcional)</span>
-            <input type="tel" name="phone"  />
+          <label className={formLabel}>{t('form.phone')} <span className="font-normal text-text-subtle">{t('form.phoneOptional')}</span>
+            <input className={formInput} type="tel" name="phone" />
           </label>
-          <label>Mensaje
-            <textarea name="message" rows={3} placeholder="Curso o equipamiento de interés" required />
+          <label className={formLabel}>{t('form.message')}
+            <textarea className={formInput} name="message" rows={3} placeholder={t('form.messagePlaceholder')} required />
           </label>
-          <button className="btn primary" type="submit" disabled={isLoading}>
-            {isLoading ? 'Enviando...' : 'Enviar'}
+          <button className={btnPrimary} type="submit" disabled={isLoading}>
+            {isLoading ? t('form.sending') : t('form.send')}
           </button>
-          <p className="form-hint">{status}</p>
+          <p className={formHint}>{status}</p>
         </form>
       </div>
 

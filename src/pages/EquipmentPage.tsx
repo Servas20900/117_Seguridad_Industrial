@@ -1,56 +1,44 @@
 import { useNavigate } from 'react-router-dom'
-import { equipmentItems } from '../data/equipment'
+import { useTranslation } from 'react-i18next'
 import ItemCard from '../components/ItemCard'
+import { trackDownloadCatalog } from '../utils/analytics'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useLocalizedEquipment from '../hooks/useLocalizedEquipment'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import { eyebrow, lede, panel, panelHead, panelHeadTitle, cardGrid, btnPrimary } from '../styles/classNames'
 
 export default function EquipmentPage() {
+  const { t } = useTranslation('equipment')
+  useDocumentTitle(t('page.title'))
   const navigate = useNavigate()
-  const firstAidKits = equipmentItems
+  const { path } = useLocalizedPath()
+  const firstAidKits = useLocalizedEquipment()
   const categories = Array.from(new Set(firstAidKits.map(k => k.category)))
 
   const handleCardClick = (equipmentId: string) => {
-    navigate(`/equipment/${equipmentId}`)
+    navigate(path(`/equipment/${equipmentId}`))
   }
 
   return (
     <main>
-      <section id="equipment" className="panel">
-        <div className="panel-head">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
+      <section id="equipment" className={panel}>
+        <div className={panelHead}>
+          <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="eyebrow">Equipamiento</p>
-              <h2>Botiquines e insumos listos para su operación.</h2>
-              <p className="lede">Gestione listas de botiquines, recargas y kits especializados para sus necesidades de emergencia.</p>
+              <p className={eyebrow}>{t('page.eyebrow')}</p>
+              <h2 className={panelHeadTitle}>{t('page.title')}</h2>
+              <p className={lede}>{t('page.lede')}</p>
             </div>
             <a
               href="/publicidad-botiquin.pdf"
               download="publicidad-botiquin.pdf"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 16px',
-                backgroundColor: 'var(--accent)',
-                color: '#0b0c10',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                transition: 'transform var(--transition), box-shadow var(--transition)',
-                boxShadow: 'var(--shadow-soft)',
-                whiteSpace: 'nowrap'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-              }}
-              title="Descargar PDF de publicidad de botiquines"
-              aria-label="Descargar publicidad de botiquines"
+              onClick={() => trackDownloadCatalog()}
+              className={`${btnPrimary} whitespace-nowrap`}
+              title={t('page.downloadCatalogTitle')}
+              aria-label={t('page.downloadCatalogAria')}
             >
               <i className="fas fa-download"></i>
-              <span>Catálogo Botiquín</span>
+              <span>{t('page.downloadCatalog')}</span>
             </a>
           </div>
         </div>
@@ -58,14 +46,14 @@ export default function EquipmentPage() {
           const items = firstAidKits.filter(k => k.category === category)
           if (!items.length) return null
           return (
-            <section key={category} className="panel" style={{ padding: '0 12px', margin: '0 auto 12px', maxWidth: '1200px' }}>
-              <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
-              <div className="card-grid" aria-live="polite">
+            <section key={category} className="mx-auto mb-3 max-w-[1200px] px-3">
+              <h3 className="mb-3">{category}</h3>
+              <div className={cardGrid} aria-live="polite">
                 {items.map((kit, idx) => (
                   <div
                     key={kit.id}
                     onClick={() => handleCardClick(kit.id)}
-                    style={{ cursor: 'pointer' }}
+                    className="cursor-pointer"
                   >
                     <ItemCard
                       title={kit.title}

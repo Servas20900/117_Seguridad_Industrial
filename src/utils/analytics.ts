@@ -1,4 +1,14 @@
-import ReactGA from 'react-ga4'
+import * as ReactGAModule from 'react-ga4'
+
+// react-ga4 ships a CJS build whose default-export interop is unreliable across
+// bundlers/versions — resolve explicitly instead of trusting `import ReactGA from ...`.
+type ReactGAInstance = {
+  initialize: (measurementId: string) => void
+  send: (params: Record<string, unknown>) => void
+  event: (name: string, params?: Record<string, string | number | boolean>) => void
+}
+const ReactGA = ((ReactGAModule as unknown as { default?: ReactGAInstance }).default ??
+  (ReactGAModule as unknown as ReactGAInstance))
 
 // Inicializar GA4 con tu ID
 export const initializeGA = (measurementId: string) => {

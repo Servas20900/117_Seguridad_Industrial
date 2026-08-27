@@ -1,69 +1,91 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { courses } from '../data/courses'
+import { useTranslation } from 'react-i18next'
 import CourseCard from '../components/CourseCard'
+import { trackDownloadCatalog } from '../utils/analytics'
+import useLocalizedPath from '../hooks/useLocalizedPath'
+import useLocalizedCourses from '../hooks/useLocalizedCourses'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+import { eyebrow, panel, panelHead, panelHeadTitle, cardGrid, btnPrimary } from '../styles/classNames'
 
 export default function CoursesPage() {
+  const { t } = useTranslation('courses')
+  useDocumentTitle(t('page.title'))
   const navigate = useNavigate()
+  const { path } = useLocalizedPath()
+  const courses = useLocalizedCourses()
   const categories = Array.from(new Set(courses.map(course => course.category)))
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
   const handleCardClick = (courseId: string) => {
-    navigate(`/courses/${courseId}`)
+    navigate(path(`/courses/${courseId}`))
   }
+
+  const visibleCategories = activeCategory ? [activeCategory] : categories
 
   return (
     <main>
-      <section id="courses" className="panel">
-        <div className="panel-head">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
+      <section id="courses" className={panel}>
+        <div className={panelHead}>
+          <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="eyebrow">Cursos 117 Seguridad Industrial</p>
-              <h2>Programas de capacitación especializados</h2>
+              <p className={eyebrow}>{t('page.eyebrow')}</p>
+              <h2 className={panelHeadTitle}>{t('page.title')}</h2>
             </div>
             <a
               href="/catalogo-cursos.pdf"
               download="catalogo-cursos.pdf"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 16px',
-                backgroundColor: 'var(--accent)',
-                color: '#0b0c10',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                transition: 'transform var(--transition), box-shadow var(--transition)',
-                boxShadow: 'var(--shadow-soft)',
-                whiteSpace: 'nowrap'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-strong)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = 'var(--shadow-soft)'
-              }}
-              title="Descargar catálogo de cursos en PDF"
-              aria-label="Descargar catálogo de cursos"
+              onClick={() => trackDownloadCatalog()}
+              className={`${btnPrimary} whitespace-nowrap`}
+              title={t('page.downloadCatalogTitle')}
+              aria-label={t('page.downloadCatalogAria')}
             >
               <i className="fas fa-download"></i>
-              <span>Descargar Catálogo</span>
+              <span>{t('page.downloadCatalog')}</span>
             </a>
           </div>
+
+          {/* Chips de filtro por categoría */}
+          <div className="mt-6 flex flex-wrap gap-2.5" role="group" aria-label={t('page.title')}>
+            <button
+              type="button"
+              onClick={() => setActiveCategory(null)}
+              className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                activeCategory === null
+                  ? 'border-accent bg-accent text-[#0b0c10] shadow-soft'
+                  : 'border-border bg-surface text-text-subtle hover:border-accent hover:text-text'
+              }`}
+            >
+              {t('page.allCategories')}
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                  activeCategory === category
+                    ? 'border-accent bg-accent text-[#0b0c10] shadow-soft'
+                    : 'border-border bg-surface text-text-subtle hover:border-accent hover:text-text'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
-        {categories.map(category => {
+        {visibleCategories.map(category => {
           const items = courses.filter(c => c.category === category)
           if (!items.length) return null
           return (
-            <section key={category} className="panel" style={{ padding: '0 12px', margin: '0 auto 12px', maxWidth: '1200px' }}>
-              <h3 style={{ margin: '0 0 12px' }}>{category}</h3>
-              <div className="card-grid" aria-live="polite">
+            <section key={category} className="mx-auto mb-3 max-w-[1200px] px-3">
+              <h3 className="mb-3">{category}</h3>
+              <div className={cardGrid} aria-live="polite">
                 {items.map((course, idx) => (
                   <div
                     key={course.id}
                     onClick={() => handleCardClick(course.id)}
-                    style={{ cursor: 'pointer' }}
+                    className="cursor-pointer"
                   >
                     <CourseCard
                       course={course}

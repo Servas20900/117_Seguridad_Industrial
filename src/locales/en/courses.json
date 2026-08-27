@@ -1,0 +1,231 @@
+{
+  "page": {
+    "eyebrow": "117 Seguridad Industrial Courses",
+    "title": "Specialized training programs",
+    "downloadCatalog": "Download Catalog",
+    "downloadCatalogTitle": "Download the course catalog (PDF)",
+    "downloadCatalogAria": "Download course catalog",
+    "allCategories": "All courses"
+  },
+  "categories": {
+    "Primeros Auxilios": "First Aid",
+    "Control de Incendios": "Fire Control",
+    "Manejo de Materiales Peligrosos": "Hazardous Materials Handling"
+  },
+  "detail": {
+    "infoTitle": "Course Information",
+    "modality": "Modality",
+    "notSpecified": "Not specified",
+    "accreditation": "Accreditation",
+    "investment": "Price",
+    "tbdNote": "Duration and minimum group size: to be confirmed with 117 Seguridad Industrial.",
+    "topicsTitle": "Topics Covered",
+    "keywordsTitle": "Keywords",
+    "ctaTitle": "Interested in this course?",
+    "ctaDescription": "Contact us for more information and available dates.",
+    "backText": "Back to courses",
+    "notFoundType": "This course",
+    "notFoundText": "The course you're looking for doesn't exist."
+  },
+  "items": {
+    "rcp-obstruccion": {
+      "title": "CPR and Airway Obstruction",
+      "summary": "Training in CPR, AED use, and choking management in adults and children.",
+      "duration": "Duration: 6 hours",
+      "minimum": "Minimum: 5 people",
+      "price": "₡30,000 per person",
+      "topics": [
+        "Initial steps in an emergency",
+        "Recognizing cardiac arrest and choking",
+        "Activating the emergency system",
+        "Chest compressions in adults and children",
+        "Automated external defibrillator (AED) use",
+        "Use of ventilation devices",
+        "Choking management in adults and children"
+      ],
+      "pills": ["CPR", "AED", "Choking", "Ventilation"]
+    },
+    "pab": {
+      "title": "Basic First Aid, CPR & AED",
+      "summary": "Initial emergency response with hands-only CPR, AED use, and bleeding control.",
+      "duration": "Duration: 8 hours",
+      "minimum": "Minimum: 5 people",
+      "price": "₡34,000 per person",
+      "topics": [
+        "Initial steps and activating the emergency system",
+        "Recognizing cardiac arrest",
+        "Hands-only CPR in adults and children",
+        "AED use and choking management",
+        "Control of life-threatening bleeding",
+        "Bandaging, burns, and chest/abdomen wounds",
+        "Limb immobilization",
+        "Recognizing medical emergencies (heart attack, stroke, seizures, asthma, hypoglycemia)",
+        "Safe patient handoff to emergency responders"
+      ],
+      "pills": ["Hands-only CPR", "AED", "Bleeding", "Bandaging"]
+    },
+    "pae": {
+      "title": "Standard First Aid, CPR & AED",
+      "summary": "Full first-aid coverage including CPR, AED, trauma, medical, and environmental emergencies.",
+      "duration": "Duration: 8 hours",
+      "minimum": "Minimum: 5 people",
+      "price": "₡55,000 per person",
+      "topics": [
+        "Basic anatomy and physiology",
+        "Scene and patient assessment",
+        "Ethical and legal considerations",
+        "CPR with compressions and ventilations in adults and children",
+        "AED use and choking management",
+        "Bleeding control, bandaging, and chest/abdomen injuries",
+        "Burn management and blunt trauma",
+        "Spinal motion restriction and vital signs",
+        "Medical emergencies (stroke, heart attack, seizures, asthma, hypoglycemia)",
+        "Environmental emergencies and childbirth assistance",
+        "Patient handoff to emergency personnel"
+      ],
+      "pills": ["CPR with ventilation", "Trauma", "Medical emergencies", "Environmental"]
+    },
+    "sangrados": {
+      "title": "Bleeding Control, CPR & AED",
+      "summary": "Brief training in hands-only CPR, AED use, and control of critical bleeding.",
+      "duration": "Duration: 4 hours",
+      "minimum": "Minimum: 5 people",
+      "price": "₡20,000 per person",
+      "topics": [
+        "Activating the emergency system",
+        "Recognizing cardiac arrest",
+        "Hands-only CPR",
+        "AED use",
+        "Recognizing and controlling life-threatening bleeding"
+      ],
+      "pills": ["Quick session", "AED", "Bleeding"]
+    },
+    "recert": {
+      "title": "First Aid, CPR & AED Recertification",
+      "summary": "Simulations and hands-on stations for brigades that need recertification.",
+      "duration": "Duration: 8 hours",
+      "minimum": "Minimum: 5 people",
+      "price": "₡40,000 per person",
+      "topics": [
+        "Drill and evaluation of brigade personnel",
+        "CPR and AED",
+        "Airway obstruction",
+        "Bleeding control",
+        "Bandaging for chest and abdomen trauma",
+        "Immobilization and trauma management",
+        "Spinal motion restriction",
+        "Medical emergencies",
+        "Full-scale simulation for brigades"
+      ],
+      "pills": ["Recertification", "Drill", "Brigades"]
+    },
+    "extintores": {
+      "title": "Basic Fire Extinguisher Use",
+      "summary": "Safe use of fire extinguishers, fuel types, and extinguishing methods.",
+      "duration": "Duration: 3 to 4 hours",
+      "minimum": "Suggested group: 10-20 people",
+      "price": "₡14,000 per participant",
+      "topics": [
+        "Fire chemistry and fuel types",
+        "Types of fire extinguishers",
+        "Extinguishing methods",
+        "Safety standards",
+        "Inspection, maintenance, and recharging",
+        "Assessment of the company's existing equipment"
+      ],
+      "pills": ["Fire", "Extinguishers", "Safety"]
+    },
+    "mangueras": {
+      "title": "Fire Hose Operation",
+      "summary": "Guided practice on deploying, connecting, and advancing fire hoses.",
+      "duration": "Duration: 3 to 4 hours",
+      "minimum": "Suggested group: 10-20 people",
+      "price": "₡14,000 per participant",
+      "topics": [
+        "Hose types and characteristics",
+        "System components",
+        "Inspection and maintenance",
+        "Deployment and connection",
+        "Advance and attack techniques",
+        "Teamwork and communication",
+        "Safety during operation",
+        "Storage and pickup"
+      ],
+      "pills": ["Hoses", "Operation", "Safety"]
+    },
+    "brigadas": {
+      "title": "Emergency Brigade Training",
+      "summary": "Comprehensive brigade training: extinguishers, hoses, fixed systems, and scene handoff.",
+      "duration": "Duration based on assessment",
+      "minimum": "Cost based on scope",
+      "price": "Custom quote",
+      "topics": [
+        "Basic fire extinguisher use",
+        "Fire hose operation",
+        "Fixed fire-protection system use",
+        "Guidelines for scene handoff to emergency responders"
+      ],
+      "pills": ["Brigades", "Custom plan", "Fire"]
+    },
+    "evaluativo": {
+      "title": "Brigade Evaluation Program",
+      "summary": "Drill with performance evaluation and feedback based on findings.",
+      "duration": "Duration based on drill",
+      "minimum": "Cost based on scope",
+      "price": "Custom quote",
+      "topics": [
+        "Practical drill or simulation",
+        "Staff performance evaluation",
+        "Identifying areas for improvement",
+        "Theoretical-practical debrief based on results",
+        "Measuring real operational response level"
+      ],
+      "pills": ["Evaluation", "Drill", "Continuous improvement"]
+    },
+    "hazmat": {
+      "title": "Initial Hazardous Materials (HAZMAT) Incident Response",
+      "summary": "Initial response to hazardous-materials incidents for corporate brigades.",
+      "duration": "Adjustable duration",
+      "minimum": "Cost based on scope",
+      "price": "Custom quote",
+      "topics": [
+        "Introduction and classification of hazardous materials (GHS and UN)",
+        "Identifying chemical, physical, and biological hazards",
+        "Applicable legislation and regulations",
+        "Identification and labeling (SDS and pictograms)",
+        "Proper use of Personal Protective Equipment (PPE)",
+        "Spill containment and absorption methods",
+        "Decontamination procedures",
+        "The brigade's role within the response plan",
+        "Theoretical-operational simulations and decision-making under pressure",
+        "Coordination with internal and external protocols"
+      ],
+      "pills": ["HAZMAT", "PPE", "Containment", "Simulation"]
+    },
+    "laboratorio-fuego-espumas": {
+      "title": "Fire & Foam Lab",
+      "summary": "Practical, controlled training to recognize fire behavior by fuel type and master the correct use of foam agents for extinguishing.",
+      "price": "Custom quote",
+      "topics": [
+        "Hydrocarbon fires",
+        "Alcohol fires",
+        "SFFF foam use",
+        "AFFF foam use",
+        "ARFFF foam use"
+      ],
+      "pills": ["Foams", "Hydrocarbons", "Alcohols", "New"]
+    },
+    "primeros-auxilios-psicologicos": {
+      "title": "Psychological First Aid",
+      "summary": "Emergency response isn't only physical: this program prepares the brigade to provide immediate emotional support to victims and coworkers during and after a critical incident.",
+      "price": "Custom quote",
+      "topics": [
+        "Fundamentals of psychological first aid",
+        "Crisis reactions",
+        "Intervention protocols",
+        "Guided practice"
+      ],
+      "pills": ["Psychological support", "Crisis", "New"]
+    }
+  }
+}

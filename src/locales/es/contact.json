@@ -1,0 +1,31 @@
+{
+  "eyebrow": "Contacto",
+  "title": "Conversemos y agendemos su capacitación.",
+  "lede": "info@117securityindustrial.com • (506) 8805-3660 • (506) 8874-9761",
+  "directChannels": "Canales directos",
+  "note": "Atendemos en español. Incluya fecha tentativa, sede y cantidad de personas.",
+  "form": {
+    "title": "Formulario breve",
+    "name": "Nombre",
+    "namePlaceholder": "Nombre completo",
+    "email": "Correo",
+    "emailPlaceholder": "correo@empresa.com",
+    "phone": "Teléfono",
+    "phoneOptional": "(opcional)",
+    "message": "Mensaje",
+    "messagePlaceholder": "Curso o equipamiento de interés",
+    "sending": "Enviando...",
+    "send": "Enviar",
+    "defaultHint": "Completa el formulario para contactarnos.",
+    "rateLimitTitle": "Espera un momento",
+    "rateLimitMessage": "Ya enviaste un correo desde esta dirección. Por favor intenta nuevamente en {{minutes}} minuto{{plural}}.",
+    "successTitle": "¡Mensaje enviado!",
+    "successMessage": "Gracias por contactarte. Recibiremos tu mensaje y nos pondremos en contacto pronto.",
+    "errorTitle": "Error al enviar",
+    "errorMessage": "Hubo un problema enviando tu mensaje. Por favor intenta de nuevo.",
+    "errorHint": "Error al enviar. Por favor intenta de nuevo.",
+    "connectionErrorTitle": "Error de conexión",
+    "connectionErrorMessage": "No pudimos conectar con el servidor. Por favor intenta de nuevo.",
+    "connectionErrorHint": "Error de conexión. Por favor intenta de nuevo."
+  }
+}

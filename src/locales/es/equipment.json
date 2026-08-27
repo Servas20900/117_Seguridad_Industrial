@@ -1,0 +1,61 @@
+{
+  "page": {
+    "eyebrow": "Equipamiento",
+    "title": "Botiquines e insumos listos para su operación.",
+    "lede": "Gestione listas de botiquines, recargas y kits especializados para sus necesidades de emergencia.",
+    "downloadCatalog": "Catálogo Botiquín",
+    "downloadCatalogTitle": "Descargar PDF de publicidad de botiquines",
+    "downloadCatalogAria": "Descargar publicidad de botiquines"
+  },
+  "categories": {
+    "Equipamiento de Emergencias": "Equipamiento de Emergencias"
+  },
+  "detail": {
+    "specsTitle": "Especificaciones",
+    "contentsTitle": "Contenido del {{title}}",
+    "benefitsTitle": "Beneficios",
+    "featuresTitle": "Características",
+    "ctaTitle": "¿Necesitas este equipo?",
+    "ctaDescription": "Contáctanos para obtener presupuestos y disponibilidad.",
+    "backText": "Volver a equipamiento",
+    "notFoundType": "El equipo",
+    "notFoundText": "El equipo que buscas no existe."
+  },
+  "items": {
+    "botiquin-primeros-auxilios": {
+      "title": "Botiquín de Primeros Auxilios",
+      "description": "Botiquín diseñado para la atención inicial de emergencias, permitiendo una respuesta rápida, segura y organizada ante incidentes laborales.",
+      "sections": {
+        "Equipo de Protección": {
+          "title": "Equipo de Protección",
+          "items": ["Guantes de protección", "Cubrebocas", "Botella de alcohol en gel"]
+        },
+        "Control de Sangrados": {
+          "title": "Control de Sangrados",
+          "items": [
+            "Torniquete de trauma",
+            "Apósitos estériles",
+            "Gasas en rollo",
+            "Apósito abdominal",
+            "Tijeras punta roma",
+            "Solución salina",
+            "Curitas",
+            "Vendas elásticas",
+            "Esparadrapo"
+          ]
+        },
+        "Equipos Varios": {
+          "title": "Equipos Varios",
+          "items": ["Manta térmica", "Bajalenguas", "Aplicadores", "Algodón", "Bolsa plástica para desechos"]
+        }
+      },
+      "benefits": [
+        "Atención inmediata de lesiones y sangrados",
+        "Reducción de riesgos durante la intervención inicial",
+        "Apoyo fundamental para brigadas y primeros respondedores",
+        "Organización eficiente de insumos de emergencia"
+      ],
+      "pills": ["Botiquín", "Primeros Auxilios", "Emergencias", "Sangrados"]
+    }
+  }
+}

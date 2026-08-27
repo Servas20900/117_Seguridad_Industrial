@@ -3,8 +3,9 @@ export interface Course {
   title: string
   category: string
   accreditation: string
-  duration: string
-  minimum: string
+  duration?: string
+  minimum?: string
+  price?: string
   modality?: string
   summary: string
   topics: string[]

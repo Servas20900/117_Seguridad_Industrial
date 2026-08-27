@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { detailSectionWrap, detailSectionTitle, detailSectionContent } from '../styles/classNames'
 
 interface DetailSectionProps {
   title: string
@@ -8,9 +9,9 @@ interface DetailSectionProps {
 
 export default function DetailSection({ title, children, className = '' }: DetailSectionProps) {
   return (
-    <div className={`detail-section ${className}`}>
-      <h2 className="detail-section-title">{title}</h2>
-      <div className="detail-section-content">
+    <div className={`${detailSectionWrap} ${className}`}>
+      <h2 className={detailSectionTitle}>{title}</h2>
+      <div className={detailSectionContent}>
         {children}
       </div>
     </div>

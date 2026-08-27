@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import App from './App'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { initializeGA } from './utils/analytics'
+import './i18n'
 import './styles.css'
 
 // Inicializar Google Analytics 4
@@ -14,8 +15,8 @@ const rootEl = document.getElementById('root')
 if (rootEl) {
   const root = createRoot(rootEl)
   root.render(
-    <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   )
 }
