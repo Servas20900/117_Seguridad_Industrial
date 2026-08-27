@@ -1,0 +1,11 @@
+{
+  "mimeTypes": {
+    ".woff2": "font/woff2"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/*.{css,scss,gif,jpeg,jpg,js,png,txt,svg,woff,woff2,ttf,otf}"
+    ]
+  }
+}
