@@ -5,7 +5,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/50688749761"
+      href="https://wa.me/50672395067"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('whatsapp.ariaLabel')}
